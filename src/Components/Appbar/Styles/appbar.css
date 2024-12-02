@@ -1,0 +1,103 @@
+.appbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #020617;
+    color: #F0F0F1;
+    font-family: 'Courier New', Courier, monospace
+}
+  
+  .appbar-logo {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .appbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color:#F0F0F1;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .appbar-menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .appbar-menu-item {
+    background: none;
+    border: none;
+    color: #F0F0F1;
+    font-size: 0.875rem;
+    font-weight:700;
+    cursor: pointer;
+    border-radius: .375rem;
+    padding: .5rem;
+  }
+  
+  .appbar-menu-item:hover {
+    
+    color: #029CFD;
+    background-color: #616b9e5b;
+  }
+  
+  @media (max-width: 768px) {
+    .appbar-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #020617;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      text-align: right;
+      padding: 1rem;
+    }
+  
+    .appbar-menu-open {
+      display: flex;
+    }
+  
+    .appbar-toggle {
+      display: block;
+    }
+  }
+  
+  .appbar-user {
+    position: relative;
+  }
+  
+  .appbar-user-icon {
+    font-size: 1.25rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .appbar-user-menu {
+    position: absolute;
+    top: 115%;
+    right: 0;
+    background-color: #444;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    display: none;
+  }
+  
+  .appbar-user-menu-open {
+    display: block;
+  }
+  
+  .appbar-user-menu-item {
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width:max-content
+  }
