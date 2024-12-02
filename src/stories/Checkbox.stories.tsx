@@ -8,18 +8,28 @@ const meta: Meta<typeof Checkbox> = {
   parameters: {
     layout: 'centered',
   },
+  tags: ['autodocs'],
   argTypes: {
     label: { control: 'text', description: 'Label text displayed next to the checkbox.' },
-    checked: { control: 'boolean', description: 'Controlled checked state.' },
-    defaultChecked: { control: 'boolean', description: 'Uncontrolled default checked state.' },
-    disabled: { control: 'boolean', description: 'Disable the checkbox.' },
-    indeterminate: { control: 'boolean', description: 'Visual indeterminate state.' },
-    color: {
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the checkbox.',
+    },
+    variant: {
       control: 'select',
       options: ['primary', 'secondary', 'success', 'warning'],
       description: 'Color variant of the checkbox.',
     },
-    borderRadius: { control: 'text', description: 'Border radius for the checkbox.' },
+    borderRadius: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'full'],
+      description: 'Border radius for the checkbox.',
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Size of the checkbox.',
+    },
   },
 };
 
@@ -28,53 +38,30 @@ type Story = StoryObj<typeof Checkbox>;
 
 export const Default: Story = {
   args: {
-    label: 'Default Checkbox',
-    color: 'primary', // Default color
-    borderRadius: '4px', // Default border radius
+    label: 'Default',
+    variant: 'primary',
+    borderRadius: 'sm',
+    size: 'medium',
+    disabled: false,
   },
 };
 
 export const Checked: Story = {
   args: {
-    label: 'Checked Checkbox',
-    checked: true,
-    color: 'primary',
-    borderRadius: '4px',
+    label: 'Checked',
+    variant: 'primary',
+    borderRadius: 'sm',
+    size: 'medium',
+    disabled: false,
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Disabled Checkbox',
-    disabled: true,
-    color: 'secondary',
-    borderRadius: '4px',
+    label: 'Disabled ',
+    disabled: true, // makes the checkbox non-interactive
+    borderRadius: 'sm',
+    size: 'medium',
   },
 };
 
-export const Indeterminate: Story = {
-  args: {
-    label: 'Indeterminate Checkbox',
-    indeterminate: true,
-    color: 'warning',
-    borderRadius: '4px',
-  },
-};
-
-export const Success: Story = {
-  args: {
-    label: 'Success Checkbox',
-    checked: true,
-    color: 'success',
-    borderRadius: '8px',
-  },
-};
-
-export const Rounded: Story = {
-  args: {
-    label: 'Rounded Checkbox',
-    checked: false,
-    color: 'secondary',
-    borderRadius: '50%', // Example of a more rounded checkbox
-  },
-};

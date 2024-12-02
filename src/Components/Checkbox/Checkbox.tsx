@@ -1,55 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import './Styles/checkbox.css';
 
-export interface CheckboxProps {
-  label?: string;
-  checked?: boolean;
-  defaultChecked?: boolean;
+interface CheckboxProps {
+  label: string;
+  variant?: 'primary' | 'secondary' | 'success' | 'warning';
+  borderRadius?: 'none' | 'sm' | 'md' | 'full';
+  size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
-  indeterminate?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  className?: string;
-  style?: React.CSSProperties;
-  color?: 'primary' | 'secondary' | 'success' | 'warning'; // New color prop
-  borderRadius?: string; // New border radius prop
+  className?: string; 
+  style?: React.CSSProperties; 
+  as?: React.ElementType; 
+  onClick?: (event: React.MouseEvent) => void; 
+  [x: string]: any; 
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
   label,
-  checked,
-  defaultChecked,
+  variant = 'primary',
+  borderRadius = 'sm',
+  size = 'medium',
   disabled = false,
-  indeterminate = false,
-  onChange,
   className,
   style,
-  color = 'primary', // Default to primary color
-  borderRadius = '4px', // Default to 4px border radius
+  as: Component = 'button',
+  onClick,
+  ...props
 }) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.indeterminate = indeterminate;
-    }
-  }, [indeterminate]);
+ const [checked, setChecked] = useState(false);
+
+ const checkboxClass = classNames(
+    'checkbox',
+    `checkbox-${size}`, 
+    { 'checkbox-disabled': disabled }, 
+    className 
+  );
+
+  const inputClass = classNames(
+    'checkbox-input',
+    `checkbox-input-${variant}`,
+    `checkbox-input-${size}`,
+    `checkbox-input-${borderRadius}`,
+  );
 
   return (
-    <label
-      className={`checkbox-container ${className || ''}`}
-      style={{ ...style, borderRadius }}
-    >
-      <input
-        type="checkbox"
-        className={`checkbox-input ${color}`}
-        ref={inputRef}
-        checked={checked}
-        defaultChecked={defaultChecked}
-        disabled={disabled}
-        onChange={onChange}
-      />
-      <span className={`checkbox-custom ${color}`} />
-      {label && <span className="checkbox-label">{label}</span>}
+    <label className={checkboxClass}>
+        <span className={inputClass} onChange={(e) => setChecked(e.target.checked)}></span>
+        {label}
     </label>
   );
 };
