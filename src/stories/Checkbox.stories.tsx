@@ -53,6 +53,7 @@ export const Checked: Story = {
     borderRadius: 'sm',
     size: 'medium',
     disabled: false,
+    defaultChecked: true,
   },
 };
 

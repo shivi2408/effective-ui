@@ -8,6 +8,7 @@ interface CheckboxProps {
   borderRadius?: 'none' | 'sm' | 'md' | 'full';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  defaultChecked?: boolean;
   className?: string; 
   style?: React.CSSProperties; 
   as?: React.ElementType; 
@@ -21,6 +22,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   borderRadius = 'sm',
   size = 'medium',
   disabled = false,
+  defaultChecked = false,
   className,
   style,
   as: Component = 'button',
@@ -28,7 +30,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...props
 }) => {
 
- const [checked, setChecked] = useState(false);
+  
+ const [checked, setChecked] = useState(defaultChecked);
 
  const checkboxClass = classNames(
     'checkbox',
@@ -39,14 +42,32 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   const inputClass = classNames(
     'checkbox-input',
-    `checkbox-input-${variant}`,
-    `checkbox-input-${size}`,
-    `checkbox-input-${borderRadius}`,
+    { 'checkbox-input-checked': checked }
   );
 
+  
+  const checkboxCustomClass = classNames(
+    'checkbox-custom',
+    `checkbox-custom-${variant}`,
+    `checkbox-custom-${size}`,
+    `checkbox-custom-${borderRadius}`,
+  );
+
+  const handleCheckboxChange = () => {
+    if (!disabled) {
+      setChecked((prev) => !prev);
+    }
+  };
+
   return (
-    <label className={checkboxClass}>
-        <span className={inputClass} onChange={(e) => setChecked(e.target.checked)}></span>
+    <label className={checkboxClass} style={style}>
+       <input
+        type="checkbox"
+        className={inputClass}
+        checked={checked}
+        onChange={handleCheckboxChange}
+      />
+        <span className={checkboxCustomClass}></span>
         {label}
     </label>
   );
