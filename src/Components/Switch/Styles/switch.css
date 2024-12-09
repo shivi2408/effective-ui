@@ -1,0 +1,105 @@
+.switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+  }
+  
+  .switch-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .switch-track {
+    width: 55px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: #777a7e; /* Default background */
+    position: relative;
+    transition: background-color 0.3s ease; /* Ensure smooth transition for color */
+  }
+  
+  .switch-track-default {
+    background-color: #7e7e7e; /* Primary color */
+  }
+  .switch-track-primary {
+    background-color: #007bff; /* Primary color */
+  }
+  
+  .switch-track-secondary {
+    background-color: #9d62eb; /* Secondary color */
+  }
+  
+  .switch-track-success {
+    background-color: #28a745; /* Success color */
+  }
+  
+  .switch-track-danger {
+    background-color: #dc3545; /* Danger color */
+  }
+  
+  .switch-thumb {
+    width: 23px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .switch-checked .switch-small .switch-thumb {
+    transform: translateX(-18px) translateY(-50%);
+  }
+  .switch-checked .switch-medium .switch-thumb {
+    transform: translateX(-20px) translateY(-50%);
+  }
+  .switch-checked .switch-large .switch-thumb {
+    transform: translateX(-24px) translateY(-50%);
+  }
+  
+  .switch-checked .switch-track {
+    background-color: #ccc; /* Inherit the color set for the track */
+  }
+  
+  .switch-small .switch-track {
+    width: 45px;
+    height: 26px;
+  }
+  
+  .switch-small .switch-thumb {
+    width: 20px;
+    height: 20px;
+    right:5%
+  }
+  
+  .switch-medium .switch-track {
+    width: 55px;
+    height: 30px;
+  }
+  
+  .switch-medium .switch-thumb {
+    width: 23px;
+    height: 22px;
+  }
+  
+  .switch-large .switch-track {
+    width: 59px;
+    height: 32px;
+  }
+  
+  .switch-large .switch-thumb {
+    width: 25px;
+    height: 24px;
+    right:8%
+  }
+  
+  .switch-label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  

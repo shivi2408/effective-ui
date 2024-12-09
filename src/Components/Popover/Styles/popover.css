@@ -1,0 +1,69 @@
+.popover-container {
+    position: relative;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .popover-trigger {
+    display: inline-block;
+    /* You can add more styles for the button (trigger) here */
+  }
+  .popover {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 8px;
+    padding: 0.7em 1.2em;
+    opacity: 1;
+    background-color: #d7dfe596;
+    z-index: -1;
+    border: 2px solid #d7dfe5;
+    transform-origin: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: grid;
+    place-items: center;
+  }
+
+  
+  .popover-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .popover-top {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+  }
+  
+  .popover-bottom {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+  }
+  
+  .popover-left {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 8px;
+  }
+  
+  .popover-right {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 8px;
+  }
+  .popover-container-transparent {
+  background-color: rgba(0, 0, 0, 0.2); /* Transparent backdrop */
+}
+
+.popover-container-blur {
+  backdrop-filter: blur(10px); /* Blurred backdrop */
+}
+
+.popover-container-opaque {
+  background-color: rgba(0, 0, 0, 0.5); /* Opaque backdrop */
+}
