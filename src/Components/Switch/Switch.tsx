@@ -35,10 +35,9 @@ const Switch: React.FC<SwitchProps> = ({
 
   const handleToggle = () => {
     if (!isDisabled) {
-      const newChecked = !checked; // Reverse the logic
-      setChecked(newChecked);
+      setChecked(!checked);
       if (onChange) {
-        onChange(!newChecked); // Send reversed value in onChange
+        onChange(!checked); // Send reversed value in onChange
       }
     }
   };
@@ -46,7 +45,7 @@ const Switch: React.FC<SwitchProps> = ({
   const switchClass = classNames(
     'switch',
     { 'switch-disabled': isDisabled },
-    { 'switch-checked': checked },
+    { 'switch-checked': !checked },
     `switch-${size}`,
     className
   );
@@ -55,7 +54,7 @@ const Switch: React.FC<SwitchProps> = ({
     'switch-track',
     `switch-track-${color}`, // Apply color classes correctly
     `switch-${size}`,
-    { 'switch-checked': checked } // Apply checked state for color change
+    { 'switch-checked': !checked } // Apply checked state for color change
   );
 
   return (
