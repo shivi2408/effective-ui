@@ -15,28 +15,28 @@
     width: 55px;
     height: 30px;
     border-radius: 50px;
-    background-color: #777a7e; /* Default background */
+    background-color: #777a7e;
     position: relative;
-    transition: background-color 0.3s ease; /* Ensure smooth transition for color */
+    transition: background-color 0.3s ease; 
   }
   
   .switch-track-default {
-    background-color: #7e7e7e; /* Primary color */
+    background-color: #7e7e7e;
   }
   .switch-track-primary {
-    background-color: #007bff; /* Primary color */
+    background-color: #007bff;
   }
   
   .switch-track-secondary {
-    background-color: #9d62eb; /* Secondary color */
+    background-color: #9d62eb; 
   }
   
   .switch-track-success {
-    background-color: #28a745; /* Success color */
+    background-color: #28a745;
   }
   
   .switch-track-danger {
-    background-color: #dc3545; /* Danger color */
+    background-color: #dc3545; 
   }
   
   .switch-thumb {

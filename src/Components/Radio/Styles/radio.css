@@ -1,0 +1,90 @@
+.radio-input.radio-row {
+    display: flex;
+    flex-direction: row;
+    gap: 16px; /* Adds spacing between radio buttons in a row */
+  }
+  
+  .radio-input.radio-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between radio buttons in a column */
+  }
+  
+  .input {
+    -webkit-appearance: none;
+    display: block;
+    margin: 10px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: hsla(0, 0%, 100%, 0.15) 0 1px 1px, inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
+    background-color: hsl(0deg 0% 63.14% / 20%);
+    background-image: -webkit-radial-gradient(
+      hsla(200, 100%, 90%, 1) 0%,
+      hsla(200, 100%, 70%, 1) 15%,
+      hsla(200, 100%, 60%, 0.3) 28%,
+      hsla(200, 100%, 30%, 0) 70%
+    );
+    background-repeat: no-repeat;
+    transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
+      transform 0.25s cubic-bezier(0.8, 0, 1, 1);
+    outline: none;
+  }
+  
+  .input:checked {
+    transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
+      transform 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .input:active {
+    transform: scale(1.5);
+    transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .input,
+  .input:active {
+    background-position: 0 24px;
+  }
+  
+  .input:checked {
+    background-position: 0 0;
+  }
+  
+  .input:checked ~ .input,
+  .input:checked ~ .input:active {
+    background-position: 0 -24px;
+  }
+ 
+  .radio-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-label-text {
+    margin-left: 8px;
+    font-size: 16px;
+    color: rgb(37, 37, 37);
+  }
+  
+  input:not([value=""]) {
+    padding-inline-end: 0rem !important;
+  }
+
+
+.input:disabled {
+    cursor: not-allowed; 
+    opacity: 0.5;
+    background-color: hsla(0, 0%, 0%, 0.1); 
+    box-shadow: none; 
+    transition:none;
+  }
+  
+  .input:disabled:checked {
+    background-color: hsla(200, 100%, 70%, 0.3); 
+  }
+
+  .input:disabled + .radio-label-text {
+    color: #9d9c9c; 
+  }
