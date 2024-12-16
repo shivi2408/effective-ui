@@ -1,0 +1,197 @@
+/* Base Calendar Styles */
+.calendar {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 13px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* Default Theme */
+  .calendar-default {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .calendar-default .calendar-day-name ,.calendar-nav{
+    color: #555;
+  }
+  
+  .calendar-default .calendar-day {
+    color: #333;
+  }
+  
+  .calendar-default .calendar-day.inactive {
+    color: #ccc;
+  }
+  
+  /* Primary Theme */
+  .calendar-primary {
+    background-color: #e3f2fd; /* Light Blue */
+    color: #1565c0; /* Dark Blue */
+  }
+  
+  .calendar-primary .calendar-header,.calendar-nav {
+    color: #0d47a1; /* Darker Blue for header */
+  }
+  
+  .calendar-primary .calendar-day-name {
+    color: #1976d2; /* Blue for day names */
+  }
+  
+  .calendar-primary .calendar-day {
+    color: #1565c0;
+  }
+  
+  .calendar-primary .calendar-day.inactive {
+    color: #90caf9; /* Light Blue for disabled days */
+  }
+  
+  /* Dark Theme */
+  .calendar-dark {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f5f5f5; /* Light text */
+    border: 1px solid #424242;
+  }
+  
+  .calendar-dark .calendar-header,.calendar-nav {
+    color: #f5f5f5;
+  }
+  
+  .calendar-dark .calendar-day-name {
+    color: #bdbdbd; /* Slightly lighter gray */
+  }
+  
+  .calendar-dark .calendar-day {
+    color: #f5f5f5;
+  }
+  
+  .calendar-dark .calendar-day.inactive {
+    color: #757575; /* Dark gray for disabled days */
+  }
+  
+  /* Shadow Effect */
+  .calendar-shadow {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* No Animation */
+  .calendar-no-animation * {
+    transition: none !important;
+  }
+  
+  /* Calendar Header */
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* Days of the Week & Grid */
+  .calendar-days,
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  .calendar-days{
+    margin-bottom:6px;
+  }
+  .calendar-day-name {
+    text-align: center;
+    font-weight: 500;
+    font-size: small;
+  }
+  
+  .calendar-day {
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family:'Courier New', Courier, monospace;
+  }
+  
+  /* Hover Effect */
+  .calendar-day:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight:bold;
+  }
+  
+  .calendar-dark .calendar-day:hover,.calendar-day.selected {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .calendar-day.selected ,.calendar-day-selected{
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: bold; /* Make the selected day stand out */
+  }
+  .calendar-day-current {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold; /* Make the selected day stand out */
+  }
+  /* Inactive Days */
+  .calendar-day.inactive {
+    opacity: 0.5;
+  }
+  
+  /* Navigation Buttons */
+  .calendar-nav {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: inherit;
+    border-radius: 50%;
+    transition: color 0.3s ease;
+  }
+
+  
+  .calendar-nav:hover {
+    opacity:0.8;
+  }
+  
+  .calendar-dark .calendar-nav:hover {
+    color: #f5f5f5;
+  }
+  
+
+  .calendar-picker {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-picker select,
+  .calendar-picker input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: inherit;
+    color: inherit;
+  }
+  .calendar-picker select option {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity:0.5;
+    color: #000;
+  }
+  
+  .calendar-picker button {
+    padding: 5px 10px;
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .calendar-picker button:hover {
+    background-color: inherit;
+  }
+  

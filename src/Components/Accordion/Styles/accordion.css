@@ -12,14 +12,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: #f5f5f54b;
     cursor: pointer;
     font-weight: bold;
     user-select: none;
     width: 100%; /* Ensure it spans the full width */
     box-sizing: border-box; /* Prevent padding from affecting width */
   }
-  
+  .accordion-header:hover{
+    text-decoration: underline;
+  }
   .accordion-disabled-header {
     cursor: not-allowed;
     color: #aaa;
@@ -27,7 +29,7 @@
   
   .accordion-content {
     padding: 10px;
-    background-color: #fff;
+    background-color:transparent;
     border-top: 1px solid #ddd;
     width: 100%; /* Match width of the header */
     box-sizing: border-box;
