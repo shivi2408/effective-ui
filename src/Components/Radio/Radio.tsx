@@ -49,7 +49,7 @@ const Radio: React.FC<RadioProps> = ({
           <input
             type="radio"
             name={name}
-            className="input"
+            className="radioinput"
             value={option.value}
             checked={selected === option.value}
             onChange={() => handleChange(option.value)}

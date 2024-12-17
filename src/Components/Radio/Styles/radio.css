@@ -10,7 +10,7 @@
     gap: 10px; /* Adds spacing between radio buttons in a column */
   }
   
-  .input {
+  .radioinput {
     -webkit-appearance: none;
     appearance: none;
     display: block;
@@ -34,27 +34,27 @@
     outline: none;
   }
   
-  .input:checked {
+  .radioinput:checked {
     transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
       transform 0.25s cubic-bezier(0, 0, 0.2, 1);
   }
   
-  .input:active {
+  .radioinput:active {
     transform: scale(1.5);
     transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
   }
   
-  .input,
-  .input:active {
+  .radioinput,
+  .radioinput:active {
     background-position: 0 24px;
   }
   
-  .input:checked {
+  .radioinput:checked {
     background-position: 0 0;
   }
   
-  .input:checked ~ .input,
-  .input:checked ~ .input:active {
+  .radioinput:checked ~ .radioinput,
+  .radioinput:checked ~ .radioinput:active {
     background-position: 0 -24px;
   }
  
@@ -74,7 +74,7 @@
   }
 
 
-.input:disabled {
+.radioinput:disabled {
     cursor: not-allowed; 
     opacity: 0.5;
     background-color: hsla(0, 0%, 0%, 0.1); 
@@ -82,10 +82,10 @@
     transition:none;
   }
   
-  .input:disabled:checked {
+  .radioinput:disabled:checked {
     background-color: hsla(200, 100%, 70%, 0.3); 
   }
 
-  .input:disabled + .radio-label-text {
+  .radioinput:disabled + .radio-label-text {
     color: rgba(115, 130, 140, 0.596); 
   }

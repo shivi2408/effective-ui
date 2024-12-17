@@ -1,5 +1,5 @@
 .accordion {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #cccccc80;;
     border-radius: 4px;
     margin: 10px 0;
     overflow: hidden;
@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #f5f5f54b;
+    background-color: #00000000;
     cursor: pointer;
     font-weight: bold;
     user-select: none;
@@ -30,7 +30,7 @@
   .accordion-content {
     padding: 10px;
     background-color:transparent;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #cccccc80;
     width: 100%; /* Match width of the header */
     box-sizing: border-box;
   }

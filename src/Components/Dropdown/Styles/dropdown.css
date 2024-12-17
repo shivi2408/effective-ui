@@ -92,6 +92,7 @@
     font-size: 14px;
     transition: background-color 0.2s ease, color 0.2s ease;
     position: relative;
+    border: 1px solid transparent;
   }
   
   .dropdown-item:hover {
