@@ -13,6 +13,8 @@ Visit <a aria-label="effective-ui learn" href="https://github.com/shivi2408/effe
 
 NPM Package : https://www.npmjs.com/package/@shivangi_2408/effective-ui
 
+install > npm i @shivangi_2408/effective-ui
+
 ## Storybook
 
 Visit [https://shivi2408.github.io/effective-ui/](https://shivi2408.github.io/effective-ui/) to view the storybook for all components.
