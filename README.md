@@ -6,11 +6,11 @@
 </br>
 
 
-> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com).
 
 ## Getting Started
 
 Visit <a aria-label="effective-ui learn" href="https://github.com/shivi2408/effective-ui">effective-ui</a> to get started with effective-ui.
+NPM Package : https://www.npmjs.com/package/@shivangi_2408/effective-ui
 
 ## Storybook
 
