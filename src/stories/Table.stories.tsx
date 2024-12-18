@@ -50,12 +50,6 @@ const columns: TableColumn[] = [
   { key: 'name', title: 'Name', align: 'left' },
   { key: 'age', title: 'Age', align: 'center' },
   { key: 'status', title: 'Status', align: 'center' },
-  {
-    key: 'actions',
-    title: 'Actions',
-    render: (_, record) => <button onClick={() => alert(record.name)}>Edit</button>,
-    align: 'center',
-  },
 ];
 
 const data = [

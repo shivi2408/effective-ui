@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    color:#9b9b9b;
     background-color: #00000000;
     cursor: pointer;
     font-weight: bold;
@@ -29,8 +30,9 @@
   
   .accordion-content {
     padding: 10px;
+    color:#9b9b9b;
     background-color:transparent;
-    border-top: 1px solid #cccccc80;
+    border-top: 1px solid #9b9b9b;
     width: 100%; /* Match width of the header */
     box-sizing: border-box;
   }

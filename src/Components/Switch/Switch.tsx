@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './Styles/switch.css';
 
 export interface SwitchProps {
-  color?: 'default' |'primary' | 'secondary' | 'success' | 'danger';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
   size?: 'small' | 'medium' | 'large';
   isDisabled?: boolean;
   children?: React.ReactNode;
@@ -11,6 +11,8 @@ export interface SwitchProps {
   checked?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  onIcon?: React.ReactNode; // Icon when checked
+  offIcon?: React.ReactNode; // Icon when unchecked
   [x: string]: any;
 }
 
@@ -23,6 +25,8 @@ const Switch: React.FC<SwitchProps> = ({
   checked: checkedProp = false,
   className,
   style,
+  onIcon,
+  offIcon,
   ...props
 }) => {
   const [checked, setChecked] = useState(checkedProp);
@@ -37,7 +41,7 @@ const Switch: React.FC<SwitchProps> = ({
     if (!isDisabled) {
       setChecked(!checked);
       if (onChange) {
-        onChange(!checked); // Send reversed value in onChange
+        onChange(!checked);
       }
     }
   };
@@ -52,9 +56,9 @@ const Switch: React.FC<SwitchProps> = ({
 
   const trackClass = classNames(
     'switch-track',
-    `switch-track-${color}`, // Apply color classes correctly
+    `switch-track-${color}`,
     `switch-${size}`,
-    { 'switch-checked': !checked } // Apply checked state for color change
+    { 'switch-checked': !checked }
   );
 
   return (
@@ -65,7 +69,17 @@ const Switch: React.FC<SwitchProps> = ({
       {...props}
     >
       <div className={trackClass}>
-        <div className="switch-thumb"></div>
+        <div className="switch-thumb">
+          {checked ? (
+            <span className="thumb-icon ">
+              {onIcon}
+            </span>
+          ) : (
+            <span className="thumb-icon ">
+              {offIcon}
+            </span>
+          )}
+        </div>
       </div>
       {children && <span className="switch-label">{children}</span>}
     </div>
