@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { MdWbSunny } from "react-icons/md";
+import { IoMdMoon } from "react-icons/io";
 import Switch from '../Components/Switch/Switch'; // Adjust the import path as needed.
 
 const meta = {
@@ -75,5 +77,16 @@ export const WithLabel: Story = {
     color: 'primary',
     size: 'medium',
     children: 'Switch with Label',
+  },
+};
+
+export const WithThumbIcon: Story = {
+  args: {
+    color: 'default',
+    size: 'medium',
+    checked: true,
+    onIcon:  <IoMdMoon />,
+    offIcon: <MdWbSunny />, 
+    children: 'Switch with Thumb Icon',
   },
 };
