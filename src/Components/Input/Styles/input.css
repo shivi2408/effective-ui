@@ -69,17 +69,17 @@
     border-radius: 50px;
   }
   
-  .inputbox-small {
+  .inputbox-sm {
     padding: 0.35rem 0.5rem;
     font-size: 0.875rem;
   }
   
-  .inputbox-medium {
+  .inputbox-md{
     padding: 0.5rem 1rem;
     font-size: 1rem;
   }
   
-  .inputbox-large {
+  .inputbox-lg {
     padding: 0.65rem 1.3rem;
     font-size: 1.15rem;
   }

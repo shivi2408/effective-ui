@@ -28,7 +28,7 @@ const meta: Meta<typeof InputBox> = {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['sm', 'md', 'lg'],
       description: 'Size of the input box.',
     },
     radius: {
@@ -74,7 +74,7 @@ export const Default: Story = {
     variant: 'bordered',
     color: 'secondary',
     radius: 'sm',
-    size: 'medium',
+    size: 'md',
     disabled: false,
     defaultValue: '',
     fullWidth: false,
@@ -89,7 +89,7 @@ export const Multiline: Story = {
     placeholder: 'Enter multiple lines...',
     variant: 'flat',
     radius: 'md',
-    size: 'large',
+    size: 'lg',
     defaultValue: '',
     isMultiline: true,
     fullWidth: true,
@@ -102,7 +102,7 @@ export const Disabled: Story = {
     placeholder: 'Cannot type here...',
     variant: 'faded',
     radius: 'sm',
-    size: 'medium',
+    size: 'md',
     disabled: true,
   },
 };
@@ -112,7 +112,7 @@ export const FullWidth: Story = {
     label: 'Full Width ',
     placeholder: 'Spans full width...',
     variant: 'underlined',
-    size: 'large',
+    size: 'lg',
     fullWidth: true,
   },
 };
@@ -124,7 +124,7 @@ export const Password: Story = {
     variant: 'bordered',
     color: 'primary',
     radius: 'md',
-    size: 'medium',
+    size: 'md',
     isPassword: true, // Password input
     fullWidth: false,
     defaultValue: '',

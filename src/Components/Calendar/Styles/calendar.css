@@ -106,7 +106,7 @@
   .calendar-day-name {
     text-align: center;
     font-weight: 500;
-    font-size: small;
+    font-size: sm;
   }
   
   .calendar-day {

@@ -19,7 +19,7 @@ const meta = {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['sm', 'md', 'lg'],
       description: 'The size of the switch.',
     },
     isDisabled: {
@@ -50,14 +50,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     color: 'default',
-    size: 'medium',
+    size: 'md',
     children: '',
   },
 };
 
-export const Large: Story = {
+export const lg: Story = {
   args: {
-    size: 'large',
+    size: 'lg',
     children: '',
   },
 };
@@ -65,7 +65,7 @@ export const Large: Story = {
 export const Disabled: Story = {
   args: {
     color: 'primary',
-    size: 'medium',
+    size: 'md',
     isDisabled: true,
     checked: false,
     children: 'Disabled',
@@ -75,7 +75,7 @@ export const Disabled: Story = {
 export const WithLabel: Story = {
   args: {
     color: 'primary',
-    size: 'medium',
+    size: 'md',
     children: 'Switch with Label',
   },
 };
@@ -83,7 +83,7 @@ export const WithLabel: Story = {
 export const WithThumbIcon: Story = {
   args: {
     color: 'default',
-    size: 'medium',
+    size: 'md',
     checked: true,
     onIcon:  <IoMdMoon />,
     offIcon: <MdWbSunny />, 

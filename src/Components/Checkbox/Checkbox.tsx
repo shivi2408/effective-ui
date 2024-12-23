@@ -6,7 +6,7 @@ interface CheckboxProps {
   label: string;
   variant?: 'primary' | 'secondary' | 'success' | 'warning';
   borderRadius?: 'none' | 'sm' | 'md' | 'full';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   defaultChecked?: boolean;
   className?: string; 
@@ -20,7 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   label,
   variant = 'primary',
   borderRadius = 'sm',
-  size = 'medium',
+  size = 'md',
   disabled = false,
   defaultChecked = false,
   className,

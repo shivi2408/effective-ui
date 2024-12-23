@@ -17,7 +17,7 @@ const meta = {
     },
     size: { 
       control: 'select', 
-      options: ['small', 'medium', 'large'], 
+      options: ['sm', 'md', 'lg'], 
       description: 'The size of the button.' 
     },
     iconPosition: { 
@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: 'primary',
-    size: 'medium',
+    size: 'md',
     children: 'Primary Button',
   },
 };
@@ -61,7 +61,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     variant: 'secondary',
-    size: 'medium',
+    size: 'md',
     children: 'Secondary Button',
   },
 };
@@ -69,7 +69,7 @@ export const Secondary: Story = {
 export const Outline: Story = {
   args: {
     variant: 'outline',
-    size: 'medium',
+    size: 'md',
     children: 'Outline Button',
   },
 };
@@ -77,29 +77,29 @@ export const Outline: Story = {
 export const Text: Story = {
   args: {
     variant: 'text',
-    size: 'medium',
+    size: 'md',
     children: 'Text Button',
   },
 };
 
-export const Large: Story = {
+export const lg: Story = {
   args: {
-    size: 'large',
-    children: 'Large Button',
+    size: 'lg',
+    children: 'lg Button',
   },
 };
 
-export const Small: Story = {
+export const sm: Story = {
   args: {
-    size: 'small',
-    children: 'Small Button',
+    size: 'sm',
+    children: 'sm Button',
   },
 };
 
 // export const WithIcon: Story = {
 //   args: {
 //     variant: 'primary',
-//     size: 'medium',
+//     size: 'md',
 //     children: 'Button with Icon',
 //     icon: <span role="img" aria-label="icon">🌟</span>, 
 //     iconPosition: 'left',
@@ -109,7 +109,7 @@ export const Small: Story = {
 export const Loading: Story = {
   args: {
     variant: 'primary',
-    size: 'medium',
+    size: 'md',
     isLoading: true,
     children: 'Loading...',
   },
@@ -118,7 +118,7 @@ export const Loading: Story = {
 export const Disabled: Story = {
   args: {
     variant: 'primary',
-    size: 'medium',
+    size: 'md',
     disabled: true,
     children: 'Disabled Button',
   },
@@ -127,7 +127,7 @@ export const Disabled: Story = {
 export const FullWidth: Story = {
   args: {
     variant: 'primary',
-    size: 'medium',
+    size: 'md',
     fullWidth: true,
     children: 'Full Width Button',
   },

@@ -8,7 +8,7 @@ interface InputBoxProps {
   placeholder?: string;
   variant?: 'flat' | 'faded' | 'bordered' | 'underlined';
   color?: 'primary' | 'secondary' | 'success' | 'warning';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   fullWidth?: boolean;
   labelPlacement?: 'inside' | 'outside'; // Position of the label
@@ -27,7 +27,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   placeholder = 'Enter text...',
   variant = 'flat',
   color = 'secondary',
-  size = 'medium',
+  size = 'md',
   radius = 'sm',
   fullWidth = false,
   labelPlacement = 'outside',

@@ -104,7 +104,7 @@ export const ClickableRows: Story = {
   },
 };
 
-export const LargeRadius: Story = {
+export const lgRadius: Story = {
   args: {
     columns,
     data,
