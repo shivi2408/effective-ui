@@ -65,9 +65,9 @@ export const Default: Story = {
   },
 };
 
-export const LargeGroup: Story = {
+export const lgGroup: Story = {
   args: {
-    name: 'large-group',
+    name: 'lg-group',
     options: [
       { value: 'optionA', label: 'Option A' },
       { value: 'optionB', label: 'Option B' },

@@ -4,7 +4,7 @@ import './Styles/switch.css';
 
 export interface SwitchProps {
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'mdge';
   isDisabled?: boolean;
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
@@ -18,7 +18,7 @@ export interface SwitchProps {
 
 const Switch: React.FC<SwitchProps> = ({
   color = 'default',
-  size = 'medium',
+  size = 'md',
   isDisabled = false,
   children,
   onChange,

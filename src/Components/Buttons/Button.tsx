@@ -3,7 +3,8 @@ import classNames from 'classnames'; // Optional for handling dynamic class name
 import './Styles/button.css'
 export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'text';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
+  radius?: 'none'|' sm' | 'md' | 'lg' | 'full';
   icon?: React.ReactNode; // Icon element (e.g., from an icon library).
   iconPosition?: 'left' | 'right'; // Icon position relative to the label.
   isLoading?: boolean; // Loading state.
@@ -19,7 +20,8 @@ export interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
-  size = 'medium',
+  size = 'md',
+  radius = 'md',
   icon,
   iconPosition = 'left',
   isLoading = false,
@@ -37,7 +39,8 @@ const Button: React.FC<ButtonProps> = ({
   const buttonClass = classNames(
     'btn', // Base button class.
     `btn-${variant}`, // Variant class (e.g., btn-primary).
-    `btn-${size}`, // Size class (e.g., btn-medium).
+    `btn-${size}`, // Size class (e.g., btn-md).
+    `btn-radius-${radius}`,
     { 'btn-fullwidth': fullWidth }, // Full-width class.
     { 'btn-disabled': isDisabled }, // Disabled state class.
     className // Custom classes.

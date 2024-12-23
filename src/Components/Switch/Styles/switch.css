@@ -61,13 +61,13 @@
   }
 
   
-  .switch-checked .switch-small .switch-thumb {
+  .switch-checked .switch-sm .switch-thumb {
     transform: translateX(-18px) translateY(-50%);
   }
-  .switch-checked .switch-medium .switch-thumb {
+  .switch-checked .switch-md
     transform: translateX(-20px) translateY(-50%);
   }
-  .switch-checked .switch-large .switch-thumb {
+  .switch-checked .switch-lg .switch-thumb {
     transform: translateX(-24px) translateY(-50%);
   }
   
@@ -75,33 +75,33 @@
     background-color: #ccc; /* Inherit the color set for the track */
   }
   
-  .switch-small .switch-track {
+  .switch-sm .switch-track {
     width: 45px;
     height: 26px;
   }
   
-  .switch-small .switch-thumb {
+  .switch-sm .switch-thumb {
     width: 20px;
     height: 20px;
     right:5%
   }
   
-  .switch-medium .switch-track {
+  .switch-md
     width: 55px;
     height: 30px;
   }
   
-  .switch-medium .switch-thumb {
+  .switch-md
     width: 23px;
     height: 22px;
   }
   
-  .switch-large .switch-track {
+  .switch-lg .switch-track {
     width: 59px;
     height: 32px;
   }
   
-  .switch-large .switch-thumb {
+  .switch-lg .switch-thumb {
     width: 25px;
     height: 24px;
     right:8%
