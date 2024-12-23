@@ -38,7 +38,7 @@ import { Button } from '@shivangi_2408/effective-ui';
 
 function App() {
   return (
-    <Button variant="primary" onClick={() => console.log('Hello!')} size ="small">
+    <Button variant="primary" onClick={() => console.log('Hello!')} size ="sm">
       Click me
     </Button>
   );
