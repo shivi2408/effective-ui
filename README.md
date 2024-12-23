@@ -13,11 +13,68 @@ Visit <a aria-label="effective-ui learn" href="https://github.com/shivi2408/effe
 
 NPM Package : https://www.npmjs.com/package/@shivangi_2408/effective-ui
 
-install > npm i @shivangi_2408/effective-ui
-
 ## Storybook
 
 Visit [https://shivi2408.github.io/effective-ui/](https://shivi2408.github.io/effective-ui/) to view the storybook for all components.
+
+
+## Installation
+
+```bash
+# Using npm
+npm install @shivangi_2408/effective-ui
+
+# Using yarn
+yarn add @shivangi_2408/effective-ui
+
+# Using pnpm
+pnpm add @shivangi_2408/effective-ui
+```
+
+## Quick Start
+
+```tsx
+import { Button } from '@shivangi_2408/effective-ui';
+
+function App() {
+  return (
+    <Button variant="primary" onClick={() => console.log('Hello!')} size ="small">
+      Click me
+    </Button>
+  );
+}
+```
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build the library
+npm run build
+
+# Run tests
+npm test
+
+# Run Storybook
+npm run storybook
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Process
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## Community
 
