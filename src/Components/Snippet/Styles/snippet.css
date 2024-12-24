@@ -19,7 +19,8 @@
   /* Command line prefix */
   .snippet-dollar {
     color: #888888; /* Grey prefix */
-    margin: 6px;
+    padding:2px;
+    padding-bottom:0
   }
   
   /* Copy button */
@@ -31,16 +32,14 @@
     font-size: 18px;
     transition: color 0.3s ease;
     padding:2px;
+    padding-bottom:0
   }
   
   .snippet-copy-button:hover {
     color: #ffffff;
   }
   
-  /* Icons */
-  .icon-copy {
-  }
-  
+ 
   .icon-copied {
     color: #76b5fd; /* Green for copied state */
   }
