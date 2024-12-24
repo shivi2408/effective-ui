@@ -4,7 +4,7 @@ import './Styles/switch.css';
 
 export interface SwitchProps {
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
-  size?: 'sm' | 'mdge';
+  size?: 'sm' | 'md'| 'lg';
   isDisabled?: boolean;
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;

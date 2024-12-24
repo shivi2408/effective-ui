@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { GoCopy } from "react-icons/go";
-import { MdOutlineLibraryAddCheck  } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
+import { FiClipboard } from "react-icons/fi";
 import { IoCodeSlash } from "react-icons/io5";
 import classNames from 'classnames';
 import './Styles/snippet.css'; 
@@ -26,11 +25,12 @@ const Snippet: React.FC<SnippetProps> = ({ code, className, style }) => {
 
   return (
     <div className={classNames('snippet-container', className)} style={style}>
+      <span className="snippet-dollar"><IoCodeSlash size={20}/></span>
       <span className="snippet-command">
-        <span className="snippet-dollar"><IoCodeSlash size={18}/></span> {code}
+         {code}
       </span>
       <button className="snippet-copy-button" onClick={handleCopy} aria-label="Copy">
-        {copied ? <FaCheck  className="icon-copied" /> : <GoCopy className="icon-copy" />}
+        {copied ? <FaCheck  className="icon-copied" /> : <FiClipboard className="icon-copy" />}
       </button>
     </div>
   );
