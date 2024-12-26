@@ -42,8 +42,11 @@
   
   .breadcrumb-link-disabled {
     color: #72727280;
-    text-decoration: none;
+    text-decoration: none !important;
     cursor:default
+  }
+  .breadcrumb-link-disabled:hover{
+    color:#72727280;
   }
   
   .breadcrumb-label {
@@ -54,4 +57,29 @@
     margin: 0 0.5rem;
   }
   
+  .breadcrumb-dropdown {
+    position: absolute;
+    /* background: white; */
+    border: 1px solid #cccccc82;
+    border-radius:4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    top: 52%;
+    left: 43%;
+  }
   
+  .breadcrumb-dropdown-item {
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+  }
+  
+  .breadcrumb-dropdown-item:hover {
+    background: #f0f0f018;
+  }
+  .breadcrumb-ellipsis{
+    padding:0.4rem;
+  }
+  .breadcrumb-ellipsis:hover{
+    cursor:pointer;
+    background: #f0f0f018;
+  }
