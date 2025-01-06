@@ -1,0 +1,35 @@
+@layer effective-ui {
+    :root {
+        --effectiveui-text: #000000;
+        --effectiveui-text-inside: #fff;
+        --effectiveui-text-grey: #5c5c5c;
+        --effectiveui-selected: var(--effectiveui-text);
+        --effectiveui-background-grey: #d1d1d1f5;
+        --effectiveui-background: 0 0% 100%;
+        --effectiveui-empty: var(--effectiveui-text);
+        --effectiveui-empty-hover: var(--effectiveui-text);
+        --effectiveui-filled: var(--effectiveui-text);
+        --effectiveui-filled-hover: var(--effectiveui-text-grey);
+        --effectiveui-border: #e5e7eb;
+        --effectiveui-input-border: hsl(240 5.9% 90%);
+        --effectiveui-appbar-background: var(--effectiveui-background);
+        --effectiveui-primary:#007bff;
+    }
+
+    html[class="dark"] {
+        --effectiveui-text: #f1f1f1;
+        --effectiveui-text-inside: #000000;
+        --effectiveui-text-grey: #bdbdbdd8;
+        --effectiveui-selected: var(--effectiveui-text);
+        --effectiveui-background-grey: #505050;
+        --effectiveui-background: #0A0A0A;
+        --effectiveui-empty: transparent;
+        --effectiveui-empty-hover: var(--effectiveui-text);
+        --effectiveui-filled: var(--effectiveui-text);
+        --effectiveui-filled-hover: var(--effectiveui-text-grey);
+        --effectiveui-border: #5252527e;
+        --effectiveui-input-border: hsla(240, 6%, 90%, 0.329);
+        --effectiveui-appbar-background: var(--effectiveui-background);
+        --effectiveui-primary:#0359B6FF;
+    }
+}

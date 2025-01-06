@@ -74,9 +74,9 @@
   }
   
   .chip-primary {
-    background-color: #007bff;
-    border: 1px solid #007bff;
-    color: #007bff;
+    background-color: var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary);
+    border: 1px solid var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary);
+    color: var(--effectiveui-primary);
   }
   
   .chip-secondary {

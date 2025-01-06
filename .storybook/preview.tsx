@@ -4,6 +4,7 @@ import type {Preview} from "@storybook/react";
 
 import "./style.css";
 import {withStrictModeSwitcher} from "./addons/react-strict-mode";
+import { ThemeProvider } from "../src/Theme/ThemeProvider";
 
 const decorators: Preview["decorators"] = [
   (Story, {globals: {locale, disableAnimation}}) => {
@@ -12,11 +13,15 @@ const decorators: Preview["decorators"] = [
       locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
     return (
-      <div >
-        <div className="bg-dark" lang={locale} dir={direction}>
-          <Story />
+      <>
+      <ThemeProvider>
+        <div>
+          <div className="bg-dark" lang={locale} dir={direction}>
+            <Story />
+          </div>
         </div>
-      </div>
+      </ThemeProvider>
+      </>
     );
   },
   ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : []),

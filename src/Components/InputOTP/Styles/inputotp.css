@@ -77,8 +77,8 @@ input:not([value=""]) {
   border-radius:0 !important;
 }
 .inputotp-container .inputotp-underlined.inputotp-primary{
-  border-bottom: 1px solid #007bff;
-  color: #007bff;
+  border-bottom: 1px solid var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary)ffectiveui-primary);
+  color: var(--effectiveui-primary);
 }
 .inputotp-container .inputotp-underlined.inputotp-secondary{
   border-bottom: 1px solid #6c757d;
@@ -100,8 +100,8 @@ input:not([value=""]) {
 
 .inputotp-primary {
   background-color: #4593e75b;
-  border: 1px solid #007bff;
-  color: #007bff;
+  border: 1px solid var(--effectiveui-primary);
+  color: var(--effectiveui-primary);
 }
 .inputotp-secondary {
   background-color: #575c5f9a;

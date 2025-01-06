@@ -45,6 +45,39 @@ function App() {
 }
 ```
 
+## Theme Setup
+
+### Step 1. Integrating Theme Provider in Your Project
+
+#### In your main or root file (e.g., main.tsx or index.tsx), wrap your application with the ThemeProvider to enable theming across your project.
+
+```tsx
+....
+import { ThemeProvider } from "./theme/ThemeProvider";
+....
+
+  <>
+    <ThemeProvider>
+    ...
+      <App />
+      ...
+    </ThemeProvider>
+  </>
+);
+
+```
+
+
+### Step 2. Add CSS for Theming
+#### Include the theme CSS file provided by the library in your project. Use the CSS @layer feature to ensure proper layering and avoid style conflicts.
+```css
+
+@import "@shivangi_2408/effective-ui/dist/theme.css" layer(effective-ui);
+
+@layer effective-ui, project-styles; /* Ensures your styles load before their custom styles */
+
+```
+
 ## Development
 
 ```bash

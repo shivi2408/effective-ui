@@ -26,8 +26,8 @@
   }
   
   .inputbox-primary {
-    border: 1px solid #007bff !important;
-    background-color: #007bff;
+    border: 1px solid var(--effectiveui-primary) !important;
+    background-color: var(--effectiveui-primary);
   }
   
   .inputbox-success {
