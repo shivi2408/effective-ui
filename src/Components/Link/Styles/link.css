@@ -36,7 +36,7 @@
   }
   
   .link-primary {
-    color: #007bff;
+    color: var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary);
   }
   .link-secondary {
     color: #6a2ead;

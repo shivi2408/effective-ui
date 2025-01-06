@@ -24,7 +24,7 @@
     background-color: #7e7e7e;
   }
   .switch-track-primary {
-    background-color: #007bff;
+    background-color: var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary);
   }
   
   .switch-track-secondary {

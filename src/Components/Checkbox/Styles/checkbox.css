@@ -31,7 +31,7 @@
 
 
   .checkbox-custom {
-    border: 2px solid #007bff;
+    border: 2px solid var(--effectiveui-primary);
     border-radius: 4px;
     display: inline-block;
     position: relative;
@@ -42,7 +42,7 @@
   }
   
   .checkbox-custom-primary {
-    border-color: #007bff;
+    border-color: var(--effectiveui-primary);
   }
   
   .checkbox-custom-secondary {
@@ -106,8 +106,8 @@
   }
   
   .checkbox-input:checked + .checkbox-custom-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: var(--effectiveui-primary);
+    border-color: var(--effectiveui-primary);
   }
  
   .checkbox-input:checked + .checkbox-custom-secondary {

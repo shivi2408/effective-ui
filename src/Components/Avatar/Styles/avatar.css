@@ -55,7 +55,7 @@
   }
   
   .avatar-primary {
-    background-color: #007bff;
+    background-color: var(--effectiveui-primary);
   }
   
   .avatar-secondary {
