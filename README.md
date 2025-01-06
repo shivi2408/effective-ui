@@ -45,7 +45,7 @@ function App() {
 }
 ```
 
-## Theme Setup
+## Theme Setup [dark, light]
 
 ### Step 1. Integrating Theme Provider in Your Project
 
