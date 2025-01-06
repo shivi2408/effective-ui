@@ -9,7 +9,7 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
   ],
 
-  staticDirs: ["../public"],
+  // staticDirs: ["../public"],
 
   addons: [
     getAbsolutePath("@storybook/addon-a11y"),
