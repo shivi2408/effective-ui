@@ -1,0 +1,23 @@
+import{j as e}from"./jsx-runtime-CkxqCPlQ.js";import{c as I}from"./index-i5X67GZP.js";import"./index-DJO9vBfz.js";const C=({variant:R="solid",color:T="default",size:N="md",radius:x="full",isDisabled:q=!1,children:S,startContent:n,endContent:l,className:w,style:b,...j})=>{const D=I("chip",`chip-${R}`,`chip-${T}`,`chip-${N}`,`chip-radius-${x}`,{"chip-disabled":q},w);return e.jsxs("div",{className:D,style:b,...j,children:[n&&e.jsx("span",{className:"chip-start-content",children:n}),e.jsx("span",{className:"chip-content",children:S}),l&&e.jsx("span",{className:"chip-end-content",children:l})]})};C.__docgenInfo={description:"",methods:[],displayName:"Chip",props:{variant:{required:!1,tsType:{name:"union",raw:"'solid' | 'outlined' | 'light'",elements:[{name:"literal",value:"'solid'"},{name:"literal",value:"'outlined'"},{name:"literal",value:"'light'"}]},description:"",defaultValue:{value:"'solid'",computed:!1}},color:{required:!1,tsType:{name:"union",raw:"'default' | 'primary' | 'secondary' | 'success' | 'danger'",elements:[{name:"literal",value:"'default'"},{name:"literal",value:"'primary'"},{name:"literal",value:"'secondary'"},{name:"literal",value:"'success'"},{name:"literal",value:"'danger'"}]},description:"",defaultValue:{value:"'default'",computed:!1}},size:{required:!1,tsType:{name:"union",raw:"'sm' | 'md' | 'lg'",elements:[{name:"literal",value:"'sm'"},{name:"literal",value:"'md'"},{name:"literal",value:"'lg'"}]},description:"",defaultValue:{value:"'md'",computed:!1}},radius:{required:!1,tsType:{name:"union",raw:"'none' | 'sm' | 'md' | 'lg' | 'full'",elements:[{name:"literal",value:"'none'"},{name:"literal",value:"'sm'"},{name:"literal",value:"'md'"},{name:"literal",value:"'lg'"},{name:"literal",value:"'full'"}]},description:"",defaultValue:{value:"'full'",computed:!1}},isDisabled:{required:!1,tsType:{name:"boolean"},description:"",defaultValue:{value:"false",computed:!1}},children:{required:!1,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""},startContent:{required:!1,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""},endContent:{required:!1,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""},className:{required:!1,tsType:{name:"string"},description:""},style:{required:!1,tsType:{name:"ReactCSSProperties",raw:"React.CSSProperties"},description:""}}};const E={title:"Components/Chip",component:C,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{variant:{control:"select",options:["solid","outlined","light"],description:"The variant of the chip."},color:{control:"select",options:["default","primary","secondary","success","danger"],description:"The color variant of the chip."},size:{control:"select",options:["sm","md","lg"],description:"The size of the chip."},radius:{control:"select",options:["none","sm","md","lg","full"],description:"The border radius of the chip."},isDisabled:{control:"boolean",description:"Disable the chip."},children:{control:"text",description:"Content inside the chip."},startContent:{control:"text",description:"Content or icon at the start of the chip."},endContent:{control:"text",description:"Content or icon at the end of the chip."}},args:{variant:"solid",size:"md",color:"default"}},a={args:{children:"Chip"}},t={args:{variant:"outlined",color:"primary",children:"Outlined"}},r={args:{color:"success",startContent:"🎉",children:"Chip"}},s={args:{color:"danger",endContent:"🌟",children:"Chip"}};var o,i,c;a.parameters={...a.parameters,docs:{...(o=a.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {
+    children: 'Chip'
+  }
+}`,...(c=(i=a.parameters)==null?void 0:i.docs)==null?void 0:c.source}}};var d,p,u;t.parameters={...t.parameters,docs:{...(d=t.parameters)==null?void 0:d.docs,source:{originalSource:`{
+  args: {
+    variant: 'outlined',
+    color: 'primary',
+    children: 'Outlined'
+  }
+}`,...(u=(p=t.parameters)==null?void 0:p.docs)==null?void 0:u.source}}};var m,h,f;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
+  args: {
+    color: 'success',
+    startContent: '🎉',
+    children: 'Chip'
+  }
+}`,...(f=(h=r.parameters)==null?void 0:h.docs)==null?void 0:f.source}}};var g,v,y;s.parameters={...s.parameters,docs:{...(g=s.parameters)==null?void 0:g.docs,source:{originalSource:`{
+  args: {
+    color: 'danger',
+    endContent: '🌟',
+    children: 'Chip'
+  }
+}`,...(y=(v=s.parameters)==null?void 0:v.docs)==null?void 0:y.source}}};const W=["Default","Outlined","WithStartIcon","WithEndIcon"];export{a as Default,t as Outlined,s as WithEndIcon,r as WithStartIcon,W as __namedExportsOrder,E as default};
