@@ -89,7 +89,22 @@ import { ThemeProvider } from '@shivangi_2408/effective-ui';
 ....
 
 ```
+### Step 3. Changing Primary , Secondary colors etc . 
+#### In your main global css file overwrite the effective-ui variables with desired value . Example:
+```css
+@import url("@shivangi_2408/effective-ui/dist/esm/styles.css") layer(effective-ui);
 
+....
+:root {
+   ...
+   --effectiveui-primary: <value>;
+   --effectiveui-secondary: <value>;
+   ...
+
+
+....
+
+```
 ## Development
 
 ```bash
