@@ -60,11 +60,10 @@
     color: inherit; /* Match the switch color */
   }
 
-  
   .switch-checked .switch-sm .switch-thumb {
     transform: translateX(-18px) translateY(-50%);
   }
-  .switch-checked .switch-md {
+  .switch-checked .switch-md .switch-thumb {
     transform: translateX(-20px) translateY(-50%);
   }
   .switch-checked .switch-lg .switch-thumb {
@@ -74,7 +73,7 @@
   .switch-checked .switch-track {
     background-color: #ccc; /* Inherit the color set for the track */
   }
-  
+
   .switch-sm .switch-track {
     width: 45px;
     height: 26px;
@@ -86,12 +85,12 @@
     right:5%
   }
   
-  .switch-md{
+  .switch-md .switch-track {
     width: 55px;
     height: 30px;
   }
   
-  .switch-md{
+  .switch-md .switch-thumb {
     width: 23px;
     height: 22px;
   }
