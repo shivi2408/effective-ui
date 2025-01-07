@@ -53,7 +53,7 @@ function App() {
 
 ```tsx
 ....
-import { ThemeProvider } from "@shivangi_2408/effective-ui/dist/ThemeProvider";
+import { ThemeProvider } from '@shivangi_2408/effective-ui';
 ....
 
   <>
