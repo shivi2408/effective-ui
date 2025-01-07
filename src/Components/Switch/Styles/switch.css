@@ -24,7 +24,7 @@
     background-color: #7e7e7e;
   }
   .switch-track-primary {
-    background-color: var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary);
+    background-color: var(--effectiveui-primary);
   }
   
   .switch-track-secondary {
@@ -64,7 +64,7 @@
   .switch-checked .switch-sm .switch-thumb {
     transform: translateX(-18px) translateY(-50%);
   }
-  .switch-checked .switch-md
+  .switch-checked .switch-md {
     transform: translateX(-20px) translateY(-50%);
   }
   .switch-checked .switch-lg .switch-thumb {
@@ -86,12 +86,12 @@
     right:5%
   }
   
-  .switch-md
+  .switch-md{
     width: 55px;
     height: 30px;
   }
   
-  .switch-md
+  .switch-md{
     width: 23px;
     height: 22px;
   }

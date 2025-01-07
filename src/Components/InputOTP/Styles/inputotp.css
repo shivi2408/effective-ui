@@ -77,7 +77,7 @@ input:not([value=""]) {
   border-radius:0 !important;
 }
 .inputotp-container .inputotp-underlined.inputotp-primary{
-  border-bottom: 1px solid var(--effectiveui-primary)ffectiveui-primary)ffectiveui-primary)ffectiveui-primary);
+  border-bottom: 1px solid var(--effectiveui-primary);
   color: var(--effectiveui-primary);
 }
 .inputotp-container .inputotp-underlined.inputotp-secondary{

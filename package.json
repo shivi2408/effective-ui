@@ -1,10 +1,19 @@
 {
   "name": "@shivangi_2408/effective-ui",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "UI Libraray with React and Typescript",
   "main": "dist/cjs/index.js",
+  "type": "module",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "dist/styles.css"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -19,14 +28,17 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.5.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "react-icons": "^5.3.0"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "@storybook/addon-a11y": "^8.4.5",
     "@storybook/addon-essentials": "^8.4.5",
     "@storybook/addon-interactions": "^8.4.5",
@@ -49,6 +61,7 @@
     "remark-gfm": "^4.0.0",
     "rollup": "^4.27.4",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
     "storybook": "^8.4.5",
     "storybook-dark-mode": "^4.0.2",
