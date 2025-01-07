@@ -27,7 +27,7 @@ const meta: Meta<typeof Checkbox> = {
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['small', 'medium', 'large'],
       description: 'Size of the checkbox.',
     },
   },
@@ -41,7 +41,7 @@ export const Default: Story = {
     label: 'Default',
     variant: 'primary',
     borderRadius: 'sm',
-    size: 'md',
+    size: 'medium',
     disabled: false,
   },
 };
@@ -51,7 +51,7 @@ export const Checked: Story = {
     label: 'Checked',
     variant: 'primary',
     borderRadius: 'sm',
-    size: 'md',
+    size: 'medium',
     disabled: false,
     defaultChecked: true,
   },
@@ -62,7 +62,7 @@ export const Disabled: Story = {
     label: 'Disabled ',
     disabled: true, // makes the checkbox non-interactive
     borderRadius: 'sm',
-    size: 'md',
+    size: 'medium',
   },
 };
 
