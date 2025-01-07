@@ -11,7 +11,7 @@ interface Option {
   icon?: React.ReactNode;
 }
 
-interface DropdownProps {
+export interface DropdownProps {
   options: Option[];
   triggerLabel: string;
   placement?: 'top' | 'bottom' | 'left' | 'right';

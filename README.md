@@ -53,7 +53,7 @@ function App() {
 
 ```tsx
 ....
-import { ThemeProvider } from "./theme/ThemeProvider";
+import { ThemeProvider } from "@shivangi_2408/effective-ui/dist/ThemeProvider";
 ....
 
   <>
@@ -69,12 +69,24 @@ import { ThemeProvider } from "./theme/ThemeProvider";
 
 
 ### Step 2. Add CSS for Theming
-#### Include the theme CSS file provided by the library in your project. Use the CSS @layer feature to ensure proper layering and avoid style conflicts.
+#### Include the theme CSS file provided by the library in your main global css file. Use the CSS @layer feature to ensure proper layering and avoid style conflicts.
+#### If applied correctly this will show up in the html tag in the browser windows based ont he browser preference theme.
+##### <html lang="en" ...  class="dark"... >
 ```css
+@import url("@shivangi_2408/effective-ui/dist/esm/styles.css") layer(effective-ui);
 
-@import "@shivangi_2408/effective-ui/dist/theme.css" layer(effective-ui);
-
-@layer effective-ui, project-styles; /* Ensures your styles load before their custom styles */
+....
+:root {
+  --font-family: "Poppins", sans-serif;
+  --text:#000000;
+  --text-inside: #fff;
+  --text-grey:#5c5c5c;
+  --selected:var(--text);
+  --background-grey:#d1d1d1f5;
+  --background: 0 0% 100%;
+  --empty:var(--text);
+  --empty-hover:var(--text);
+....
 
 ```
 

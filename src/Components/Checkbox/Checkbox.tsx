@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import './Styles/checkbox.css';
 
-interface CheckboxProps {
+export interface CheckboxProps {
   label: string;
   variant?: 'primary' | 'secondary' | 'success' | 'warning';
   borderRadius?: 'none' | 'sm' | 'md' | 'full';

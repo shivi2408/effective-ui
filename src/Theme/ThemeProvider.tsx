@@ -3,7 +3,7 @@ import "./theme.css";
 
 type Theme = "light" | "dark";
 
-interface ThemeContextProps {
+export interface ThemeContextProps {
     theme: Theme;
     toggleTheme: () => void;
 }
@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     );
 
     useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.setAttribute("class", theme);
         localStorage.setItem("theme", theme);
     }, [theme]);
 

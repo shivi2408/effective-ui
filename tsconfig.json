@@ -1,17 +1,24 @@
 {
-    "compilerOptions": {
-      "target": "ES6",
-      "module": "ESNext",
-      "jsx": "react-jsx",
-      "declaration": true,
-      "declarationDir": "dist/types",
-      "outDir": "dist",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "moduleResolution": "node"
-    },
-    "include": ["src"],
-    "exclude": ["node_modules", "dist"]
-  }
-  
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "sourceMap": true,              // Add this for better debugging
+    "allowSyntheticDefaultImports": true,  // Add this for better import compatibility
+    "forceConsistentCasingInFileNames": true  // Add this for consistency
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules", 
+    "dist",
+    "src/**/*.stories.tsx",  // Add this to exclude storybook files
+    "src/**/*.test.tsx"      // Add this to exclude test files
+  ]
+}

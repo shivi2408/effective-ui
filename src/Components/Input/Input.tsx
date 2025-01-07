@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FaRegEye,FaRegEyeSlash } from "react-icons/fa";
 import './Styles/input.css';
 
-interface InputBoxProps {
+export interface InputBoxProps {
   label?: string;
   placeholder?: string;
   variant?: 'flat' | 'faded' | 'bordered' | 'underlined';
