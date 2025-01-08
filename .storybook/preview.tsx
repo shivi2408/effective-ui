@@ -16,7 +16,7 @@ const decorators: Preview["decorators"] = [
       </>
     );
   },
-  ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : [withStrictModeSwitcher]),
+  // ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : [withStrictModeSwitcher]),
 ];
 
 const commonTheme = {

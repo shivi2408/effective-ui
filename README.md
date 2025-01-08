@@ -66,7 +66,24 @@ import { ThemeProvider } from '@shivangi_2408/effective-ui';
 );
 
 ```
+#### [Note: ] You can also provide your own Theme Context API for light and dark mode. But remember to set class attribute in html tag. And update globalcss to use same variable but with different colors for both light and dark mode.
+```css
+    :root {
+      --background-color : white;
+    }
 
+     html[class="dark"] {
+      --background-color : black;
+     }
+```
+
+```tsx
+type Theme = "light" | "dark";
+...
+    const [theme, setTheme] = useState<Theme>("dark");
+...
+    document.documentElement.setAttribute("class", theme);
+```
 
 ### Step 2. Add CSS for Theming
 #### Include the theme CSS file provided by the library in your main global css file. Use the CSS @layer feature to ensure proper layering and avoid style conflicts.
