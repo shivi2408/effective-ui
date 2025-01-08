@@ -14,17 +14,18 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setTheme] = useState<Theme>("dark");
 
     useEffect(() => {
-        const storedTheme = localStorage.getItem("effectiveui-theme");
-        if(storedTheme){
-            setTheme(storedTheme as Theme);}
-        document.documentElement.setAttribute("class", theme);
-    }, [theme]);
+        const storedTheme = localStorage.getItem("sb-addon-themes-3");
+        if (storedTheme) {
+            const parsedTheme = JSON.parse(storedTheme);
+            const currentTheme = parsedTheme?.current || "dark"; 
+            setTheme(currentTheme);
+        } 
+        document.documentElement.setAttribute("class", theme); 
+    }, []);
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-        localStorage.setItem("effectiveui-theme", theme);
     };
-
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {children}

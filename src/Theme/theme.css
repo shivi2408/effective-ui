@@ -1,35 +1,378 @@
 @layer effective-ui {
-    :root {
-        --effectiveui-text: #000000;
-        --effectiveui-text-inside: #fff;
-        --effectiveui-text-grey: #5c5c5c;
-        --effectiveui-selected: var(--effectiveui-text);
-        --effectiveui-background-grey: #d1d1d1f5;
-        --effectiveui-background: 0 0% 100%;
-        --effectiveui-empty: var(--effectiveui-text);
-        --effectiveui-empty-hover: var(--effectiveui-text);
-        --effectiveui-filled: var(--effectiveui-text);
-        --effectiveui-filled-hover: var(--effectiveui-text-grey);
-        --effectiveui-border: #e5e7eb;
-        --effectiveui-input-border: hsl(240 5.9% 90%);
-        --effectiveui-appbar-background: var(--effectiveui-background);
-        --effectiveui-primary:#007bff;
-    }
+        :root {
+            /* App Colors */
+            --effectiveui-white: #FFFFFF;
+            --effectiveui-black: #000000;
+
+            /* Default Colors */
+            --effectiveui-default-50: #fafafa;
+            --effectiveui-default-100: #f4f4f5;
+            --effectiveui-default-200: #e5e4e6;
+            --effectiveui-default-300: #d4d4d8;
+            --effectiveui-default-400: #a1a0ab;
+            --effectiveui-default-500: #70707a;
+            --effectiveui-default-600: #53525a;
+            --effectiveui-default-700: #3e3e46;
+            --effectiveui-default-800: #26262a;
+            --effectiveui-default-900: #18191a;
+
+            /* Blue Palette */
+            --effectiveui-blue-50: #E6F1FE;
+            --effectiveui-blue-100: #CCE3FD;
+            --effectiveui-blue-200: #99C7FB;
+            --effectiveui-blue-300: #66AAF9;
+            --effectiveui-blue-400: #338EF7;
+            --effectiveui-blue-500: #006FEE;
+            --effectiveui-blue-600: #005BC4;
+            --effectiveui-blue-700: #004493;
+            --effectiveui-blue-800: #002E62;
+            --effectiveui-blue-900: #001731;
+
+            /* Purple Palette */
+            --effectiveui-purple-50: #F2EAFA;
+            --effectiveui-purple-100: #E4D4F4;
+            --effectiveui-purple-200: #C9A9E9;
+            --effectiveui-purple-300: #AE7EDE;
+            --effectiveui-purple-400: #9353D3;
+            --effectiveui-purple-500: #7828C8;
+            --effectiveui-purple-600: #6020A0;
+            --effectiveui-purple-700: #481878;
+            --effectiveui-purple-800: #301050;
+            --effectiveui-purple-900: #180828;
+
+            /* Green Palette */
+            --effectiveui-green-50: #E8FAF0;
+            --effectiveui-green-100: #D1F4E0;
+            --effectiveui-green-200: #A2E9C1;
+            --effectiveui-green-300: #74DFA2;
+            --effectiveui-green-400: #45D483;
+            --effectiveui-green-500: #17C964;
+            --effectiveui-green-600: #12A150;
+            --effectiveui-green-700: #0E793C;
+            --effectiveui-green-800: #095028;
+            --effectiveui-green-900: #052814;
+
+            /* Red Palette */
+            --effectiveui-red-50: #FEE7EF;
+            --effectiveui-red-100: #FDD0DF;
+            --effectiveui-red-200: #FAA0BF;
+            --effectiveui-red-300: #F871A0;
+            --effectiveui-red-400: #F54180;
+            --effectiveui-red-500: #F31260;
+            --effectiveui-red-600: #C20E4D;
+            --effectiveui-red-700: #920B3A;
+            --effectiveui-red-800: #610726;
+            --effectiveui-red-900: #310413;
+
+            /* Pink Palette */
+            --effectiveui-pink-50: #FFEDFA;
+            --effectiveui-pink-100: #FFDCF5;
+            --effectiveui-pink-200: #FFB8EB;
+            --effectiveui-pink-300: #FF95E1;
+            --effectiveui-pink-400: #FF71D7;
+            --effectiveui-pink-500: #FF4ECD;
+            --effectiveui-pink-600: #CC3EA4;
+            --effectiveui-pink-700: #992F7B;
+            --effectiveui-pink-800: #661F52;
+            --effectiveui-pink-900: #331029;
+
+            /* Yellow Palette */
+            --effectiveui-yellow-50: #FEFCE8;
+            --effectiveui-yellow-100: #FDEDD3;
+            --effectiveui-yellow-200: #FBDBA7;
+            --effectiveui-yellow-300: #F9C97C;
+            --effectiveui-yellow-400: #F7B750;
+            --effectiveui-yellow-500: #F5A524;
+            --effectiveui-yellow-600: #C4841D;
+            --effectiveui-yellow-700: #936316;
+            --effectiveui-yellow-800: #62420E;
+            --effectiveui-yellow-900: #312107;
+
+            /* Cyan Palette */
+            --effectiveui-cyan-50: #F0FCFF;
+            --effectiveui-cyan-100: #E6FAFE;
+            --effectiveui-cyan-200: #D7F8FE;
+            --effectiveui-cyan-300: #C3F4FD;
+            --effectiveui-cyan-400: #A5EEFD;
+            --effectiveui-cyan-500: #7EE7FC;
+            --effectiveui-cyan-600: #06B7DB;
+            --effectiveui-cyan-700: #09AACD;
+            --effectiveui-cyan-800: #0E8AAA;
+            --effectiveui-cyan-900: #053B48;
+
+            /* Layout */
+            --effectiveui-background: var(--effectiveui-white);
+            --effectiveui-foreground: var(--effectiveui-black);
+            --effectiveui-divider: var(--effectiveui-default-300);
+            --effectiveui-focus: var(--effectiveui-blue-500);
+
+
+            /* Content */
+            --effectiveui-content1: var(--effectiveui-default-50);
+            --effectiveui-content2: var(--effectiveui-default-100);
+            --effectiveui-content3: var(--effectiveui-default-200);
+            --effectiveui-content4: var(--effectiveui-default-300);
+
+            /* Primary */
+            --effectiveui-primary-50: var(--effectiveui-blue-50);
+            --effectiveui-primary-100: var(--effectiveui-blue-100);
+            --effectiveui-primary-200: var(--effectiveui-blue-200);
+            --effectiveui-primary-300: var(--effectiveui-blue-300);
+            --effectiveui-primary-400: var(--effectiveui-blue-400);
+            --effectiveui-primary-500: var(--effectiveui-blue-500);
+            --effectiveui-primary-600: var(--effectiveui-blue-600);
+            --effectiveui-primary-700: var(--effectiveui-blue-700);
+            --effectiveui-primary-800: var(--effectiveui-blue-800);
+            --effectiveui-primary-900: var(--effectiveui-blue-900);
+
+            
+            /* Secondary */
+            --effectiveui-secondary-50: var(--effectiveui-purple-50);
+            --effectiveui-secondary-100: var(--effectiveui-purple-100);
+            --effectiveui-secondary-200: var(--effectiveui-purple-200);
+            --effectiveui-secondary-300: var(--effectiveui-purple-300);
+            --effectiveui-secondary-400: var(--effectiveui-purple-400);
+            --effectiveui-secondary-500: var(--effectiveui-purple-500);
+            --effectiveui-secondary-600: var(--effectiveui-purple-600);
+            --effectiveui-secondary-700: var(--effectiveui-purple-700);
+            --effectiveui-secondary-800: var(--effectiveui-purple-800);
+            --effectiveui-secondary-900: var(--effectiveui-purple-900);
+
+            
+            /* Success */
+            --effectiveui-success-50: var(--effectiveui-green-50);
+            --effectiveui-success-100: var(--effectiveui-green-100);
+            --effectiveui-success-200: var(--effectiveui-green-200);
+            --effectiveui-success-300: var(--effectiveui-green-300);
+            --effectiveui-success-400: var(--effectiveui-green-400);
+            --effectiveui-success-500: var(--effectiveui-green-500);
+            --effectiveui-success-600: var(--effectiveui-green-600);
+            --effectiveui-success-700: var(--effectiveui-green-700);
+            --effectiveui-success-800: var(--effectiveui-green-800);
+            --effectiveui-success-900: var(--effectiveui-green-900);
+
+                        
+            /* Warning */
+            --effectiveui-warning-50: var(--effectiveui-yellow-50);
+            --effectiveui-warning-100: var(--effectiveui-yellow-100);
+            --effectiveui-warning-200: var(--effectiveui-yellow-200);
+            --effectiveui-warning-300: var(--effectiveui-yellow-300);
+            --effectiveui-warning-400: var(--effectiveui-yellow-400);
+            --effectiveui-warning-500: var(--effectiveui-yellow-500);
+            --effectiveui-warning-600: var(--effectiveui-yellow-600);
+            --effectiveui-warning-700: var(--effectiveui-yellow-700);
+            --effectiveui-warning-800: var(--effectiveui-yellow-800);
+            --effectiveui-warning-900: var(--effectiveui-yellow-900);
+
+                        
+            /* Danger */
+            --effectiveui-danger-50: var(--effectiveui-red-50);
+            --effectiveui-danger-100: var(--effectiveui-red-100);
+            --effectiveui-danger-200: var(--effectiveui-red-200);
+            --effectiveui-danger-300: var(--effectiveui-red-300);
+            --effectiveui-danger-400: var(--effectiveui-red-400);
+            --effectiveui-danger-500: var(--effectiveui-red-500);
+            --effectiveui-danger-600: var(--effectiveui-red-600);
+            --effectiveui-danger-700: var(--effectiveui-red-700);
+            --effectiveui-danger-800: var(--effectiveui-red-800);
+            --effectiveui-danger-900: var(--effectiveui-red-900);
+
+            /* Base */
+            --effectiveui-default: var(--effectiveui-default-300);
+            --effectiveui-primary: var(--effectiveui-primary-500);
+            --effectiveui-secondary: var(--effectiveui-secondary-500);
+            --effectiveui-success: var(--effectiveui-success-500);
+            --effectiveui-warning: var(--effectiveui-warning-500);
+            --effectiveui-danger: var(--effectiveui-danger-500);
+          }          
+    
 
     html[class="dark"] {
-        --effectiveui-text: #f1f1f1;
-        --effectiveui-text-inside: #000000;
-        --effectiveui-text-grey: #bdbdbdd8;
-        --effectiveui-selected: var(--effectiveui-text);
-        --effectiveui-background-grey: #505050;
-        --effectiveui-background: #0A0A0A;
-        --effectiveui-empty: transparent;
-        --effectiveui-empty-hover: var(--effectiveui-text);
-        --effectiveui-filled: var(--effectiveui-text);
-        --effectiveui-filled-hover: var(--effectiveui-text-grey);
-        --effectiveui-border: #5252527e;
-        --effectiveui-input-border: hsla(240, 6%, 90%, 0.329);
-        --effectiveui-appbar-background: var(--effectiveui-background);
-        --effectiveui-primary:#0359B6FF;
+       
+            /* App Colors */
+            --effectiveui-white: #FFFFFF;
+            --effectiveui-black: #000000;
+           
+            /* Default Colors */
+            --effectiveui-default-50: #18191a;
+            --effectiveui-default-100: #26262a;
+            --effectiveui-default-200: #3e3e46;
+            --effectiveui-default-300: #53525a;
+            --effectiveui-default-400: #70707a;
+            --effectiveui-default-500: #a1a0ab;
+            --effectiveui-default-600: #d4d4d8;
+            --effectiveui-default-700: #e5e4e6;
+            --effectiveui-default-800: #f4f4f5;
+            --effectiveui-default-900: #fafafa;
+
+            /* Blue Palette */
+            --effectiveui-blue-50: #001731;
+            --effectiveui-blue-100: #002E62;
+            --effectiveui-blue-200: #004493;
+            --effectiveui-blue-300: #005BC4;
+            --effectiveui-blue-400: #006FEE;
+            --effectiveui-blue-500: #338EF7;
+            --effectiveui-blue-600: #66AAF9;
+            --effectiveui-blue-700: #99C7FB;
+            --effectiveui-blue-800: #CCE3FD;
+            --effectiveui-blue-900: #E6F1FE;
+
+            /* Purple Palette */
+            --effectiveui-purple-50: #180828;
+            --effectiveui-purple-100: #301050;
+            --effectiveui-purple-200: #481878;
+            --effectiveui-purple-300: #6020A0;
+            --effectiveui-purple-400: #7828C8;
+            --effectiveui-purple-500: #9353D3;
+            --effectiveui-purple-600: #AE7EDE;
+            --effectiveui-purple-700: #C9A9E9;
+            --effectiveui-purple-800: #E4D4F4;
+            --effectiveui-purple-900: #F2EAFA;
+
+            /* Green Palette */
+            --effectiveui-green-50: #052814;
+            --effectiveui-green-100: #095028;
+            --effectiveui-green-200: #0E793C;
+            --effectiveui-green-300: #12A150;
+            --effectiveui-green-400: #17C964;
+            --effectiveui-green-500: #45D483;
+            --effectiveui-green-600: #74DFA2;
+            --effectiveui-green-700: #A2E9C1;
+            --effectiveui-green-800: #D1F4E0;
+            --effectiveui-green-900: #E8FAF0;
+
+            /* Red Palette */
+            --effectiveui-red-50: #310413;
+            --effectiveui-red-100: #610726;
+            --effectiveui-red-200: #920B3A;
+            --effectiveui-red-300: #C20E4D;
+            --effectiveui-red-400: #F31260;
+            --effectiveui-red-500: #F54180;
+            --effectiveui-red-600: #F871A0;
+            --effectiveui-red-700: #FAA0BF;
+            --effectiveui-red-800: #FDD0DF;
+            --effectiveui-red-900: #FEE7EF;
+
+            /* Pink Palette */
+            --effectiveui-pink-50: #331029;
+            --effectiveui-pink-100: #661F52;
+            --effectiveui-pink-200: #992F7B;
+            --effectiveui-pink-300: #CC3EA4;
+            --effectiveui-pink-400: #FF4ECD;
+            --effectiveui-pink-500: #FF71D7;
+            --effectiveui-pink-600: #FF95E1;
+            --effectiveui-pink-700: #FFB8EB;
+            --effectiveui-pink-800: #FFDCF5;
+            --effectiveui-pink-900: #FFEDFA;
+
+            /* Yellow Palette */
+            --effectiveui-yellow-50: #312107;
+            --effectiveui-yellow-100: #62420E;
+            --effectiveui-yellow-200: #936316;
+            --effectiveui-yellow-300: #C4841D;
+            --effectiveui-yellow-400: #F5A524;
+            --effectiveui-yellow-500: #F7B750;
+            --effectiveui-yellow-600: #F9C97C;
+            --effectiveui-yellow-700: #FBDBA7;
+            --effectiveui-yellow-800: #FDEDD3;
+            --effectiveui-yellow-900: #FEFCE8;
+
+            /* Cyan Palette */
+            --effectiveui-cyan-50: #053B48;
+            --effectiveui-cyan-100: #0E8AAA;
+            --effectiveui-cyan-200: #09AACD;
+            --effectiveui-cyan-300: #06B7DB;
+            --effectiveui-cyan-400: #7EE7FC;
+            --effectiveui-cyan-500: #A5EEFD;
+            --effectiveui-cyan-600: #C3F4FD;
+            --effectiveui-cyan-700: #D7F8FE;
+            --effectiveui-cyan-800: #E6FAFE;
+            --effectiveui-cyan-900: #F0FCFF;
+
+           
+            /* Layout */
+            --effectiveui-background: var(--effectiveui-black);
+            --effectiveui-foreground: var(--effectiveui-white);
+            --effectiveui-divider: var(--effectiveui-default-300);
+            --effectiveui-focus: var(--effectiveui-blue-500);
+
+
+            /* Content */
+            --effectiveui-content1: var(--effectiveui-default-50);
+            --effectiveui-content2: var(--effectiveui-default-100);
+            --effectiveui-content3: var(--effectiveui-default-200);
+            --effectiveui-content4: var(--effectiveui-default-300);
+
+            /* Primary */
+            --effectiveui-primary-50: var(--effectiveui-blue-50);
+            --effectiveui-primary-100: var(--effectiveui-blue-100);
+            --effectiveui-primary-200: var(--effectiveui-blue-200);
+            --effectiveui-primary-300: var(--effectiveui-blue-300);
+            --effectiveui-primary-400: var(--effectiveui-blue-400);
+            --effectiveui-primary-500: var(--effectiveui-blue-500);
+            --effectiveui-primary-600: var(--effectiveui-blue-600);
+            --effectiveui-primary-700: var(--effectiveui-blue-700);
+            --effectiveui-primary-800: var(--effectiveui-blue-800);
+            --effectiveui-primary-900: var(--effectiveui-blue-900);
+
+            
+            /* Secondary */
+            --effectiveui-secondary-50: var(--effectiveui-purple-50);
+            --effectiveui-secondary-100: var(--effectiveui-purple-100);
+            --effectiveui-secondary-200: var(--effectiveui-purple-200);
+            --effectiveui-secondary-300: var(--effectiveui-purple-300);
+            --effectiveui-secondary-400: var(--effectiveui-purple-400);
+            --effectiveui-secondary-500: var(--effectiveui-purple-500);
+            --effectiveui-secondary-600: var(--effectiveui-purple-600);
+            --effectiveui-secondary-700: var(--effectiveui-purple-700);
+            --effectiveui-secondary-800: var(--effectiveui-purple-800);
+            --effectiveui-secondary-900: var(--effectiveui-purple-900);
+
+            
+            /* Success */
+            --effectiveui-success-50: var(--effectiveui-green-50);
+            --effectiveui-success-100: var(--effectiveui-green-100);
+            --effectiveui-success-200: var(--effectiveui-green-200);
+            --effectiveui-success-300: var(--effectiveui-green-300);
+            --effectiveui-success-400: var(--effectiveui-green-400);
+            --effectiveui-success-500: var(--effectiveui-green-500);
+            --effectiveui-success-600: var(--effectiveui-green-600);
+            --effectiveui-success-700: var(--effectiveui-green-700);
+            --effectiveui-success-800: var(--effectiveui-green-800);
+            --effectiveui-success-900: var(--effectiveui-green-900);
+
+                        
+            /* Warning */
+            --effectiveui-warning-50: var(--effectiveui-yellow-50);
+            --effectiveui-warning-100: var(--effectiveui-yellow-100);
+            --effectiveui-warning-200: var(--effectiveui-yellow-200);
+            --effectiveui-warning-300: var(--effectiveui-yellow-300);
+            --effectiveui-warning-400: var(--effectiveui-yellow-400);
+            --effectiveui-warning-500: var(--effectiveui-yellow-500);
+            --effectiveui-warning-600: var(--effectiveui-yellow-600);
+            --effectiveui-warning-700: var(--effectiveui-yellow-700);
+            --effectiveui-warning-800: var(--effectiveui-yellow-800);
+            --effectiveui-warning-900: var(--effectiveui-yellow-900);
+
+                        
+            /* Danger */
+            --effectiveui-danger-50: var(--effectiveui-red-50);
+            --effectiveui-danger-100: var(--effectiveui-red-100);
+            --effectiveui-danger-200: var(--effectiveui-red-200);
+            --effectiveui-danger-300: var(--effectiveui-red-300);
+            --effectiveui-danger-400: var(--effectiveui-red-400);
+            --effectiveui-danger-500: var(--effectiveui-red-500);
+            --effectiveui-danger-600: var(--effectiveui-red-600);
+            --effectiveui-danger-700: var(--effectiveui-red-700);
+            --effectiveui-danger-800: var(--effectiveui-red-800);
+            --effectiveui-danger-900: var(--effectiveui-red-900);
+
+            /* Base */
+            --effectiveui-default: var(--effectiveui-default-200);
+            --effectiveui-primary: var(--effectiveui-primary-300);
+            --effectiveui-secondary: var(--effectiveui-secondary-300);
+            --effectiveui-success: var(--effectiveui-success-300);
+            --effectiveui-warning: var(--effectiveui-warning-300);
+            --effectiveui-danger: var(--effectiveui-danger-300);
     }
 }

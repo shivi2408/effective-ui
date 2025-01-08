@@ -55,12 +55,12 @@ input:not([value=""]) {
 
 
 .inputotp-flat {
-  background-color:  #3f3f46;
-  color:  #d1d1d1 !important;
+  background-color:  var(--effectiveui-default);
+  color:  var(--effectiveui-default) !important;
   border:none !important;
 }
 .inputotp-faded {
-  color:  #d1d1d1;
+  color:  var(--effectiveui-default);
   background-color: transparent ;
   border:none ;
 }
@@ -81,16 +81,16 @@ input:not([value=""]) {
   color: var(--effectiveui-primary);
 }
 .inputotp-container .inputotp-underlined.inputotp-secondary{
-  border-bottom: 1px solid #6c757d;
-  color: #6c757d;
+  border-bottom: 1px solid var(--effectiveui-secondary);
+  color: var(--effectiveui-secondary);
 }
 .inputotp-container .inputotp-underlined.inputotp-success{
-  border-bottom: 1px solid #28a745;
-  color: #28a745;
+  border-bottom: 1px solid var(--effectiveui-success);
+  color: var(--effectiveui-success);
 }
 .inputotp-container .inputotp-underlined.inputotp-danger{
-  border-bottom: 1px solid #dc3545;
-  color: #dc3545;
+  border-bottom: 1px solid var(--effectiveui-danger);
+  color: var(--effectiveui-danger);
 }
 .inputotp-container .inputotp-underlined.inputotp-default{
   border-bottom: 1px solid #777777;
@@ -99,27 +99,27 @@ input:not([value=""]) {
 
 
 .inputotp-primary {
-  background-color: #4593e75b;
+  background-color: var(--effectiveui-primary-100);
   border: 1px solid var(--effectiveui-primary);
   color: var(--effectiveui-primary);
 }
 .inputotp-secondary {
-  background-color: #575c5f9a;
-  border: 1px solid #6c757d;
-  color: #6c757d;
+  background-color: var(--effectiveui-secondary-100);
+  border: 1px solid var(--effectiveui-secondary);
+  color: var(--effectiveui-secondary);
 }
 .inputotp-success {
-  background-color: #50a1635d;
-  border: 1px solid #28a745;
-  color: #28a745;
+  background-color: var(--effectiveui-success-100);
+  border: 1px solid var(--effectiveui-success);
+  color: var(--effectiveui-success);
 }
 .inputotp-danger {
-  background-color: #db5f6b65;
-  border: 1px solid #dc3545;
-  color: #dc3545;
+  background-color: var(--effectiveui-danger-100);
+  border: 1px solid var(--effectiveui-danger);
+  color: var(--effectiveui-danger);
 }
 .inputotp-default {
-  background-color:  #3f3f468a;
+  background-color:  var(--effectiveui-default-100);
   border: 1px solid #777777;
   color:  #777777;
 }

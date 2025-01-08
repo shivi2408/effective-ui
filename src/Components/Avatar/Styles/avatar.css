@@ -59,15 +59,15 @@
   }
   
   .avatar-secondary {
-    background-color: #6c757d;
+    background-color: var(--effectiveui-secondary);
   }
   
   .avatar-success {
-    background-color: #28a745;
+    background-color: var(--effectiveui-success);
   }
   
   .avatar-danger {
-    background-color: #dc3545;
+    background-color: var(--effectiveui-danger);
   }
   
   .avatar-img {

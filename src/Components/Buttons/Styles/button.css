@@ -17,7 +17,7 @@
 }
 
 .btn-secondary {
-  background-color: #6c757d;
+  background-color: var(--effectiveui-secondary);
   color: #fff;
 }
 

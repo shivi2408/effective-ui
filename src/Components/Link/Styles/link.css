@@ -42,10 +42,10 @@
     color: #6a2ead;
   }
   .link-success {
-    color: #28a745;
+    color: var(--effectiveui-success);
   }
   .link-danger {
-    color: #dc3545;
+    color: var(--effectiveui-danger);
   }
   .link-default {
     color:  #777777;

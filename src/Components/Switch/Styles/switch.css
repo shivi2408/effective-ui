@@ -32,11 +32,11 @@
   }
   
   .switch-track-success {
-    background-color: #28a745;
+    background-color: var(--effectiveui-success);
   }
   
   .switch-track-danger {
-    background-color: #dc3545; 
+    background-color: var(--effectiveui-danger)ffectiveui-danger); 
   }
   
   .switch-thumb {
