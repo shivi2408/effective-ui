@@ -40,12 +40,12 @@ const config: StorybookConfig = {
     reactDocgen: false,
   },
 
-  viteFinal: (config) => {
-    return {
-      ...config,
-      base: '/effective-ui/',
-    };
-  },
+  // viteFinal: (config) => {
+  //   return {
+  //     ...config,
+  //     base: '/effective-ui/',
+  //   };
+  // },
 };
 
 function getAbsolutePath(value) {
