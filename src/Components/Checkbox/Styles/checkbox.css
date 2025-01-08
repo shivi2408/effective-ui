@@ -50,7 +50,7 @@
   }
   
   .checkbox-custom-success {
-    border-color: #28a745;
+    border-color: var(--effectiveui-success);
   }
   
   .checkbox-custom-warning {
@@ -116,8 +116,8 @@
   }
  
   .checkbox-input:checked + .checkbox-custom-success {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: var(--effectiveui-success);
+    border-color: var(--effectiveui-success);
   }
  
   .checkbox-input:checked + .checkbox-custom-warning {

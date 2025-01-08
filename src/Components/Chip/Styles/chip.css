@@ -57,7 +57,7 @@
   }
 
   .chip-solid {
-    background-color:  #3f3f46;
+    background-color:  var(--effectiveui-default);
     color:  #d1d1d1 !important;
     border:none !important;
   }
@@ -80,25 +80,25 @@
   }
   
   .chip-secondary {
-    background-color: #6c757d;
-    border: 1px solid #6c757d;
-    color: #6c757d;
+    background-color: var(--effectiveui-secondary);
+    border: 1px solid var(--effectiveui-secondary);
+    color: var(--effectiveui-secondary);
   }
   
   .chip-success {
-    background-color: #28a745;
-    border: 1px solid #28a745;
-    color: #28a745;
+    background-color: var(--effectiveui-success);
+    border: 1px solid var(--effectiveui-success);
+    color: var(--effectiveui-success);
   }
   
   .chip-danger {
-    background-color: #dc3545;
-    border: 1px solid #dc3545;
-    color: #dc3545;
+    background-color: var(--effectiveui-danger);
+    border: 1px solid var(--effectiveui-danger);
+    color: var(--effectiveui-danger)ffectiveui-danger);
   }
   
   .chip-default {
-    background-color:  #3f3f46;
+    background-color:  var(--effectiveui-default);
     border: 1px solid #777777;
     color:  #777777;
   }
