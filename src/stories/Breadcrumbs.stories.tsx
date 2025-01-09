@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Breadcrumbs from '../Components/Breadcrumbs/Breadcrumbs'; // Adjust the import path as needed.
+import Breadcrumbs from '../Components/Breadcrumbs/Breadcrumbs'; 
 
 const meta = {
-  title: 'Components/Breadcrumbs', // Adjust category name
+  title: 'Components/Breadcrumbs',
   component: Breadcrumbs,
   parameters: {
-    layout: 'centered', // Centers the breadcrumbs in the Storybook Canvas
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {

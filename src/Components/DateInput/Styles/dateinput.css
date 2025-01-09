@@ -1,0 +1,176 @@
+.dateinput {
+  display: inline-block;
+  font-family: 'Nunito Sans';
+}
+
+.dateinput-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding:0.1rem 0.4rem 0.4rem 0.4rem;
+}
+
+.dateinput-field {
+  width: 50px;
+  padding: 0.4rem 0.3rem;
+  font-size: 16px;
+  color:#cacaca;
+  font-family: inherit;
+  background-color: transparent;
+  border:0;
+  border-bottom: 1px solid #e9ecef41;
+  text-align: center;
+  box-sizing: border-box;
+}
+input{
+  padding-bottom:0 !important
+}
+:focus-visible {
+  outline:0
+}
+
+.dateinput-dd,
+.dateinput-mm {
+  width: 40px;
+}
+.dateinput-yyyy {
+  width: 60px;
+}
+
+.dateinput-separator {
+  margin: 0 5px;
+  font-size: 16px;
+  align-self: end;
+}
+
+.dateinput-calendar-button{
+  cursor:pointer;
+  margin:0 2px;
+  vertical-align: -webkit-baseline-middle;
+}
+  
+/*label*/
+.dateinput label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.dateinput-primary.dateinput label{
+  color:var(--effectiveui-primary)
+}
+.dateinput-secondary.dateinput label{
+  color:var(--effectiveui-secondary)
+}
+.dateinput-success.dateinput label{
+  color:var(--effectiveui-success)
+}
+.dateinput-danger.dateinput label{
+  color:var(--effectiveui-danger)
+}
+.dateinput-default.dateinput label{
+  color:var(--effectiveui-default-500)
+}
+
+  /* variants*/
+  .dateinput-none .dateinput-wrapper{
+    background-color: transparent !important;
+    color:#cacaca ;
+    border:none!important;
+  }
+  .dateinput-none .dateinput-inside label{
+    top: 15%;
+  }
+  .dateinput-flat .dateinput-wrapper{
+    background-color: #4545458a;
+    color:#cacaca !important;
+    border:none!important;
+  }
+  .dateinput-outlined .dateinput-wrapper{
+    background-color:transparent !important;
+    color:#cacaca;
+    border: 1px solid #e9ecef41;
+  }
+  .dateinput-outlined .dateinput-field{
+    border-bottom:0;
+  }
+
+  /*colors*/
+  .dateinput-primary .dateinput-wrapper{
+    background-color: var(--effectiveui-primary-100);
+    border: 1px solid var(--effectiveui-primary);
+    color: var(--effectiveui-primary);
+  }
+  .dateinput-secondary .dateinput-wrapper{
+    background-color: var(--effectiveui-secondary-100);
+    border: 1px solid var(--effectiveui-secondary);
+    color: var(--effectiveui-secondary);
+  }
+  .dateinput-success .dateinput-wrapper{
+    background-color: var(--effectiveui-success-100);
+    border: 1px solid var(--effectiveui-success);
+    color: var(--effectiveui-success);
+  }
+  .dateinput-danger .dateinput-wrapper{
+    background-color: var(--effectiveui-danger-100);
+    border: 1px solid var(--effectiveui-danger);
+    color: var(--effectiveui-danger);
+  }
+  .dateinput-default .dateinput-wrapper{
+    background-color:  var(--effectiveui-default-100);
+    border: 1px solid #777777;
+    color:  #777777;
+  }
+  
+  /* Disabled state */
+ .dateinput-disabled .dateinput-wrapper {
+    opacity:0.6;
+    background-color:  #45454540;
+  }
+  .dateinput-disabled{
+    opacity:0.6;
+    pointer-events: none;
+  }
+
+  /*radius*/
+  .dateinput-radius-none .dateinput-wrapper{
+    border-radius:0;
+  }
+  .dateinput-radius-sm .dateinput-wrapper{
+    border-radius: 4px;
+  }
+  .dateinput-radius-md .dateinput-wrapper{
+    border-radius: 7px;
+  }
+  .dateinput-radius-lg .dateinput-wrapper{
+    border-radius: 10px;
+  }
+
+  /*label inside*/
+  .dateinput-inside {
+    position: relative;
+  }
+  .dateinput-inside label {
+    position: absolute;
+    top: 25%;
+    left: 10px;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    color: inherit;
+    pointer-events: none;
+  }
+  .dateinput-inside input {
+    padding-top: 1.2rem;
+  }
+  
+  .react-datepicker {
+    font-family: 'Nunito Sans';
+  }
+
+
+.react-datepicker__day--selected {
+  background-color: #2196F3;
+  color: white;
+  border:none;
+}

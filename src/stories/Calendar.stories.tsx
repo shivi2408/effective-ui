@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Calendar from '../Components/Calendar/Calendar'; // Adjust import path as needed
+import Calendar from '../Components/Calendar/Calendar'; 
 
 const meta = {
   title: 'Components/Calendar',
@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['default', 'primary', 'dark'], // Theme options
+      options: ['default', 'primary', 'dark'], 
       description: 'The color theme of the calendar.',
     },
     showShadow: {

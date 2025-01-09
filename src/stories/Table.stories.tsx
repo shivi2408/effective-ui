@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Table, { TableColumn } from '../Components/Table/Table'; // Adjust the import path as needed.
+import Table, { TableColumn } from '../Components/Table/Table'; 
 
 const meta = {
-  title: 'Components/Table', // Adjust category name
+  title: 'Components/Table', 
   component: Table,
   parameters: {
     layout: 'centered',
@@ -25,7 +25,7 @@ const meta = {
     cellPadding: {
       control: 'text',
       description: 'Custom padding for table cells.',
-      defaultValue: '8px 12px', // Default padding
+      defaultValue: '8px 12px',
     },
     onRowClick: {
       action: 'rowClicked',
@@ -66,7 +66,7 @@ export const Default: Story = {
     striped: false,
     bordered: true,
     radius: 'none',
-    cellPadding: '12px', // Default padding
+    cellPadding: '12px', 
   },
 };
 
@@ -77,18 +77,18 @@ export const Striped: Story = {
     striped: true,
     bordered: true,
     radius: 'sm',
-    cellPadding: '10px 15px', // Custom padding
+    cellPadding: '10px 15px',
   },
 };
 
 export const EmptyState: Story = { 
     args: {
-      columns, // Table columns
-      data: [], // Empty data array, no rows
+      columns,
+      data: [], 
       striped: false,
       bordered: true,
       radius: 'none',
-      cellPadding: '12px', // Default padding
+      cellPadding: '12px', 
     },
   };
 
@@ -100,7 +100,7 @@ export const ClickableRows: Story = {
     bordered: true,
     onRowClick: (record) => alert(`Row clicked: ${record.name}`),
     radius: 'md',
-    cellPadding: '8px 12px', // Default padding
+    cellPadding: '8px 12px',
   },
 };
 
@@ -111,6 +111,6 @@ export const lgRadius: Story = {
     striped: true,
     bordered: true,
     radius: 'lg',
-    cellPadding: '12px 16px', // Custom padding
+    cellPadding: '12px 16px',
   },
 };

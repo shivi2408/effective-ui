@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Accordion from '../Components/Accordion/Accordion'; // Adjust the import path as needed.
+import Accordion from '../Components/Accordion/Accordion'; 
 
 const meta = {
   title: 'Components/Accordion',
@@ -68,7 +68,7 @@ export const MultipleAccordions: Story = {
     args: {
       title: 'Accordion',
       isCompact: false,
-      isOpen: false, // Default state for all accordions
+      isOpen: false, 
     },
     render: (args) => (
       <>
@@ -88,7 +88,7 @@ export const MultipleAccordions: Story = {
   
   export const isCompact: Story = {
     args: {
-      title: 'Accordion 1', // Add a default title here
+      title: 'Accordion 1', 
       isCompact: true,
     },
     render: (args) => (

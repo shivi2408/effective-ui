@@ -125,7 +125,7 @@ export const Password: Story = {
     color: 'primary',
     radius: 'md',
     size: 'md',
-    isPassword: true, // Password input
+    isPassword: true, 
     fullWidth: false,
     defaultValue: '',
   },

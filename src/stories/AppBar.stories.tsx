@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import AppBar, { AppBarProps } from '../Components/Appbar/AppBar'; // Adjust the import path as needed.
+import AppBar, { AppBarProps } from '../Components/Appbar/AppBar'; 
 
 const meta: Meta<typeof AppBar> = {
-  title: 'Components/AppBar', // Category and name in Storybook.
+  title: 'Components/AppBar', 
   component: AppBar,
   parameters: {
-    layout: 'fullscreen', // Ensures the app bar is displayed properly.
+    layout: 'fullscreen', 
   },
   tags: ['autodocs'],
   argTypes: {

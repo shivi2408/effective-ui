@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Avatar from '../Components/Avatar/Avatar'; // Adjust the import path as needed.
+import Avatar from '../Components/Avatar/Avatar'; 
 
 const meta = {
-  title: 'Components/Avatar', // Adjust category name
+  title: 'Components/Avatar',
   component: Avatar,
   parameters: {
-    layout: 'centered', // Centers the avatar in the Storybook Canvas
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
@@ -56,7 +56,7 @@ export const Default: Story = {
     color: 'default',
     radius: 'full',
     src: '',
-    name: '', // Name to generate initials from
+    name: '', 
     isBordered: false,
   },
 };

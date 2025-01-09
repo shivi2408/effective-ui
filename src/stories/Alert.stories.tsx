@@ -1,13 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import Alert from '../Components/Alert/Alert'; // Adjust the import path as needed.
+import Alert from '../Components/Alert/Alert'; 
 
 const meta = {
-  title: 'Components/Alert', // Adjust category name
+  title: 'Components/Alert', 
   component: Alert,
   parameters: {
-    layout: 'centered', // Centers the alert in the Storybook Canvas
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {

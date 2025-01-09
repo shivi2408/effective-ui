@@ -60,7 +60,7 @@ export const Checked: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Disabled ',
-    disabled: true, // makes the checkbox non-interactive
+    disabled: true,
     borderRadius: 'sm',
     size: 'medium',
   },
