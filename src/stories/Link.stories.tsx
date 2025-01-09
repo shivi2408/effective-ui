@@ -5,10 +5,10 @@ import { AiOutlineLink } from 'react-icons/ai';
 import { RiExternalLinkLine } from "react-icons/ri";
 
 const meta = {
-  title: 'Components/Link', // Adjust category name
+  title: 'Components/Link', 
   component: Link,
   parameters: {
-    layout: 'centered', // Centers the link in the Storybook Canvas
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {

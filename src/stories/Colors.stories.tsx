@@ -32,7 +32,6 @@ export const CommonColors: Story = {
   },
   render: (args) => (
     <>
-      {/* Rendering all color variants under one group */}
       <Colors variant="app" />
       <Colors variant="blue" />
       <Colors variant="purple" />
@@ -58,7 +57,6 @@ export const SemanticColors: Story = {
   },
   render: (args) => (
     <>
-      {/* Rendering all color variants under one group */}
       <Colors variant="layout" />
       <Colors variant="content" />
       <Colors variant="base" />

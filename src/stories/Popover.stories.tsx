@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 
-import Popover from '../Components/Popover/Popover'; // Adjust the import path as needed.
-import Button from '../Components/Buttons/Button'; // Reuse the Button component for the trigger.
+import Popover from '../Components/Popover/Popover';
+import Button from '../Components/Buttons/Button';
 
 const meta = {
-  title: 'Components/Popover', // Adjust category name.
+  title: 'Components/Popover', 
   component: Popover,
   parameters: {
-    layout: 'centered', // Centers the Popover in the Storybook Canvas.
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {
@@ -84,7 +84,7 @@ export const Placement: Story = {
     args: {
       trigger: 'click',
       content: 'Popover content',
-      children: <Button>Default Button</Button>, // Provide default children here
+      children: <Button>Default Button</Button>, 
     },
   };
   

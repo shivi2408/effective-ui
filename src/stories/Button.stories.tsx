@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import Button from '../Components/Buttons/Button'; // Adjust the import path as needed.
+import Button from '../Components/Buttons/Button'; 
 
 const meta = {
-  title: 'Components/Button', // Adjust category name.
+  title: 'Components/Button', 
   component: Button,
   parameters: {
-    layout: 'centered', // Centers the button in the Storybook Canvas.
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {

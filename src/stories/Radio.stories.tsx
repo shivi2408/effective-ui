@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Radio from '../Components/Radio/Radio'; // Adjust the import path as needed.
+import Radio from '../Components/Radio/Radio';
 
 const meta = {
-  title: 'Components/Radio', // Adjust category name
+  title: 'Components/Radio',
   component: Radio,
   parameters: {
-    layout: 'centered', // Centers the radio in the Storybook Canvas
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {

@@ -1,14 +1,15 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { MdWbSunny } from "react-icons/md";
 import { IoMdMoon } from "react-icons/io";
-import Switch from '../Components/Switch/Switch'; // Adjust the import path as needed.
+import Switch from '../Components/Switch/Switch';
 
 const meta = {
-  title: 'Components/Switch', // Adjust category name
+  title: 'Components/Switch', 
   component: Switch,
   parameters: {
-    layout: 'centered', // Centers the switch in the Storybook Canvas
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {

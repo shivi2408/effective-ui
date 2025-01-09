@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import  Chip  from '../Components/Chip/Chip'; // Adjust the import path as needed.
+import  Chip  from '../Components/Chip/Chip'; 
 
 const meta = {
-  title: 'Components/Chip', // Adjust category name
+  title: 'Components/Chip', 
   component: Chip,
   parameters: {
-    layout: 'centered', // Centers the chip in the Storybook Canvas
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {

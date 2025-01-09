@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Dropdown from '../Components/Dropdown/Dropdown'; // Adjust the path as necessary.
-import { FaFile, FaLink, FaEdit, FaTrash } from 'react-icons/fa'; // Optional icon usage
+import Dropdown from '../Components/Dropdown/Dropdown'; 
+import { FaFile, FaLink, FaEdit, FaTrash } from 'react-icons/fa'; 
 
 export default {
     title: 'Components/Dropdown',
@@ -12,7 +12,7 @@ export default {
     tags: ['autodocs'],
     argTypes: {
       options: {
-        control: { type: 'object' }, // Ensure options use the 'object' control
+        control: { type: 'object' }, 
         description: 'Array of options for the dropdown menu.',
         defaultValue: [
           { label: 'New file', value: 'new_file', icon: <FaFile /> },
@@ -38,7 +38,7 @@ export default {
         defaultValue: false,
       },
       disabledKeys: {
-        control: { type: 'text' }, // Use text control for comma-separated string
+        control: { type: 'text' }, 
         description: 'Comma-separated list of disabled keys.',
         defaultValue: '',
       },

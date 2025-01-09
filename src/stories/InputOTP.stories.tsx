@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import InputOTP from '../Components/InputOTP/InputOTP'; // Adjust the import path as needed.
+import InputOTP from '../Components/InputOTP/InputOTP'; 
 
 const meta = {
-  title: 'Components/InputOTP', // Adjust category name
+  title: 'Components/InputOTP', 
   component: InputOTP,
   parameters: {
-    layout: 'centered', // Centers the component in the Storybook Canvas
+    layout: 'centered', 
   },
   tags: ['autodocs'],
   argTypes: {
@@ -48,7 +48,7 @@ const meta = {
     },
   },
   args: {
-    onChange: (otp: string) => console.log('Entered OTP:', otp), // Default action for change event
+    onChange: (otp: string) => console.log('Entered OTP:', otp), 
   },
 } satisfies Meta<typeof InputOTP>;
 
