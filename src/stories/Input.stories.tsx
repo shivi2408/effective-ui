@@ -30,16 +30,16 @@ const meta: Meta<typeof InputBox> = {
       options: ['none', 'sm', 'md', 'lg', 'full'],
       description: 'Border radius for the input box.',
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the input box, making it non-interactive.',
+    },
     fullWidth: {
       control: 'boolean',
       description: 'If true, the input box spans the full width of its container.',
     },
     label: { control: 'text', description: 'Label text displayed above the input box.' },
     placeholder: { control: 'text', description: 'Placeholder text for the input box.' },
-    disabled: {
-      control: 'boolean',
-      description: 'Disable the input box, making it non-interactive.',
-    },
     labelPlacement: {
       control: 'select',
       options: ['inside', 'outside', 'outside-left'],

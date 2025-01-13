@@ -31,7 +31,7 @@ textarea {
 }
 
 
-.inputbox__input-wrapper{
+.input-box__input-wrapper{
   display: flex;
   flex-direction: row;
 }

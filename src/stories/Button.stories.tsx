@@ -10,15 +10,33 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: { 
-      control: 'select', 
-      options: ['primary', 'secondary', 'outline', 'text'], 
-      description: 'The button style variant.' 
+    variant: {
+      control: 'select',
+      options: ['solid' , 'light' , 'shadow' , 'ghost' , 'flat', 'faded' , 'bordered'],
+      description: 'Style variant of the button box.',
     },
-    size: { 
-      control: 'select', 
-      options: ['sm', 'md', 'lg'], 
-      description: 'The size of the button.' 
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
+      description: 'Color variant of the button box.',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the button box.',
+    },
+    radius: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg', 'full'],
+      description: 'Border radius for the button box.',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the button box, making it non-interactive.',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'If true, the button box spans the full width of its container.',
     },
     iconPosition: { 
       control: 'select', 
@@ -29,18 +47,6 @@ const meta = {
       control: 'boolean', 
       description: 'Show a loading spinner on the button.' 
     },
-    disabled: { 
-      control: 'boolean', 
-      description: 'Disable the button.' 
-    },
-    fullWidth: { 
-      control: 'boolean', 
-      description: 'Make the button stretch to full width.' 
-    },
-    backgroundColor: { 
-      control: 'color', 
-      description: 'Custom background color for the button.' 
-    },
   },
   args: {
     onClick: fn(),
@@ -50,85 +56,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    variant: 'primary',
+    variant: 'flat',
+    color: 'default',
+    radius: 'md',
     size: 'md',
-    children: 'Primary Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-    size: 'md',
-    children: 'Secondary Button',
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: 'outline',
-    size: 'md',
-    children: 'Outline Button',
-  },
-};
-
-export const Text: Story = {
-  args: {
-    variant: 'text',
-    size: 'md',
-    children: 'Text Button',
-  },
-};
-
-export const lg: Story = {
-  args: {
-    size: 'lg',
-    children: 'lg Button',
-  },
-};
-
-export const sm: Story = {
-  args: {
-    size: 'sm',
-    children: 'sm Button',
-  },
-};
-
-// export const WithIcon: Story = {
-//   args: {
-//     variant: 'primary',
-//     size: 'md',
-//     children: 'Button with Icon',
-//     icon: <span role="img" aria-label="icon">🌟</span>, 
-//     iconPosition: 'left',
-//   },
-// };
-
-export const Loading: Story = {
-  args: {
-    variant: 'primary',
-    size: 'md',
-    isLoading: true,
-    children: 'Loading...',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    variant: 'primary',
-    size: 'md',
-    disabled: true,
-    children: 'Disabled Button',
-  },
-};
-
-export const FullWidth: Story = {
-  args: {
-    variant: 'primary',
-    size: 'md',
-    fullWidth: true,
-    children: 'Full Width Button',
+    disabled: false,
+    fullWidth: false,
+    children: 'Button',
   },
 };
