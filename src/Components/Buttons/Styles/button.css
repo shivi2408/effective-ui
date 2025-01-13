@@ -1,78 +1,25 @@
+/* REMOVE DEFAULT VALUES */
+button {
+  all: unset; 
+  display: inline-block; 
+}
+
+/* BASE CLASS */
+
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background-color: var(--effectiveui-primary);
-  color: #fff;
-}
-
-.btn-secondary {
-  background-color: var(--effectiveui-secondary);
-  color: #fff;
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid var(--effectiveui-primary);
-  color: var(--effectiveui-primary);
-}
-
-.btn-text {
-  background-color: transparent;
-  color: var(--effectiveui-primary);
-}
-
-.btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-}
-
-.btn-md {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-}
-
-.btn-lg {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
-}
-
-.btn-radius-none{
-  border-radius : 0;
-}
-.btn-radius-sm {
-  border-radius : 4px;
-}
-
-.btn-radius-md {
-  border-radius : 8px;
-}
-
-.btn-radius-lg {
-  border-radius : 12px;
-}
-
-.btn-radius-full {
-  border-radius : 50%;
-}
-
-.btn-disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.btn-fullwidth {
-  width: 100%;
+ display: flex;
+ font-family: 'Nunito Sans';
+ flex-direction: row;
+ color: var(--effectiveui-text-default);
+ background-color : var(--effectiveui-background-default);
+ padding: 0.375rem 1rem;
+ font-size:0.875rem;
+ border: 2px solid var(--effectiveui-border-default);
+ border-radius: 12px;
+ justify-content: center;
+ gap: 0px;
+ cursor: pointer;
+ transition: all 0.3s ease;
 }
 
 .btn-spinner {
@@ -94,4 +41,174 @@
 .btn-icon {
   display: inline-flex;
   margin: 0 0.5rem;
+}
+
+
+/* INSIDE BASE CLASS EXTRA ELEMENTS */
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+
+/* SIZE*/
+
+.btn--size-sm {
+  font-size:0.875rem;
+  padding: 0.275rem 1rem;
+ }
+
+ .btn--size-md {
+  font-size:0.875rem;
+  padding: 0.375rem 1rem;
+ }
+
+ .btn--size-lg {
+  font-size:1rem;
+  padding: 0.45rem 1.2rem;
+ }
+
+
+/* VARIANTS */
+.btn--variant-flat,
+.btn--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid transparent !important;
+}
+
+.btn--variant-faded,
+.btn--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+
+}
+
+.btn--variant-bordered,
+.btn--variant-bordered:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color: transparent !important;
+}
+
+.btn--variant-underlined,
+.btn--variant-underlined:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border-radius: 0px !important;
+  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* COLORS */
+
+ .btn--color-default{
+  color: var(--effectiveui-text-default);
+  background-color : var(--effectiveui-background-default);
+  border: 2px solid var(--effectiveui-border-default);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-default);
+  }
+}
+.btn--color-default:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-default);
+  background-color: var(--effectiveui-hover-background-default);
+}
+
+
+ .btn--color-primary{
+   color: var(--effectiveui-text-primary);
+   background-color : var(--effectiveui-background-primary);
+   border: 2px solid var(--effectiveui-border-primary);
+   
+    input::placeholder,
+    textarea::placeholder{
+      color: var(--effectiveui-text-primary);
+    }
+ }
+ .btn--color-primary:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-primary);
+  background-color: var(--effectiveui-hover-background-primary);
+ }
+
+ .btn--color-secondary{
+  color: var(--effectiveui-text-secondary);
+  background-color : var(--effectiveui-background-secondary);
+  border: 2px solid var(--effectiveui-border-secondary);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-secondary);
+  }
+}
+.btn--color-secondary:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-secondary);
+  background-color: var(--effectiveui-hover-background-secondary);
+}
+
+.btn--color-success{
+  color: var(--effectiveui-text-success);
+  background-color : var(--effectiveui-background-success);
+  border: 2px solid var(--effectiveui-border-success);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-success);
+  }
+}
+.btn--color-success:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-success);
+  background-color: var(--effectiveui-hover-background-success);
+}
+
+
+.btn--color-warning{
+  color: var(--effectiveui-text-warning);
+  background-color : var(--effectiveui-background-warning);
+  border: 2px solid var(--effectiveui-border-warning);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-warning);
+  }
+}
+.btn--color-warning:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-warning);
+  background-color: var(--effectiveui-hover-background-warning);
+}
+
+.btn--color-danger{
+  color: var(--effectiveui-text-danger);
+  background-color : var(--effectiveui-background-danger);
+  border: 2px solid var(--effectiveui-border-danger);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-danger);
+  }
+}
+.btn--color-danger:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-danger);
+  background-color: var(--effectiveui-hover-background-danger);
+}
+
+
+
+/* RADIUS */
+.btn--radius-none{
+  border-radius: 0px;
+}
+
+.btn--radius-sm{
+  border-radius: 8px;
+}
+
+.btn--radius-md{
+  border-radius: 12px;
+}
+
+.btn--radius-lg{
+  border-radius: 16px;
+}
+
+.btn--radius-full{
+  border-radius: 9999999px;
 }

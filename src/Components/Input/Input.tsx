@@ -4,15 +4,15 @@ import { FaRegEye,FaRegEyeSlash } from "react-icons/fa";
 import './Styles/input.css';
 
 export interface InputBoxProps {
-  label?: string;
-  placeholder?: string;
   variant?: 'flat' | 'faded' | 'bordered' | 'underlined';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
-  fullWidth?: boolean;
-  labelPlacement?: 'inside' | 'outside' | 'outside-left' ; 
   disabled?: boolean;
+  fullWidth?: boolean;
+  label?: string;
+  placeholder?: string;
+  labelPlacement?: 'inside' | 'outside' | 'outside-left' ; 
   isMultiline?: boolean;
   validationBehavior?: string; 
   isPassword?: boolean;
@@ -23,15 +23,15 @@ export interface InputBoxProps {
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
-  label,
-  placeholder = 'Enter text...',
   variant = 'flat',
   color = 'secondary',
   size = 'md',
   radius = 'md',
-  fullWidth = false,
-  labelPlacement = 'inside',
   disabled = false,
+  fullWidth = false,
+  label,
+  placeholder = 'Enter text...',
+  labelPlacement = 'inside',
   isMultiline = false,
   isPassword = false, 
   validationBehavior,
@@ -59,12 +59,13 @@ const InputBox: React.FC<InputBoxProps> = ({
   
   const inputBoxClass = classNames(
     'input-box',
-    { 'input-box--full-width': fullWidth },
-    { 'input-box--disabled': disabled },
+    `input-box--variant-${variant}`,
+    `input-box--color-${color}`, 
     `input-box--size-${size}`, 
-    `input-box--variant-${variant}`, 
     `input-box--radius-${radius}`, 
-    `input-box--color-${color}` 
+    { 'input-box--disabled': disabled },
+    { 'input-box--full-width': fullWidth },
+    className 
   );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,7 +96,7 @@ return (
   {labelPlacement === "inside" && (
          <span className={labelClass}>{displayLabel}</span>
         )}
-    <div className="inputbox__input-wrapper">
+    <div className="input-box__input-wrapper">
       <InputComponent
         className={inputClass}
         placeholder={displayPlaceholder} 

@@ -1,49 +1,53 @@
 import React from 'react';
-import classNames from 'classnames'; // Optional for handling dynamic class names.
+import classNames from 'classnames'; 
 import './Styles/button.css'
+
 export interface ButtonProps {
-  variant?: 'primary' | 'secondary' | 'outline' | 'text';
+  variant?: 'solid' | 'light' | 'shadow' | 'ghost' | 'flat'| 'faded' | 'bordered';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
-  radius?: 'none'|' sm' | 'md' | 'lg' | 'full';
-  icon?: React.ReactNode; // Icon element (e.g., from an icon library).
-  iconPosition?: 'left' | 'right'; // Icon position relative to the label.
-  isLoading?: boolean; // Loading state.
-  disabled?: boolean; // Disabled state.
-  fullWidth?: boolean; // Whether the button takes the full container width.
-  children: React.ReactNode; // Button label or content.
-  className?: string; // Custom CSS classes.
-  style?: React.CSSProperties; // Inline styles.
-  as?: React.ElementType; // Custom HTML tag (e.g., 'a' or 'div').
-  onClick?: (event: React.MouseEvent) => void; // Click handler.
-  [x: string]: any; // Additional props.
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+  disabled?: boolean; 
+  fullWidth?: boolean; 
+  icon?: React.ReactNode; 
+  iconPosition?: 'left' | 'right'; 
+  isLoading?: boolean; 
+  children: React.ReactNode; 
+  className?: string;
+  style?: React.CSSProperties; 
+  as?: React.ElementType; 
+  onClick?: (event: React.MouseEvent) => void; 
+  [x: string]: any; 
 }
 
 const Button: React.FC<ButtonProps> = ({
-  variant = 'primary',
+  variant = 'solid',
+  color = 'default',
   size = 'md',
   radius = 'md',
+  disabled = false,
+  fullWidth = false,
   icon,
   iconPosition = 'left',
   isLoading = false,
-  disabled = false,
-  fullWidth = false,
   children,
   className,
   style,
-  as: Component = 'button', // Default to <button>.
+  as: Component = 'button', 
   onClick,
   ...props
 }) => {
   const isDisabled = isLoading || disabled;
 
   const buttonClass = classNames(
-    'btn', // Base button class.
-    `btn-${variant}`, // Variant class (e.g., btn-primary).
-    `btn-${size}`, // Size class (e.g., btn-md).
-    `btn-radius-${radius}`,
-    { 'btn-fullwidth': fullWidth }, // Full-width class.
-    { 'btn-disabled': isDisabled }, // Disabled state class.
-    className // Custom classes.
+    'btn',
+    `btn--variant-${variant}`,
+    `btn--color-${color}`, 
+    `btn--size-${size}`, 
+    `btn--radius-${radius}`, 
+    { 'btn--disabled': disabled },
+    { 'btn--full-width': isDisabled },
+    className 
   );
 
   return (
@@ -51,8 +55,8 @@ const Button: React.FC<ButtonProps> = ({
       className={buttonClass}
       style={style}
       onClick={!isDisabled ? onClick : undefined}
-      disabled={Component === 'button' ? isDisabled : undefined} // Only apply `disabled` to <button>.
-      aria-disabled={isDisabled} // For accessibility.
+      disabled={Component === 'button' ? isDisabled : undefined} 
+      aria-disabled={isDisabled}
       {...props}
     >
       {isLoading && <span className="btn-spinner" aria-hidden="true" />}
