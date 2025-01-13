@@ -10,12 +10,6 @@ const meta: Meta<typeof InputBox> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text', description: 'Label text displayed above the input box.' },
-    placeholder: { control: 'text', description: 'Placeholder text for the input box.' },
-    disabled: {
-      control: 'boolean',
-      description: 'Disable the input box, making it non-interactive.',
-    },
     variant: {
       control: 'select',
       options: ['flat', 'faded', 'bordered', 'underlined'],
@@ -23,7 +17,7 @@ const meta: Meta<typeof InputBox> = {
     },
     color: {
       control: 'select',
-      options: ['primary', 'secondary', 'success', 'warning'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'Color variant of the inputbox.',
     },
     size: {
@@ -40,9 +34,15 @@ const meta: Meta<typeof InputBox> = {
       control: 'boolean',
       description: 'If true, the input box spans the full width of its container.',
     },
+    label: { control: 'text', description: 'Label text displayed above the input box.' },
+    placeholder: { control: 'text', description: 'Placeholder text for the input box.' },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the input box, making it non-interactive.',
+    },
     labelPlacement: {
       control: 'select',
-      options: ['inside', 'outside'],
+      options: ['inside', 'outside', 'outside-left'],
       description: 'Position of the label in relation to the input box.',
     },
     isMultiline: {
@@ -69,16 +69,16 @@ type Story = StoryObj<typeof InputBox>;
 
 export const Default: Story = {
   args: {
-    label: 'Default',
+    label: 'Email',
     placeholder: 'Enter text...',
-    variant: 'bordered',
-    color: 'secondary',
-    radius: 'sm',
+    variant: 'flat',
+    color: 'default',
+    radius: 'md',
     size: 'md',
     disabled: false,
     defaultValue: '',
     fullWidth: false,
-    labelPlacement: 'outside',
+    labelPlacement: 'inside',
     isMultiline: false,
   },
 };
@@ -89,7 +89,7 @@ export const Multiline: Story = {
     placeholder: 'Enter multiple lines...',
     variant: 'flat',
     radius: 'md',
-    size: 'lg',
+    size: 'md',
     defaultValue: '',
     isMultiline: true,
     fullWidth: true,
