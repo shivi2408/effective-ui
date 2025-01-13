@@ -7,19 +7,19 @@ export interface InputBoxProps {
   label?: string;
   placeholder?: string;
   variant?: 'flat' | 'faded' | 'bordered' | 'underlined';
-  color?: 'primary' | 'secondary' | 'success' | 'warning';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   fullWidth?: boolean;
-  labelPlacement?: 'inside' | 'outside'; // Position of the label
+  labelPlacement?: 'inside' | 'outside' | 'outside-left' ; 
   disabled?: boolean;
   isMultiline?: boolean;
-  validationBehavior?: string; // You can add options based on validation rules
-  isPassword?: boolean; // Add a prop to determine if it's a password field
+  validationBehavior?: string; 
+  isPassword?: boolean;
   className?: string;
   style?: React.CSSProperties;
   onChange?: (value: string) => void;
-  [x: string]: any; // To handle additional props dynamically
+  [x: string]: any; 
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -28,12 +28,12 @@ const InputBox: React.FC<InputBoxProps> = ({
   variant = 'flat',
   color = 'secondary',
   size = 'md',
-  radius = 'sm',
+  radius = 'md',
   fullWidth = false,
-  labelPlacement = 'outside',
+  labelPlacement = 'inside',
   disabled = false,
   isMultiline = false,
-  isPassword = false, // Default isPassword to false
+  isPassword = false, 
   validationBehavior,
   defaultValue = '',
   className,
@@ -42,26 +42,29 @@ const InputBox: React.FC<InputBoxProps> = ({
   ...props
 }) => {
   const [value, setValue] = useState(defaultValue);
-  const [showPassword, setShowPassword] = useState(false); // To toggle password visibility
-
-  const inputBoxClass = classNames(
-    'input',
-    { 'input-fullWidth': fullWidth },
-    { 'input-disabled': disabled },
-    className
-  );
-
-  const labelClass = classNames(
-    'inputbox-label',
-    `inputbox-label-${labelPlacement}` // Adjust label placement
-  );
+  const [showPassword, setShowPassword] = useState(false); 
 
   const inputClass = classNames(
-    'inputbox',
-    `inputbox-${size}`, // Styling for size
-    `inputbox-${variant}`, // Styling for variant
-    `inputbox-${radius}`, // Border radius
-    `inputbox--${color}` // Optional color classes
+    'input-box__input',
+  );
+  
+  const labelClass = classNames(
+    'input-box__label',
+    `input-box__label--${labelPlacement}`
+  );
+
+  const passwordClass = classNames(
+    'input-box__password',
+  );
+  
+  const inputBoxClass = classNames(
+    'input-box',
+    { 'input-box--full-width': fullWidth },
+    { 'input-box--disabled': disabled },
+    `input-box--size-${size}`, 
+    `input-box--variant-${variant}`, 
+    `input-box--radius-${radius}`, 
+    `input-box--color-${color}` 
   );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -76,34 +79,46 @@ const InputBox: React.FC<InputBoxProps> = ({
   };
 
   const InputComponent = isMultiline ? 'textarea' : 'input';
-  const inputType = isPassword && !showPassword ? 'password' : 'text'; // Conditionally set input type
+  const inputType = isPassword && !showPassword ? 'password' : 'text'; 
 
-  return (
-    <label className={inputBoxClass} style={style}>
-      {label && <span className={labelClass}>{label}</span>}
-      <div className="input-wrapper">
-        <InputComponent
-          className={inputClass}
-          placeholder={placeholder}
-          value={value}
-          onChange={handleInputChange}
-          disabled={disabled}
-          type={inputType} // Use conditional type
-          {...props}
-        />
-        {isPassword && (
-          <button
-            type="button"
-            onClick={togglePasswordVisibility}
-            className="toggle-password-visibility"
-            aria-label={showPassword ? 'Hide password' : 'Show password'}
-          >
-            {showPassword ? <FaRegEyeSlash /> : <FaRegEye />} {/* Icon for visibility */}
-          </button>
+const isPlaceholderEmpty = placeholder === "";
+const displayPlaceholder = isPlaceholderEmpty ? label : placeholder;
+const displayLabel = isPlaceholderEmpty && value ? label : isPlaceholderEmpty ? "" : label;
+
+
+return (
+  <>
+  {labelPlacement !== "inside" && (
+         <span className={labelClass}>{displayLabel}</span>
         )}
-      </div>
-    </label>
-  );
+  <div className={inputBoxClass} style={style} aria-disabled={disabled}>
+  {labelPlacement === "inside" && (
+         <span className={labelClass}>{displayLabel}</span>
+        )}
+    <div className="inputbox__input-wrapper">
+      <InputComponent
+        className={inputClass}
+        placeholder={displayPlaceholder} 
+        value={value}
+        onChange={handleInputChange}
+        disabled={disabled}
+        type={inputType}
+        {...props}
+      />
+      {isPassword && (
+        <button
+          type="button"
+          onClick={togglePasswordVisibility}
+          className={passwordClass}
+          aria-label={showPassword ? 'Hide password' : 'Show password'}
+        >
+          {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+        </button>
+      )}
+    </div>
+  </div>
+  </>
+);
 };
    
 export default InputBox;

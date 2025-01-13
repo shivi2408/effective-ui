@@ -1,121 +1,208 @@
-.input {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
-    width: 100%;
-  }
+/* REMOVE DEFAULT VALUES */
+input,
+textarea {
+  all: unset; 
+  display: inline-block; 
+}
+
+/* BASE CLASS */
+
+.input-box {
+ display: flex;
+ font-family: 'Nunito Sans';
+ flex-direction: column;
+ color: var(--effectiveui-text-default);
+ background-color : var(--effectiveui-background-default);
+ padding: 0.275rem 1rem;
+ min-height: 3rem;
+ font-size:0.875rem;
+ border: 2px solid var(--effectiveui-border-default);
+ border-radius: 12px;
+ justify-content: center;
+ gap: 0px;
+ cursor: text;
+}
+
+/* INSIDE BASE CLASS EXTRA ELEMENTS */
+.input-box__password{
+  background: transparent;
+  border: none;
   
-  .inputbox-label {
-    margin-bottom: 5px;
+}
+
+
+.inputbox__input-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+.input-box__label{
+  /* color: inherit; */
+}
+
+.input-box--full-width {
+  width: 100%;
+}
+
+.input-box--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+
+/* SIZE*/
+
+.input-box--size-sm {
+  font-size:0.875rem;
+  padding: 0rem 1rem;
+ }
+
+ .input-box--size-md {
+  font-size:0.875rem;
+  padding: 0.275rem 1rem;
+ }
+
+ .input-box--size-lg {
+  font-size:1rem;
+  padding: 0.45rem 1.2rem;
+ }
+
+
+/* VARIANTS */
+.input-box--variant-flat,
+.input-box--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid transparent !important;
+}
+
+.input-box--variant-faded,
+.input-box--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+
+}
+
+.input-box--variant-bordered,
+.input-box--variant-bordered:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color: transparent !important;
+}
+
+.input-box--variant-underlined,
+.input-box--variant-underlined:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border-radius: 0px !important;
+  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* COLORS */
+
+ .input-box--color-default{
+  color: var(--effectiveui-text-default);
+  background-color : var(--effectiveui-background-default);
+  border: 2px solid var(--effectiveui-border-default);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-default);
   }
-  
-  .inputbox-label-inside {
-    position: absolute;
-    bottom: 50%;
-    left: 9%;
-    font-size: 12px;
-    color: #888;
-  }
-  
-  .inputbox {
-    padding: 10px;
-    padding-right:0;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* To position toggle button inside the input */
-  }
-  
-  .inputbox-primary {
-    border: 1px solid var(--effectiveui-primary) !important;
-    background-color: var(--effectiveui-primary);
-  }
-  
-  .inputbox-success {
-    border: 1px solid var(--effectiveui-success);
-  }
-  
-  .inputbox-flat {
-    background: #f9f9f9;
-    border: none;
-  }
-  
-  .inputbox-bordered {
-    border: 1px solid #797979;
-    background: transparent;
-  }
-  
-  .inputbox-underlined {
-    border: none;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .inputbox-none {
-    border-radius: 0;
-  }
-  
-  .inputbox-sm {
-    border-radius: 4px;
-  }
-  
-  .inputbox-md {
-    border-radius: 8px;
-  }
-  
-  .inputbox-lg {
-    border-radius: 12px;
-  }
-  
-  .inputbox-full {
-    border-radius: 50px;
-  }
-  
-  .inputbox-sm {
-    padding: 0.35rem 0.5rem;
-    font-size: 0.875rem;
-  }
-  
-  .inputbox-md{
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  }
-  
-  .inputbox-lg {
-    padding: 0.65rem 1.3rem;
-    font-size: 1.15rem;
-  }
-  
-  .input-disabled {
-    opacity: 0.6;
-    pointer-events: none;
-    cursor: not-allowed !important;
-  }
-  
-  .input-fullWidth {
-    width: 100%;
-  }
-  
-  /* Password toggle button */
-  .toggle-password-visibility {
-    position: absolute;
-    right: 15px;
-    top: 65%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #797979;
-    outline: none;
-  }
-  
-  .toggle-password-visibility:focus {
-    color: #000;
-  }
-  
-  .toggle-password-visibility:hover {
-    color: #252525;
-  }
-  
-  input:not([value=""]){
-    padding-inline-end: 2rem;
+}
+.input-box--color-default:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-default);
+  background-color: var(--effectiveui-hover-background-default);
+}
+
+
+ .input-box--color-primary{
+   color: var(--effectiveui-text-primary);
+   background-color : var(--effectiveui-background-primary);
+   border: 2px solid var(--effectiveui-border-primary);
+   
+    input::placeholder,
+    textarea::placeholder{
+      color: var(--effectiveui-text-primary);
     }
+ }
+ .input-box--color-primary:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-primary);
+  background-color: var(--effectiveui-hover-background-primary);
+ }
+
+ .input-box--color-secondary{
+  color: var(--effectiveui-text-secondary);
+  background-color : var(--effectiveui-background-secondary);
+  border: 2px solid var(--effectiveui-border-secondary);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-secondary);
+  }
+}
+.input-box--color-secondary:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-secondary);
+  background-color: var(--effectiveui-hover-background-secondary);
+}
+
+.input-box--color-success{
+  color: var(--effectiveui-text-success);
+  background-color : var(--effectiveui-background-success);
+  border: 2px solid var(--effectiveui-border-success);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-success);
+  }
+}
+.input-box--color-success:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-success);
+  background-color: var(--effectiveui-hover-background-success);
+}
+
+
+.input-box--color-warning{
+  color: var(--effectiveui-text-warning);
+  background-color : var(--effectiveui-background-warning);
+  border: 2px solid var(--effectiveui-border-warning);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-warning);
+  }
+}
+.input-box--color-warning:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-warning);
+  background-color: var(--effectiveui-hover-background-warning);
+}
+
+.input-box--color-danger{
+  color: var(--effectiveui-text-danger);
+  background-color : var(--effectiveui-background-danger);
+  border: 2px solid var(--effectiveui-border-danger);
+  input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-danger);
+  }
+}
+.input-box--color-danger:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-danger);
+  background-color: var(--effectiveui-hover-background-danger);
+}
+
+
+
+/* RADIUS */
+.input-box--radius-none{
+  border-radius: 0px;
+}
+
+.input-box--radius-sm{
+  border-radius: 8px;
+}
+
+.input-box--radius-md{
+  border-radius: 12px;
+}
+
+.input-box--radius-lg{
+  border-radius: 16px;
+}
+
+.input-box--radius-full{
+  border-radius: 9999999px;
+}
