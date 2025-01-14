@@ -96,6 +96,7 @@ button {
 
 .btn--disabled {
   cursor: not-allowed;
+  pointer-events: none;
   opacity: 0.6;
 }
 
@@ -119,6 +120,27 @@ button {
   padding: 0.45rem 1.2rem;
   gap: 1rem;
  }
+
+ /* RADIUS */
+.btn--radius-none{
+  border-radius: 0px;
+}
+
+.btn--radius-sm{
+  border-radius: 8px;
+}
+
+.btn--radius-md{
+  border-radius: 12px;
+}
+
+.btn--radius-lg{
+  border-radius: 16px;
+}
+
+.btn--radius-full{
+  border-radius: 9999999px;
+}
 
 
 /* VARIANTS */
@@ -236,25 +258,3 @@ background-color : var(--effectiveui-background-default);
   --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
 }
 
-
-
-/* RADIUS */
-.btn--radius-none{
-  border-radius: 0px;
-}
-
-.btn--radius-sm{
-  border-radius: 8px;
-}
-
-.btn--radius-md{
-  border-radius: 12px;
-}
-
-.btn--radius-lg{
-  border-radius: 16px;
-}
-
-.btn--radius-full{
-  border-radius: 9999999px;
-}

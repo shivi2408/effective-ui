@@ -20,7 +20,7 @@ const meta = {
     },
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary', 'success', 'danger'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'The color variant of the input fields.',
     },
     size: {
@@ -30,7 +30,7 @@ const meta = {
     },
     radius: {
       control: 'select',
-      options: ['none','sm', 'md', 'lg'],
+      options: ['none', 'sm', 'md', 'lg', 'full'],
       description: 'The border radius of the input fields.',
     },
     isDisabled: {
@@ -57,6 +57,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    variant:'flat',
     length: 4,
     color: 'default',
     size: 'md',
@@ -68,6 +69,7 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   args: {
+    variant:'faded',
     length: 4,
     color: 'secondary',
     size: 'md',

@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['solid' ,'light' , 'shadow' , 'ghost' , 'flat', 'faded' , 'bordered', 'underlined' , 'dot'],
+      options: ['solid' ,'light' , 'shadow' , 'ghost' , 'flat', 'faded' , 'outlined', 'underlined' , 'dot'],
       description: 'The variant of the chip.',
     },
     color: {
@@ -59,13 +59,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    variant: 'flat',
+    size: 'lg',
     children: 'Chip',
+    
   },
 };
 
 export const Outlined: Story = {
   args: {
-    variant: 'bordered',
+    variant: 'outlined',
     color: 'primary',
     children: 'Outlined',
   },
@@ -74,6 +77,7 @@ export const Outlined: Story = {
 export const WithStartIcon: Story = {
   args: {
     color: 'success',
+    variant: 'flat',
     icon: '🌟',
     iconPosition: 'left',
     children: 'Chip',
@@ -83,6 +87,7 @@ export const WithStartIcon: Story = {
 export const WithEndIcon: Story = {
   args: {
     color: 'danger',
+    variant: 'flat',
     icon: '🎉',
     iconPosition: 'right',
     children: 'Chip',
