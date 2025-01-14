@@ -1,115 +1,272 @@
+/* BASE CLASS */
 .chip {
-    display: inline-flex;
-    align-items: center;
-    line-height: 2rem;
-    /* padding: 0.4em 0.9em; */
-    font-size: 1rem;
-    border-radius:  999px;
-    cursor:auto;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  .chip-content{
-    padding: 0 0.8rem;
-  }
-  .chip-disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-  
-  .chip-sm {
-    font-size: 0.9rem;
-    line-height: 1.8rem;
-    /* padding: 0.35em 0.8em; */
-  }
-  .chip-sm .chip-content{
-    padding: 0 0.7rem;
-  }
-  
-  .chip-md {
-    font-size: 1rem;
-    /* padding: 0.4em 0.9em; */
-  }
-  
-  .chip-lg {
-    font-size: 1.2rem;
-    line-height: 2.35rem;
-    /* padding: 0.5em 1.1em; */
-  }
-  .chip-lg .chip-content{
-    padding: 0 0.95rem;
-  }
-  
-  .chip-radius-none {
-    border-radius: 0;
-  }
-  
-  .chip-radius-sm {
-    border-radius: 6px;
-  }
-  
-  .chip-radius-md {
-    border-radius: 10px;
-  }
-  
-  .chip-radius-lg {
-    border-radius: 14px;
-  }
-  
-  .chip-radius-full {
-    border-radius: 999px;
-  }
-  
-  .chip-start-content,
-  .chip-end-content {
-    display: inline-flex;
-    align-items: center;
-    margin: 0 0.3em;
-  }
+ display: flex;
+ font-family: 'Nunito Sans';
+ flex-direction: row;
+ color: var(--effectiveui-text-default);
+ background-color : var(--effectiveui-background-default);
+ padding: 0.375rem 1rem;
+ font-size:0.875rem;
+ border: 2px solid var(--effectiveui-border-default);
+ border-radius: 12px;
+ justify-content: center;
+ cursor: auto;
+ transition: all 0.2s ease;
+ align-items: center;
+ gap: 0.5rem;
+ width: fit-content;
+}
 
-  .chip-solid {
-    background-color:  var(--effectiveui-default);
-    color:  #d1d1d1 !important;
-    border:none !important;
-  }
-  .chip-light {
-    color:  #d1d1d1;
-    background-color: transparent !important;
-    border:none !important;
-  }
+.chip:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid var(--effectiveui-hover-border-default);
+  background-color: var(--effectiveui-hover-background-default);
+}
 
-  .chip-outlined {
-    border: 1px solid #777777;
-    background: transparent !important;
-    color: #777777
+.chip-icon{
+ padding : 0;
+}
+
+/* .chip-icon--position-left {
+ 
+}
+
+.chip-icon--position-right {
+
+} 
+
+.chip-icon--size-sm {
+
+}
+
+.chip-icon--size-md {
+ 
+}
+
+.chip-icon--size-lg {
+
+}
+*/
+
+.chip-spinner {
+  border: 2px solid var(--effectiveui-border-default);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+  animation: spin 1s linear infinite;
+}
+
+.chip-spinner--size-sm {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.chip-spinner--size-md {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+}
+
+
+.chip-spinner--size-lg {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 1rem;
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
+}
+
+/* INSIDE BASE CLASS EXTRA ELEMENTS */
+
+.chip--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+
+/* SIZE*/
+.chip--size-sm {
+  font-size:0.875rem;
+  padding: 0.275rem 1rem;
+  gap: 0.3rem;
+ }
+
+ .chip--size-md {
+  font-size:0.875rem;
+  padding: 0.375rem 1rem;
+  gap: 0.5rem;
+ }
+
+ .chip--size-lg {
+  font-size:1rem;
+  padding: 0.45rem 1.2rem;
+  gap: 1rem;
+ }
+
+
+/* VARIANTS */
+.chip--variant-solid{
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.chip--variant-solid:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color : var(--effectiveui-hover-border-default) !important;
+  border: 2px solid var(--effectiveui-hover-border-default) !important;
+}
+
+.chip--variant-light{
+  border: 2px solid transparent !important;
+  background-color: transparent !important;
+}
+.chip--variant-light:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid transparent !important;
+  background-color : var(--effectiveui-background-default) !important;
+}
+
+
+.chip--variant-shadow{
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+  box-shadow: var(--effectiveui-border-default) 0px 10px 15px -3px, var(--effectiveui-border-default) 0px 4px 6px -2px;
+}
+.chip--variant-shadow:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color : var(--effectiveui-hover-border-default) !important;
+  border: 2px solid var(--effectiveui-hover-border-default) !important;
+}
+
+
+.chip--variant-ghost{
+  background-color: transparent !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+}
+.chip--variant-ghost:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
   
-  .chip-primary {
-    background-color: var(--effectiveui-primary);
-    border: 1px solid var(--effectiveui-primary);
-    color: var(--effectiveui-primary);
-  }
-  
-  .chip-secondary {
-    background-color: var(--effectiveui-secondary);
-    border: 1px solid var(--effectiveui-secondary);
-    color: var(--effectiveui-secondary);
-  }
-  
-  .chip-success {
-    background-color: var(--effectiveui-success);
-    border: 1px solid var(--effectiveui-success);
-    color: var(--effectiveui-success);
-  }
-  
-  .chip-danger {
-    background-color: var(--effectiveui-danger);
-    border: 1px solid var(--effectiveui-danger);
-    color: var(--effectiveui-danger);
-  }
-  
-  .chip-default {
-    background-color:  var(--effectiveui-default);
-    border: 1px solid #777777;
-    color:  #777777;
-  }
+}
+
+
+.chip--variant-flat{
+  border: 2px solid var(--effectiveui-background-default) !important;
+}
+.chip--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid var(--effectiveui-hover-background-default) !important;
+}
+
+.chip--variant-faded{
+
+}
+.chip--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+background-color : var(--effectiveui-background-default);
+}
+
+.chip--variant-bordered,
+.chip--variant-bordered:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color: transparent !important;
+}
+
+.chip--variant-underlined,
+.chip--variant-underlined:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border-radius: 0px !important;
+  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid transparent !important;
+  background-color: transparent !important;
+}
+
+
+.chip--variant-dot,
+.chip--variant-dot:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color: transparent !important;
+}
+
+/* .chip_dot{
+  padding: 0;
+  font-size:0.875rem;
+}
+.chip_dot--size-sm {
+  font-size: 0.75rem;
+}
+
+.chip_dot--size-md {
+  font-size:0.875rem;
+}
+
+.chip_dot--size-lg {
+  font-size: 1rem;
+} */
+
+/* COLORS */
+.chip--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.chip--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.chip--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.chip--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.chip--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+
+
+
+/* RADIUS */
+.chip--radius-none{
+  border-radius: 0px;
+}
+
+.chip--radius-sm{
+  border-radius: 8px;
+}
+
+.chip--radius-md{
+  border-radius: 12px;
+}
+
+.chip--radius-lg{
+  border-radius: 16px;
+}
+
+.chip--radius-full{
+  border-radius: 9999999px;
+}

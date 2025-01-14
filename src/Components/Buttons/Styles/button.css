@@ -15,7 +15,7 @@ button {
  font-size:0.875rem;
  border: 2px solid var(--effectiveui-border-default);
  border-radius: 12px;
- justify-content: space-between;
+ justify-content: center;
  cursor: pointer;
  transition: all 0.2s ease;
  align-items: center;

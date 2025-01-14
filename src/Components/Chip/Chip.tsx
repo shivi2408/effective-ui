@@ -3,14 +3,14 @@ import classNames from 'classnames';
 import './Styles/chip.css';
 
 export interface ChipProps {
-  variant?: 'solid' | 'outlined' | 'light';
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
+  variant?: 'solid' | 'light' | 'shadow' | 'ghost' | 'flat'| 'faded' | 'bordered' | 'underlined' | 'dot';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   isDisabled?: boolean;
   children?: React.ReactNode;
-  startContent?: React.ReactNode;
-  endContent?: React.ReactNode;
+  icon?: React.ReactNode; 
+  iconPosition?: 'left' | 'right'; 
   className?: string;
   style?: React.CSSProperties;
   [x: string]: any;
@@ -23,27 +23,47 @@ const Chip: React.FC<ChipProps> = ({
   radius = 'full',
   isDisabled = false,
   children,
-  startContent,
-  endContent,
+  icon,
+  iconPosition = 'left',
   className,
   style,
   ...props
 }) => {
+
   const chipClass = classNames(
     'chip',
-    `chip-${variant}`,
-    `chip-${color}`,
-    `chip-${size}`,
-    `chip-radius-${radius}`,
-    { 'chip-disabled': isDisabled },
-    className
+    `chip--variant-${variant}`,
+    `chip--color-${color}`, 
+    `chip--size-${size}`, 
+    `chip--radius-${radius}`, 
+    { 'chip--disabled': isDisabled },
+    className 
   );
 
+    const chipIconClass = classNames(
+      'chip-icon', 
+      `chip-icon--size-${size}`,
+      `chip-icon--position-${iconPosition}`
+    );
+  
+    const chipLabelClass = classNames(
+      'chip-label', 
+      `chip-label--size-${size}`,
+    );
+
+    const chipDotClass = classNames(
+      'chip_dot', 
+      `chip_dot--size-${size}`,
+    );
+
+    const dotDisplay = variant === 'dot' ? true : false;
   return (
     <div className={chipClass} style={style} {...props}>
-      {startContent && <span className="chip-start-content">{startContent}</span>}
-      <span className="chip-content">{children}</span>
-      {endContent && <span className="chip-end-content">{endContent}</span>}
+     {dotDisplay && <span className={chipDotClass}>⬤</span>}
+      {dotDisplay}
+      {icon && iconPosition === 'left' && <span className={chipIconClass}>{icon}</span>}
+      <span className={chipLabelClass}>{children}</span>
+      {icon && iconPosition === 'right' && <span className={chipIconClass}>{icon}</span>}
     </div>
   );
 };

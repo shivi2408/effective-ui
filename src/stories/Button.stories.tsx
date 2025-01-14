@@ -44,7 +44,7 @@ const meta = {
     },
     icon: { 
       control: 'text',
-      description: 'Content or icon at the end of the chip.',
+      description: 'Content or icon at the end of the button.',
     },
     iconPosition: { 
       control: 'select', 
@@ -90,7 +90,7 @@ export const SuccessIconLeft: Story = {
   },
 };
 
-export const FaildedIconRight: Story = {
+export const FailedIconRight: Story = {
   args: {
     variant: 'bordered',
     color: 'danger',
