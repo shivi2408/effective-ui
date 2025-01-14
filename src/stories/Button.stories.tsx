@@ -6,13 +6,13 @@ const meta = {
   title: 'Components/Button', 
   component: Button,
   parameters: {
-    layout: 'centered', 
+    layout: 'padded', 
   },
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
-      options: ['solid' , 'light' , 'shadow' , 'ghost' , 'flat', 'faded' , 'bordered'],
+      options: ['solid' ,'light' , 'shadow' , 'ghost' , 'flat', 'faded' , 'bordered', 'underlined' , ],
       description: 'Style variant of the button box.',
     },
     color: {
@@ -37,6 +37,14 @@ const meta = {
     fullWidth: {
       control: 'boolean',
       description: 'If true, the button box spans the full width of its container.',
+    },
+    children: {
+      control: 'text',
+      description: 'Content inside the Button.',
+    },
+    icon: { 
+      control: 'text',
+      description: 'Content or icon at the end of the chip.',
     },
     iconPosition: { 
       control: 'select', 
@@ -67,3 +75,33 @@ export const Default: Story = {
     children: 'Button',
   },
 };
+
+export const SuccessIconLeft: Story = {
+  args: {
+    variant: 'flat',
+    color: 'success',
+    radius: 'full',
+    size: 'md',
+    disabled: false,
+    fullWidth: false,
+    children: 'Success',
+    icon: '🌟',
+    iconPosition: 'left'
+  },
+};
+
+export const FaildedIconRight: Story = {
+  args: {
+    variant: 'bordered',
+    color: 'danger',
+    radius: 'none',
+    size: 'lg',
+    disabled: false,
+    fullWidth: false,
+    children: 'Failed',
+    icon: '🎉',
+    iconPosition: 'right'
+  },
+};
+
+

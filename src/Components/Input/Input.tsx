@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { FaRegEye,FaRegEyeSlash } from "react-icons/fa";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import './Styles/input.css';
 
 export interface InputBoxProps {
@@ -10,16 +10,17 @@ export interface InputBoxProps {
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   disabled?: boolean;
   fullWidth?: boolean;
-  label?: string;
+  label?: React.ReactNode;
   placeholder?: string;
-  labelPlacement?: 'inside' | 'outside' | 'outside-left' ; 
+  labelPlacement?: 'inside' | 'outside' | 'outside-left';
   isMultiline?: boolean;
-  validationBehavior?: string; 
   isPassword?: boolean;
+  isRequired?: boolean;
+  validationBehavior?: string;
   className?: string;
   style?: React.CSSProperties;
+  defaultValue?: string;
   onChange?: (value: string) => void;
-  [x: string]: any; 
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -33,7 +34,8 @@ const InputBox: React.FC<InputBoxProps> = ({
   placeholder = 'Enter text...',
   labelPlacement = 'inside',
   isMultiline = false,
-  isPassword = false, 
+  isPassword = false,
+  isRequired = false,
   validationBehavior,
   defaultValue = '',
   className,
@@ -42,7 +44,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   ...props
 }) => {
   const [value, setValue] = useState(defaultValue);
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
 
   const inputClass = classNames(
     'input-box__input',
@@ -70,8 +72,9 @@ const InputBox: React.FC<InputBoxProps> = ({
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (!disabled) {
-      setValue(event.target.value);
-      onChange?.(event.target.value);
+      const newValue = event.target.value;
+      setValue(newValue);
+      onChange?.(newValue);
     }
   };
 
@@ -79,47 +82,68 @@ const InputBox: React.FC<InputBoxProps> = ({
     setShowPassword(!showPassword);
   };
 
+  const getLabelText = (labelNode: React.ReactNode): string => {
+    if (typeof labelNode === 'string') return labelNode;
+    if (typeof labelNode === 'number') return labelNode.toString();
+    if (React.isValidElement(labelNode)) {
+      const children = labelNode.props.children;
+      if (Array.isArray(children)) {
+        return children.map(child => getLabelText(child)).join('');
+      }
+      return getLabelText(children);
+    }
+    return '';
+  };
+
   const InputComponent = isMultiline ? 'textarea' : 'input';
-  const inputType = isPassword && !showPassword ? 'password' : 'text'; 
+  const inputType = isPassword && !showPassword ? 'password' : 'text';
 
-const isPlaceholderEmpty = placeholder === "";
-const displayPlaceholder = isPlaceholderEmpty ? label : placeholder;
-const displayLabel = isPlaceholderEmpty && value ? label : isPlaceholderEmpty ? "" : label;
+  const xLabel = (
+    <>
+      {label}
+      {isRequired && <span className="input-box__required"> *</span>}
+    </>
+  );
 
+  const isPlaceholderEmpty = placeholder === '';
+  const displayPlaceholder = isPlaceholderEmpty 
+  ? (label ? `${getLabelText(label)}${isRequired ? ' *' : ''}` : '') 
+  : placeholder;
+  const displayLabel = isPlaceholderEmpty && value ? xLabel : isPlaceholderEmpty ? null : xLabel;
 
-return (
-  <>
-  {labelPlacement !== "inside" && (
-         <span className={labelClass}>{displayLabel}</span>
-        )}
-  <div className={inputBoxClass} style={style} aria-disabled={disabled}>
-  {labelPlacement === "inside" && (
-         <span className={labelClass}>{displayLabel}</span>
-        )}
-    <div className="input-box__input-wrapper">
-      <InputComponent
-        className={inputClass}
-        placeholder={displayPlaceholder} 
-        value={value}
-        onChange={handleInputChange}
-        disabled={disabled}
-        type={inputType}
-        {...props}
-      />
-      {isPassword && (
-        <button
-          type="button"
-          onClick={togglePasswordVisibility}
-          className={passwordClass}
-          aria-label={showPassword ? 'Hide password' : 'Show password'}
-        >
-          {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-        </button>
+  return (
+    <>
+      {labelPlacement !== 'inside' && displayLabel && (
+        <span className={labelClass}>{displayLabel}</span>
       )}
-    </div>
-  </div>
-  </>
-);
+      <div className={inputBoxClass} style={style} aria-disabled={disabled}>
+        {labelPlacement === 'inside' && displayLabel && (
+          <span className={labelClass}>{displayLabel}</span>
+        )}
+        <div className="input-box__input-wrapper">
+          <InputComponent
+            className={inputClass}
+            placeholder={displayPlaceholder}
+            value={value}
+            onChange={handleInputChange}
+            disabled={disabled}
+            type={inputType}
+            {...props}
+          />
+          {isPassword && (
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className={passwordClass}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+            </button>
+          )}
+        </div>
+      </div>
+    </>
+  );
 };
-   
+
 export default InputBox;

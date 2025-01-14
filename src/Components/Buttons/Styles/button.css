@@ -5,7 +5,6 @@ button {
 }
 
 /* BASE CLASS */
-
 .btn {
  display: flex;
  font-family: 'Nunito Sans';
@@ -16,33 +15,78 @@ button {
  font-size:0.875rem;
  border: 2px solid var(--effectiveui-border-default);
  border-radius: 12px;
- justify-content: center;
- gap: 0px;
+ justify-content: space-between;
  cursor: pointer;
- transition: all 0.3s ease;
+ transition: all 0.2s ease;
+ align-items: center;
+ gap: 0.5rem;
 }
 
+.btn:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid var(--effectiveui-hover-border-default);
+  background-color: var(--effectiveui-hover-background-default);
+}
+
+.btn-icon{
+ padding : 0;
+}
+
+/* .btn-icon--position-left {
+ 
+}
+
+.btn-icon--position-right {
+
+} 
+
+.btn-icon--size-sm {
+
+}
+
+.btn-icon--size-md {
+ 
+}
+
+.btn-icon--size-lg {
+
+}
+*/
+
 .btn-spinner {
-  border: 2px solid #fff;
+  border: 2px solid var(--effectiveui-border-default);
   border-top: 2px solid transparent;
   border-radius: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+  animation: spin 1s linear infinite;
+}
+
+.btn-spinner--size-sm {
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
-  animation: spin 1s linear infinite;
 }
+
+.btn-spinner--size-md {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+}
+
+
+.btn-spinner--size-lg {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 1rem;
+}
+
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
-
-.btn-icon {
-  display: inline-flex;
-  margin: 0 0.5rem;
-}
-
 
 /* INSIDE BASE CLASS EXTRA ELEMENTS */
 
@@ -58,32 +102,82 @@ button {
 
 
 /* SIZE*/
-
 .btn--size-sm {
   font-size:0.875rem;
   padding: 0.275rem 1rem;
+  gap: 0.3rem;
  }
 
  .btn--size-md {
   font-size:0.875rem;
   padding: 0.375rem 1rem;
+  gap: 0.5rem;
  }
 
  .btn--size-lg {
   font-size:1rem;
   padding: 0.45rem 1.2rem;
+  gap: 1rem;
  }
 
 
 /* VARIANTS */
-.btn--variant-flat,
-.btn--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
-  border: 2px solid transparent !important;
+.btn--variant-solid{
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.btn--variant-solid:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color : var(--effectiveui-hover-border-default) !important;
+  border: 2px solid var(--effectiveui-hover-border-default) !important;
 }
 
-.btn--variant-faded,
-.btn--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+.btn--variant-light{
+  border: 2px solid transparent !important;
+  background-color: transparent !important;
+}
+.btn--variant-light:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid transparent !important;
+  background-color : var(--effectiveui-background-default) !important;
+}
 
+
+.btn--variant-shadow{
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+  box-shadow: var(--effectiveui-border-default) 0px 10px 15px -3px, var(--effectiveui-border-default) 0px 4px 6px -2px;
+}
+.btn--variant-shadow:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color : var(--effectiveui-hover-border-default) !important;
+  border: 2px solid var(--effectiveui-hover-border-default) !important;
+}
+
+
+.btn--variant-ghost{
+  background-color: transparent !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+}
+.btn--variant-ghost:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+  
+}
+
+
+.btn--variant-flat{
+  border: 2px solid var(--effectiveui-background-default) !important;
+}
+.btn--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid var(--effectiveui-hover-background-default) !important;
+}
+
+.btn--variant-faded{
+
+}
+.btn--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+background-color : var(--effectiveui-background-default);
 }
 
 .btn--variant-bordered,
@@ -102,92 +196,44 @@ button {
 
 
 /* COLORS */
-
- .btn--color-default{
-  color: var(--effectiveui-text-default);
-  background-color : var(--effectiveui-background-default);
-  border: 2px solid var(--effectiveui-border-default);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-default);
-  }
-}
-.btn--color-default:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-default);
-  background-color: var(--effectiveui-hover-background-default);
+.btn--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
 }
 
-
- .btn--color-primary{
-   color: var(--effectiveui-text-primary);
-   background-color : var(--effectiveui-background-primary);
-   border: 2px solid var(--effectiveui-border-primary);
-   
-    input::placeholder,
-    textarea::placeholder{
-      color: var(--effectiveui-text-primary);
-    }
- }
- .btn--color-primary:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-primary);
-  background-color: var(--effectiveui-hover-background-primary);
- }
-
- .btn--color-secondary{
-  color: var(--effectiveui-text-secondary);
-  background-color : var(--effectiveui-background-secondary);
-  border: 2px solid var(--effectiveui-border-secondary);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-secondary);
-  }
-}
-.btn--color-secondary:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-secondary);
-  background-color: var(--effectiveui-hover-background-secondary);
+.btn--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
 }
 
-.btn--color-success{
-  color: var(--effectiveui-text-success);
-  background-color : var(--effectiveui-background-success);
-  border: 2px solid var(--effectiveui-border-success);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-success);
-  }
-}
-.btn--color-success:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-success);
-  background-color: var(--effectiveui-hover-background-success);
+.btn--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
 }
 
-
-.btn--color-warning{
-  color: var(--effectiveui-text-warning);
-  background-color : var(--effectiveui-background-warning);
-  border: 2px solid var(--effectiveui-border-warning);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-warning);
-  }
-}
-.btn--color-warning:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-warning);
-  background-color: var(--effectiveui-hover-background-warning);
+.btn--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
 }
 
-.btn--color-danger{
-  color: var(--effectiveui-text-danger);
-  background-color : var(--effectiveui-background-danger);
-  border: 2px solid var(--effectiveui-border-danger);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-danger);
-  }
-}
-.btn--color-danger:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-danger);
-  background-color: var(--effectiveui-hover-background-danger);
+.btn--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
 }
 
 
