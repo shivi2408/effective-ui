@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './Styles/switch.css';
 
 export interface SwitchProps {
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md'| 'lg';
   isDisabled?: boolean;
   children?: React.ReactNode;
@@ -48,17 +48,24 @@ const Switch: React.FC<SwitchProps> = ({
 
   const switchClass = classNames(
     'switch',
-    { 'switch-disabled': isDisabled },
-    { 'switch-checked': !checked },
-    `switch-${size}`,
+    `switch--size-${size}`,
+    `switch--color-${color}`,
+    { 'switch--disabled': isDisabled },
+    { 'switch--checked': !checked },
+    
     className
   );
 
   const trackClass = classNames(
-    'switch-track',
-    `switch-track-${color}`,
-    `switch-${size}`,
-    { 'switch-checked': !checked }
+    'switch_track',
+    `switch_track--color-${color}`,
+    `switch_track--size-${size}`,
+    { 'switch--checked': !checked },
+  );
+
+  const switchLabelClass = classNames(
+    'switch_label',
+    `switch_label--size-${size}`,
   );
 
   return (
@@ -69,19 +76,13 @@ const Switch: React.FC<SwitchProps> = ({
       {...props}
     >
       <div className={trackClass}>
-        <div className="switch-thumb">
-          {checked ? (
-            <span className="thumb-icon ">
-              {onIcon}
-            </span>
-          ) : (
-            <span className="thumb-icon ">
-              {offIcon}
-            </span>
+        <div className="switch_thumb">
+          {checked ? (<span className="thumb-icon ">{onIcon}</span>) : 
+                    (<span className="thumb-icon "> {offIcon}</span>
           )}
         </div>
       </div>
-      {children && <span className="switch-label">{children}</span>}
+      {children && <span className={switchLabelClass}>{children}</span>}
     </div>
   );
 };
