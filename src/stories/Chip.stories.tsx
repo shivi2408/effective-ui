@@ -5,18 +5,18 @@ const meta = {
   title: 'Components/Chip', 
   component: Chip,
   parameters: {
-    layout: 'centered', 
+    layout: 'padded', 
   },
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
-      options: ['solid', 'outlined', 'light'],
+      options: ['solid' ,'light' , 'shadow' , 'ghost' , 'flat', 'faded' , 'bordered', 'underlined' , 'dot'],
       description: 'The variant of the chip.',
     },
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary', 'success', 'danger'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'The color variant of the chip.',
     },
     size: {
@@ -37,13 +37,14 @@ const meta = {
       control: 'text',
       description: 'Content inside the chip.',
     },
-    startContent: {
+    icon: { 
       control: 'text',
-      description: 'Content or icon at the start of the chip.',
+      description: 'Content or icon at the end of the Chip.',
     },
-    endContent: {
-      control: 'text',
-      description: 'Content or icon at the end of the chip.',
+    iconPosition: { 
+      control: 'select', 
+      options: ['left', 'right'], 
+      description: 'Position of the icon relative to the Chip label.' 
     },
   },
   args: {
@@ -64,7 +65,7 @@ export const Default: Story = {
 
 export const Outlined: Story = {
   args: {
-    variant: 'outlined',
+    variant: 'bordered',
     color: 'primary',
     children: 'Outlined',
   },
@@ -73,7 +74,8 @@ export const Outlined: Story = {
 export const WithStartIcon: Story = {
   args: {
     color: 'success',
-    startContent: '🎉',
+    icon: '🌟',
+    iconPosition: 'left',
     children: 'Chip',
   },
 };
@@ -81,7 +83,8 @@ export const WithStartIcon: Story = {
 export const WithEndIcon: Story = {
   args: {
     color: 'danger',
-    endContent: '🌟',
+    icon: '🎉',
+    iconPosition: 'right',
     children: 'Chip',
   },
 };
