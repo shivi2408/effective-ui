@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './Styles/chip.css';
 
 export interface ChipProps {
-  variant?: 'solid' | 'light' | 'shadow' | 'ghost' | 'flat'| 'faded' | 'bordered' | 'underlined' | 'dot';
+  variant?: 'solid' | 'light' | 'shadow' | 'ghost' | 'flat'| 'faded' | 'outlined' | 'underlined' | 'dot';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';

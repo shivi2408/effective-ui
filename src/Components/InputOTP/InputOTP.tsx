@@ -3,28 +3,28 @@ import classNames from 'classnames';
 import './Styles/inputotp.css';
 
 export interface InputOTPProps {
-  variant?: 'flat' | 'bordered' | 'faded' | 'underlined';
-  length?: number; // Number of OTP input fields
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
-  size?: 'none' |'sm' | 'md' | 'lg';
+  variant?: 'flat' | 'faded' | 'bordered' | 'underlined';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  radius?: 'none' |'sm' | 'md' | 'lg'| 'full';
   isDisabled?: boolean;
-  radius?: 'sm' | 'md' | 'lg';
-  onChange?: (otp: string) => void;
+  length?: number; 
   validationBehavior?: 'none' | 'numeric' | 'alphanumeric'; // Validation type
+  onChange?: (otp: string) => void;
   className?: string;
   style?: React.CSSProperties;
   [x: string]: any;
 }
 
 const InputOTP: React.FC<InputOTPProps> = ({
-  variant = 'solid',
-  length = 4,
+  variant = 'flat',
   color = 'default',
   size = 'md',
-  isDisabled = false,
   radius = 'md',
-  onChange,
+  isDisabled = false,
+  length = 4,
   validationBehavior = 'numeric',
+  onChange,
   className,
   style,
   ...props
@@ -41,25 +41,25 @@ const InputOTP: React.FC<InputOTPProps> = ({
     const newOtp = [...otp];
     if (
       validationBehavior === 'numeric' &&
-      !/^\d*$/.test(value) // Allow only numbers
+      !/^\d*$/.test(value)
     ) {
       return;
     }
     if (
       validationBehavior === 'alphanumeric' &&
-      !/^[a-zA-Z0-9]*$/.test(value) // Allow alphanumeric characters
+      !/^[a-zA-Z0-9]*$/.test(value) 
     ) {
       return;
     }
 
-    newOtp[index] = value.slice(-1); // Keep only the last character
+    newOtp[index] = value.slice(-1); 
     setOtp(newOtp);
 
     if (onChange) {
       onChange(newOtp.join(''));
     }
 
-    // Move to the next input field if available
+    
     if (value && index < length - 1) {
       const nextInput = document.getElementById(`otp-${index + 1}`);
       nextInput?.focus();
@@ -75,13 +75,13 @@ const InputOTP: React.FC<InputOTPProps> = ({
     }
   };
 
-  const inputClass = classNames(
+  const inputotpClass = classNames(
     'inputotp-field',
-    `inputotp-${variant}`,
-    `inputotp-${size}`,
-    `inputotp-${color}`,
-    `inputotp-radius-${radius}`,
-    { 'inputotp-disabled': isDisabled },
+    `inputotp--variant-${variant}`,
+    `inputotp--size-${size}`,
+    `inputotp--color-${color}`,
+    `inputotp--radius-${radius}`,
+    { 'inputotp--disabled': isDisabled },
     className
   );
 
@@ -97,7 +97,7 @@ const InputOTP: React.FC<InputOTPProps> = ({
           onChange={(e) => handleInputChange(e.target.value, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           disabled={isDisabled}
-          className={inputClass}
+          className={inputotpClass}
         />
       ))}
     </div>
