@@ -21,13 +21,25 @@ textarea {
  justify-content: center;
  gap: 0px;
  cursor: text;
+ input::placeholder,
+  textarea::placeholder{
+    color: var(--effectiveui-text-default);
+  }
+}
+
+.input-box:is(:hover, :active, :focus, :focus-visible, :focus-within){
+  border: 2px solid var(--effectiveui-hover-border-default);
+  background-color: var(--effectiveui-hover-background-default);
 }
 
 /* INSIDE BASE CLASS EXTRA ELEMENTS */
 .input-box__password{
   background: transparent;
   border: none;
-  
+}
+
+.input-box__required{
+  color: red;
 }
 
 
@@ -70,9 +82,12 @@ textarea {
 
 
 /* VARIANTS */
-.input-box--variant-flat,
+.input-box--variant-flat
+{
+  border: 2px solid var(--effectiveui-background-default);
+}
 .input-box--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
-  border: 2px solid transparent !important;
+  border: 2px solid var(--effectiveui-hover-background-default) !important;
 }
 
 .input-box--variant-faded,
@@ -94,95 +109,47 @@ textarea {
   background-color: transparent !important;
 }
 
-
 /* COLORS */
-
- .input-box--color-default{
-  color: var(--effectiveui-text-default);
-  background-color : var(--effectiveui-background-default);
-  border: 2px solid var(--effectiveui-border-default);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-default);
-  }
-}
-.input-box--color-default:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-default);
-  background-color: var(--effectiveui-hover-background-default);
+.input-box--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
 }
 
-
- .input-box--color-primary{
-   color: var(--effectiveui-text-primary);
-   background-color : var(--effectiveui-background-primary);
-   border: 2px solid var(--effectiveui-border-primary);
-   
-    input::placeholder,
-    textarea::placeholder{
-      color: var(--effectiveui-text-primary);
-    }
- }
- .input-box--color-primary:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-primary);
-  background-color: var(--effectiveui-hover-background-primary);
- }
-
- .input-box--color-secondary{
-  color: var(--effectiveui-text-secondary);
-  background-color : var(--effectiveui-background-secondary);
-  border: 2px solid var(--effectiveui-border-secondary);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-secondary);
-  }
-}
-.input-box--color-secondary:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-secondary);
-  background-color: var(--effectiveui-hover-background-secondary);
+.input-box--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
 }
 
-.input-box--color-success{
-  color: var(--effectiveui-text-success);
-  background-color : var(--effectiveui-background-success);
-  border: 2px solid var(--effectiveui-border-success);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-success);
-  }
-}
-.input-box--color-success:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-success);
-  background-color: var(--effectiveui-hover-background-success);
+.input-box--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
 }
 
-
-.input-box--color-warning{
-  color: var(--effectiveui-text-warning);
-  background-color : var(--effectiveui-background-warning);
-  border: 2px solid var(--effectiveui-border-warning);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-warning);
-  }
-}
-.input-box--color-warning:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-warning);
-  background-color: var(--effectiveui-hover-background-warning);
+.input-box--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
 }
 
-.input-box--color-danger{
-  color: var(--effectiveui-text-danger);
-  background-color : var(--effectiveui-background-danger);
-  border: 2px solid var(--effectiveui-border-danger);
-  input::placeholder,
-  textarea::placeholder{
-    color: var(--effectiveui-text-danger);
-  }
+.input-box--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
 }
-.input-box--color-danger:is(:hover, :active, :focus, :focus-visible, :focus-within){
-  border: 2px solid var(--effectiveui-hover-border-danger);
-  background-color: var(--effectiveui-hover-background-danger);
-}
+
 
 
 

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './Styles/button.css'
 
 export interface ButtonProps {
-  variant?: 'solid' | 'light' | 'shadow' | 'ghost' | 'flat'| 'faded' | 'bordered';
+  variant?: 'solid' | 'light' | 'shadow' | 'ghost' | 'flat'| 'faded' | 'bordered' | 'underlined';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
@@ -21,7 +21,7 @@ export interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-  variant = 'solid',
+  variant = 'flat',
   color = 'default',
   size = 'md',
   radius = 'md',
@@ -45,9 +45,25 @@ const Button: React.FC<ButtonProps> = ({
     `btn--color-${color}`, 
     `btn--size-${size}`, 
     `btn--radius-${radius}`, 
-    { 'btn--disabled': disabled },
-    { 'btn--full-width': isDisabled },
+    { 'btn--disabled': isDisabled },
+    { 'btn--full-width': fullWidth},
     className 
+  );
+
+  const buttonSpinnerClass = classNames(
+    'btn-spinner', 
+    `btn-spinner--size-${size}`,
+  );
+
+  const buttonIconClass = classNames(
+    'btn-icon', 
+    `btn-icon--size-${size}`,
+    `btn-icon--position-${iconPosition}`
+  );
+
+  const buttonLabelClass = classNames(
+    'btn-label', 
+    `btn-label--size-${size}`,
   );
 
   return (
@@ -59,10 +75,10 @@ const Button: React.FC<ButtonProps> = ({
       aria-disabled={isDisabled}
       {...props}
     >
-      {isLoading && <span className="btn-spinner" aria-hidden="true" />}
-      {icon && iconPosition === 'left' && <span className="btn-icon">{icon}</span>}
-      <span className="btn-label">{children}</span>
-      {icon && iconPosition === 'right' && <span className="btn-icon">{icon}</span>}
+      {isLoading && <span className={buttonSpinnerClass} aria-hidden="true" />}
+      {icon && iconPosition === 'left' && <span className={buttonIconClass}>{icon}</span>}
+      <span className={buttonLabelClass}>{children}</span>
+      {icon && iconPosition === 'right' && <span className={buttonIconClass}>{icon}</span>}
     </Component>
   );
 };

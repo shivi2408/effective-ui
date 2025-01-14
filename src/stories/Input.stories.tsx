@@ -53,6 +53,10 @@ const meta: Meta<typeof InputBox> = {
       control: 'boolean',
       description: 'If true, input box behaves like a password field.',
     },
+    isRequired: {
+      control: 'boolean',
+      description: 'If true, input box behaves like a required field.',
+    },
     validationBehavior: {
       control: 'text',
       description: 'Custom validation behavior for the input box.',
