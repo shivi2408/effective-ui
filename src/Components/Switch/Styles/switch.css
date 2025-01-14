@@ -1,114 +1,138 @@
 .switch {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     cursor: pointer;
     user-select: none;
     transition: all 0.3s ease;
+    font-family: 'Nunito Sans';
+    color: var(--effectiveui-text-default);
   }
   
-  .switch-disabled {
-    opacity: 0.5;
+  .switch--disabled {
     cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
   }
   
-  .switch-track {
-    width: 55px;
-    height: 30px;
-    border-radius: 50px;
-    background-color: #777a7e;
+  .switch_track {
+    width: 3rem;
+    height: 1.75rem;
+    border-radius: 99999px;
+    background-color: var(--effectiveui-hover-border-default);
     position: relative;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
+    align-items: center;
+    display: flex;
+    padding: 0.15rem 0.3rem;
   }
   
-  .switch-track-default {
-    background-color: #7e7e7e;
-  }
-  .switch-track-primary {
-    background-color: var(--effectiveui-primary);
-  }
-  
-  .switch-track-secondary {
-    background-color: #9d62eb; 
-  }
-  
-  .switch-track-success {
-    background-color: var(--effectiveui-success);
-  }
-  
-  .switch-track-danger {
-    background-color: var(--effectiveui-danger)ffectiveui-danger); 
-  }
-  
-  .switch-thumb {
+  .switch_thumb {
     justify-items: center;
-    width: 23px;
-    height: 22px;
+    width: 1.4rem;
+    height: 1.4rem;
     border-radius: 50%;
     background-color: white;
     position: absolute;
-    align-content: space-evenly;
-    top: 50%;
-    right: 10%;
-    transform: translateY(-50%);
+    align-content: center;
     transition: all 0.3s ease;
-    box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+    /* box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px; */
   }
 
-  .switch-thumb .thumb-icon {
+  .switch_thumb .thumb-icon {
     display: flex;
     font-size: 18px;
-    color: inherit; /* Match the switch color */
+    color:var(--effective-ui-black);
   }
 
-  .switch-checked .switch-sm .switch-thumb {
-    transform: translateX(-18px) translateY(-50%);
+  .switch--checked .switch_track--size-sm .switch_thumb {
+    transform: translateX(2.1rem);
   }
-  .switch-checked .switch-md .switch-thumb {
-    transform: translateX(-20px) translateY(-50%);
+  .switch--checked .switch_track--size-md .switch_thumb {
+    transform: translateX(2.1rem) ;
   }
-  .switch-checked .switch-lg .switch-thumb {
-    transform: translateX(-24px) translateY(-50%);
+  .switch--checked .switch_track--size-lg .switch_thumb {
+    transform: translateX(2.1rem) ;
   }
   
-  .switch-checked .switch-track {
-    background-color: #ccc; /* Inherit the color set for the track */
+  .switch--checked .switch_track {
+    background-color: grey
   }
 
-  .switch-sm .switch-track {
-    width: 45px;
-    height: 26px;
+  .switch_track--size-sm {
+    width: 2.5rem;
+    height: 1.5rem;
   }
   
-  .switch-sm .switch-thumb {
-    width: 20px;
-    height: 20px;
-    right:5%
+  .switch_track--size-sm .switch_thumb {
+    width: 1.2rem;
+    height: 1.2rem;
   }
   
-  .switch-md .switch-track {
-    width: 55px;
-    height: 30px;
+  .switch_track--size-md {
+    width: 3rem;
+    height: 1.75rem;
   }
   
-  .switch-md .switch-thumb {
-    width: 23px;
-    height: 22px;
+  .switch_track--size-md .switch_thumb {
+    width: 1.4rem;
+    height: 1.4rem;
   }
   
-  .switch-lg .switch-track {
-    width: 59px;
-    height: 32px;
+  .switch_track--size-lg {
+    width: 3.5rem;
+    height: 2rem;
   }
   
-  .switch-lg .switch-thumb {
-    width: 25px;
-    height: 24px;
-    right:8%
+  .switch_track--size-lg .switch_thumb {
+    width: 1.6rem;
+    height: 1.6rem;
   }
   
-  .switch-label {
+  .switch_label {
     margin-left: 10px;
     font-size: 14px;
-    color: #333;
+    color: var(--effectiveui-text-default);
   }
   
+  
+/* COLORS */
+.switch--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.switch--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.switch--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.switch--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.switch--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+

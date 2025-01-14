@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary', 'success', 'danger'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'The color variant of the switch.',
     },
     size: {
@@ -52,13 +52,6 @@ export const Default: Story = {
   args: {
     color: 'default',
     size: 'md',
-    children: '',
-  },
-};
-
-export const lg: Story = {
-  args: {
-    size: 'lg',
     children: '',
   },
 };
