@@ -29,6 +29,10 @@ const meta: Meta<SnippetProps> = {
       options: ['none', 'sm', 'md', 'lg', 'full'],
       description: 'Border radius for the button box.',
     },
+    symbol: {
+      control: 'text',
+      description: 'The code symbol to display.',
+    },
     code: {
       control: 'text',
       description: 'The code snippet text to display.',
@@ -54,6 +58,7 @@ export const Default: Story = {
     color: 'default',
     size:'md',
     radius: 'md',
+    symbol: '$',
     code: 'npm install @nextui-org/react',
   },
 };

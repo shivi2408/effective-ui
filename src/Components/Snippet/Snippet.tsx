@@ -10,6 +10,7 @@ export interface SnippetProps {
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+  symbol: string;
   code: string; 
   className?: string; 
   style?: React.CSSProperties; 
@@ -20,6 +21,7 @@ const Snippet: React.FC<SnippetProps> = ({
   color = 'default',
   size = 'md',
   radius = 'md',
+  symbol = '$',
   code,
   className, 
   style }) => {
@@ -31,11 +33,11 @@ const Snippet: React.FC<SnippetProps> = ({
 
     setTimeout(() => {
       setCopied(false);
-    }, 4000);
+    }, 2000);
   };
   
   const snippetClass = classNames(
-    'snippet-container',
+    'snippet',
     `snippet--variant-${variant}`,
     `snippet--color-${color}`,
     `snippet--size-${size}`, 
@@ -43,17 +45,25 @@ const Snippet: React.FC<SnippetProps> = ({
     className
   );
 
-  const snippetCopyButtonClass = classNames(
-    'snippet-copy-button',
-    { 'snippet-copy-button--copied': copied }
+  const snippetSymbolClass = classNames(
+    'snippet_symbol',
+    className
   );
 
+  const snippetCopyClass = classNames(
+    'snippet_copy',
+    { 'snippet_copy--copied': copied }
+  );
+
+  const snippetCommandClass = classNames(
+    'snippet_command',
+  );
   return (
     <div className={snippetClass} style={style}>
-      <span className="snippet-dollar"><IoCodeSlash size={20} /></span>
-      <span className="snippet-command">{code}</span>
+      <span className={snippetSymbolClass}>{symbol}</span>
+      <span >{code}</span>
       <button
-        className={snippetCopyButtonClass}
+        className={snippetCopyClass}
         onClick={handleCopy}
         aria-label="Copy"
       >

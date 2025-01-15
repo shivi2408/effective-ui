@@ -1,4 +1,4 @@
-.snippet-container {
+.snippet {
   display: flex;
   align-items: center;
   color: var(--effectiveui-text-default);
@@ -11,35 +11,26 @@
   position: relative;
   gap: 0.5em;
 }
-.snippet-command{
-  display:flex;
-  align-items: center;
-}
 
-.snippet-dollar {
-  color: var(--effectiveui-text-default);
-  padding:2px;
-  padding-bottom:0
+.snippet_symbol{
 }
 
 /* Copy button */
-.snippet-copy-button {
+.snippet_copy {
   background: none;
   border: none;
-  color: var(--effectiveui-text-default);
   border-radius:4px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: inherit;
   transition: color 0.3s ease;
-  padding: 0.4em 0.3em 0.1em 0.4em;
+  padding-top: 0.275em;
+  color: var(--effectiveui-text-default);
 }
-.snippet-copy-button:hover {
-  color: var(--effectiveui-border-default);
-
-}
-.icon-copied,.icon-copied:hover{
+.snippet_copy:hover ,
+.icon-copied, .icon-copied:hover{
   color: var(--effectiveui-hover-border-default);
 }
+
 /* RADIUS */
   .snippet--radius-none{
     border-radius: 0px;
