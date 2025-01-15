@@ -5,13 +5,24 @@ import { IoCodeSlash } from "react-icons/io5";
 import classNames from 'classnames';
 import './Styles/snippet.css'; 
 
-export interface SnippetProps { 
+export interface SnippetProps {
+  variant?: 'flat'| 'solid' |'bordered' | 'shadow' ;
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   code: string; 
   className?: string; 
   style?: React.CSSProperties; 
 }
 
-const Snippet: React.FC<SnippetProps> = ({ code, className, style }) => {
+const Snippet: React.FC<SnippetProps> = ({ 
+  variant = 'flat',
+  color = 'default',
+  size = 'md',
+  radius = 'md',
+  code,
+  className, 
+  style }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -22,15 +33,31 @@ const Snippet: React.FC<SnippetProps> = ({ code, className, style }) => {
       setCopied(false);
     }, 4000);
   };
+  
+  const snippetClass = classNames(
+    'snippet-container',
+    `snippet--variant-${variant}`,
+    `snippet--color-${color}`,
+    `snippet--size-${size}`, 
+    `snippet--radius-${radius}`,
+    className
+  );
+
+  const snippetCopyButtonClass = classNames(
+    'snippet-copy-button',
+    { 'snippet-copy-button--copied': copied }
+  );
 
   return (
-    <div className={classNames('snippet-container', className)} style={style}>
-      <span className="snippet-dollar"><IoCodeSlash size={20}/></span>
-      <span className="snippet-command">
-         {code}
-      </span>
-      <button className="snippet-copy-button" onClick={handleCopy} aria-label="Copy">
-        {copied ? <FaCheck  className="icon-copied" /> : <FiClipboard className="icon-copy" />}
+    <div className={snippetClass} style={style}>
+      <span className="snippet-dollar"><IoCodeSlash size={20} /></span>
+      <span className="snippet-command">{code}</span>
+      <button
+        className={snippetCopyButtonClass}
+        onClick={handleCopy}
+        aria-label="Copy"
+      >
+        {copied ? <FaCheck className="icon-copied" /> : <FiClipboard className="icon-copy" />}
       </button>
     </div>
   );

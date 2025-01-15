@@ -9,6 +9,26 @@ const meta: Meta<SnippetProps> = {
   },
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: [ 'flat' ,'solid' ,  'bordered' , 'shadow' ,],
+      description: 'Style variant of the button box.',
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
+      description: 'Color variant of the button box.',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the button box.',
+    },
+    radius: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg', 'full'],
+      description: 'Border radius for the button box.',
+    },
     code: {
       control: 'text',
       description: 'The code snippet text to display.',
@@ -30,12 +50,17 @@ type Story = StoryObj<SnippetProps>;
 
 export const Default: Story = {
   args: {
+    variant: 'flat',
+    color: 'default',
+    size:'md',
+    radius: 'md',
     code: 'npm install @nextui-org/react',
   },
 };
 
 export const WithInlineStyle: Story = {
   args: {
+    variant: 'solid',
     code: 'npx create-react-app my-app',
     style: { backgroundColor: '#1e1e1e', color: '#fff', padding: '12px', borderRadius: '8px' },
   },
