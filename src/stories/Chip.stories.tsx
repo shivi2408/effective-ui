@@ -74,23 +74,23 @@ export const Outlined: Story = {
   },
 };
 
-export const WithStartIcon: Story = {
+export const SuccessIconLeft: Story = {
   args: {
     color: 'success',
     variant: 'flat',
     icon: '🌟',
     iconPosition: 'left',
-    children: 'Chip',
+    children: 'Success',
   },
 };
 
-export const WithEndIcon: Story = {
+export const FailedIconRight: Story = {
   args: {
     color: 'danger',
     variant: 'flat',
     icon: '🎉',
     iconPosition: 'right',
-    children: 'Chip',
+    children: 'Failed',
   },
 };
 
