@@ -13,6 +13,11 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['flat','bordered',],
+      description: 'Style variant of the button box.',
+    },
     color: {
       control: 'select',
       options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
@@ -50,6 +55,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    variant: 'flat',
     color: 'default',
     size: 'md',
     children: '',
