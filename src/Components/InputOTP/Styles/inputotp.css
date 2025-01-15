@@ -23,7 +23,7 @@
 }
   
 input:not([value=""]) {
-  padding-inline-end: 0rem !important;
+  padding-inline-end: 0em !important;
 }
 
 .inputotp--disabled {
