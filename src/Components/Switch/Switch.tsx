@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import './Styles/switch.css';
 
 export interface SwitchProps {
+  variant?: 'flat' | 'bordered' ;
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md'| 'lg';
   isDisabled?: boolean;
@@ -11,12 +12,13 @@ export interface SwitchProps {
   checked?: boolean;
   className?: string;
   style?: React.CSSProperties;
-  onIcon?: React.ReactNode; // Icon when checked
-  offIcon?: React.ReactNode; // Icon when unchecked
+  onIcon?: React.ReactNode; 
+  offIcon?: React.ReactNode; 
   [x: string]: any;
 }
 
 const Switch: React.FC<SwitchProps> = ({
+  variant = 'flat',
   color = 'default',
   size = 'md',
   isDisabled = false,
@@ -51,16 +53,15 @@ const Switch: React.FC<SwitchProps> = ({
     `switch--size-${size}`,
     `switch--color-${color}`,
     { 'switch--disabled': isDisabled },
-    { 'switch--checked': !checked },
-    
+    { 'switch--checked': checked },
     className
   );
 
   const trackClass = classNames(
     'switch_track',
+    `switch_track--variant-${variant}`,
     `switch_track--color-${color}`,
     `switch_track--size-${size}`,
-    { 'switch--checked': !checked },
   );
 
   const switchLabelClass = classNames(
