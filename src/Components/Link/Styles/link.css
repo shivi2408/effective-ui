@@ -1,63 +1,98 @@
 .link {
-    text-decoration: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  .link:hover{
-    opacity:1;
-  }
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color:var(--effectiveui-text-default);
+  opacity: 0.8;
+  font-family: 'Nunito Sans';
+  border-radius:12px;
+  padding:0.3em 0.6em;
+}
+.link:hover{
+  opacity:1;
+}
 
-  .link-disabled {
-    pointer-events: none;
-    opacity:0.5;
-  }
-  
-  .link-underline-none {
-    text-decoration: none;
-  }
-  
-  .link-underline-hover:hover {
-    text-decoration: underline;
-  }
-  
-  .link-underline-always {
-    text-decoration: underline;
-  }
-  
-  .link-underline-active:active {
-    text-decoration: underline;
-  }
-  
-  .link-underline-focus:focus {
-    text-decoration: underline;
-  }
-  
-  .link-primary {
-    color: var(--effectiveui-primary);
-  }
-  .link-secondary {
-    color: #6a2ead;
-  }
-  .link-success {
-    color: var(--effectiveui-success);
-  }
-  .link-danger {
-    color: var(--effectiveui-danger);
-  }
-  .link-default {
-    color:  #777777;
-  }
+.link_icon{
+ margin-left: 0.5em;
+}
+
+.link--disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity:0.6;
+}
+
+.link--isBlock:hover{
+  background-color: var(--effectiveui-hover-background-default);
+  opacity:0.9
+}
+
+.link--underline-none {
+  text-decoration: none;
+}
+.link--underline-hover:hover {
+  text-decoration: underline;
+}
+.link--underline-always {
+  text-decoration: underline;
+}
+.link--underline-active:active {
+  text-decoration: underline;
+}
+.link--underline-focus:focus {
+  text-decoration: underline;
+}
+
+.link--size-sm {
+  font-size:0.95rem;
+}
+.link--size-md {
+  font-size:1rem;
+}
+.link--size-lg {
+  font-size:1.2rem;
+}
 
   
-.link-sm {
-    font-size:1rem;
-  }
-  .link-md {
-    font-size:1.1rem;
-  }
-  .link-lg {
-    font-size:1.3rem;
-  }
+/* COLORS */
+.link--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.link--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.link--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.link--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.link--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+

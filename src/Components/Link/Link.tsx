@@ -4,12 +4,14 @@ import './Styles/link.css';
 
 export interface LinkProps {
   href?: string;
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
-  isDisabled?: boolean;
   underline?: 'none' | 'hover' | 'always' | 'active' | 'focus';
+  isBlock?: boolean;
+  isDisabled?: boolean;
   children?: React.ReactNode;
   icon?: React.ReactNode;
+  showAnchorIcon?: boolean;
   className?: string;
   style?: React.CSSProperties;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
@@ -20,10 +22,12 @@ const Link: React.FC<LinkProps> = ({
   href = '#',
   color = 'default',
   size = 'md',
-  isDisabled = false,
   underline = 'none',
+  isBlock = false,
+  isDisabled = false,
   children,
   icon,
+  showAnchorIcon = false,
   className,
   style,
   onClick,
@@ -41,10 +45,11 @@ const Link: React.FC<LinkProps> = ({
 
   const linkClass = classNames(
     'link',
-    `link-${color}`,
-    `link-${size}`,
-    `link-underline-${underline}`,
-    { 'link-disabled': isDisabled },
+    `link--color-${color}`,
+    `link--size-${size}`,
+    `link--underline-${underline}`,
+    { 'link--isBlock': isBlock },
+    { 'link--disabled': isDisabled },
     className
   );
 
@@ -57,7 +62,7 @@ const Link: React.FC<LinkProps> = ({
       {...props}
     >
       {children}
-      {icon && <span className="link-icon">{icon}</span>}
+      {showAnchorIcon && icon && <span className="link_icon">{icon}</span>}
     </a>
   );
 };
