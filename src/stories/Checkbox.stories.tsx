@@ -11,24 +11,32 @@ const meta: Meta<typeof Checkbox> = {
   tags: ['autodocs'],
   argTypes: {
     label: { control: 'text', description: 'Label text displayed next to the checkbox.' },
-    disabled: {
-      control: 'boolean',
-      description: 'Disable the checkbox.',
-    },
-    variant: {
+    color: {
       control: 'select',
-      options: ['primary', 'secondary', 'success', 'warning'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'Color variant of the checkbox.',
     },
-    borderRadius: {
+    radius: {
       control: 'select',
-      options: ['none', 'sm', 'md', 'full'],
+      options: ['none', 'sm', 'md', 'lg','full'],
       description: 'Border radius for the checkbox.',
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large'],
+      options: ['sm', 'md', 'lg'],
       description: 'Size of the checkbox.',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the checkbox.',
+    },
+    textColor: {
+      control: 'boolean',
+      description: 'Enable the text color.',
+    },
+    lineThrough: {
+      control: 'boolean',
+      description: 'Enable the strike Through.',
     },
   },
 };
@@ -39,19 +47,20 @@ type Story = StoryObj<typeof Checkbox>;
 export const Default: Story = {
   args: {
     label: 'Default',
-    variant: 'primary',
-    borderRadius: 'sm',
-    size: 'medium',
+    color: 'default',
+    radius: 'md',
+    size: 'md',
     disabled: false,
+    textColor: false,
   },
 };
 
 export const Checked: Story = {
   args: {
     label: 'Checked',
-    variant: 'primary',
-    borderRadius: 'sm',
-    size: 'medium',
+    color: 'primary',
+    radius: 'sm',
+    size: 'md',
     disabled: false,
     defaultChecked: true,
   },
@@ -61,8 +70,8 @@ export const Disabled: Story = {
   args: {
     label: 'Disabled ',
     disabled: true,
-    borderRadius: 'sm',
-    size: 'medium',
+    radius: 'sm',
+    size: 'md',
   },
 };
 
