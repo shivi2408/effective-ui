@@ -18,7 +18,7 @@ const meta = {
     },
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary', 'success', 'danger'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'The color variant of the link.',
     },
     size: {
@@ -26,14 +26,18 @@ const meta = {
       options: ['sm', 'md', 'lg'],
       description: 'The size of the link.',
     },
-    isDisabled: {
-      control: 'boolean',
-      description: 'Disable the link.',
-    },
     underline: {
       control: 'select',
       options: ['none', 'hover', 'always', 'active', 'focus'],
       description: 'Underline style of the link.',
+    },
+    isBlock: {
+      control: 'boolean',
+      description: 'block background on hover',
+    },
+    isDisabled: {
+      control: 'boolean',
+      description: 'Disable the link.',
     },
     children: {
       control: 'text',
@@ -44,9 +48,13 @@ const meta = {
       description: 'Function called when the link is clicked.',
     },
     icon: {
-        control: 'boolean',
-        description: 'Toggle to show or hide an anchor icon.',
-      },
+        control: 'text',
+        description: 'Add anchor icon',
+    },
+    showAnchorIcon: {
+      control: 'boolean',
+      description: 'Disable the AnchorIcon.',
+    },
   },
   args: {
     onClick: undefined,
@@ -86,12 +94,9 @@ export const WithAnchorIcon: Story = {
     args: {
       href: '#',
       color: 'primary',
-      children: (
-        <>
-          "First solve the problem. Then, write the code." - Jon Johnson.
-          <RiExternalLinkLine size={20}  style={{ marginLeft: '8px' }} />
-        </>
-      ),
+      children: "First solve the problem. Then, write the code. - Jon Johnson.",
+      icon: <RiExternalLinkLine size={20}  style={{ marginLeft: '8px' }} />,
+      showAnchorIcon: true
     },
   };
 
