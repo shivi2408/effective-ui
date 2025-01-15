@@ -3,12 +3,14 @@ import classNames from 'classnames';
 import './Styles/checkbox.css';
 
 export interface CheckboxProps {
-  label: string;
-  variant?: 'primary' | 'secondary' | 'success' | 'warning';
-  borderRadius?: 'none' | 'sm' | 'md' | 'full';
-  size?: 'small' | 'medium' | 'large';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  radius?: 'none' | 'sm' | 'md' | 'lg' |'full';
   disabled?: boolean;
   defaultChecked?: boolean;
+  label: string;
+  textColor? : boolean;
+  lineThrough? : boolean;
   className?: string; 
   style?: React.CSSProperties; 
   as?: React.ElementType; 
@@ -17,10 +19,12 @@ export interface CheckboxProps {
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  variant = 'primary',
-  borderRadius = 'sm',
+  color = 'default',
   size = 'medium',
+  radius = 'sm',
+  label,
+  textColor = false,
+  lineThrough = false,
   disabled = false,
   defaultChecked = false,
   className,
@@ -35,22 +39,26 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
  const checkboxClass = classNames(
     'checkbox',
-    `checkbox-${size}`, 
-    { 'checkbox-disabled': disabled }, 
+    `checkbox--color-${color}`, 
+    `checkbox--size-${size}`, 
+    { 'checkbox--disabled': disabled }, 
+    { 'checkbox--textColor': textColor },
+    { 'checkbox--lineThrough': lineThrough },
+    { 'checkbox_input--checked': checked },
     className 
   );
 
   const inputClass = classNames(
-    'checkbox-input',
-    { 'checkbox-input-checked': checked }
+    'checkbox_input',
+    { 'checkbox_input--checked': checked }
   );
 
   
   const checkboxCustomClass = classNames(
-    'checkbox-custom',
-    `checkbox-custom-${variant}`,
-    `checkbox-custom-${size}`,
-    `checkbox-custom-${borderRadius}`,
+    'checkbox_custom',
+    `checkbox_custom--size-${size}`,
+    `checkbox_custom--radius-${radius}`,
+    { 'checkbox_input--checked': checked }
   );
 
   const handleCheckboxChange = () => {
@@ -68,7 +76,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         onChange={handleCheckboxChange}
       />
         <span className={checkboxCustomClass}></span>
-        {label}
+        <span className={classNames({ 'checkbox--lineThrough': checked && lineThrough })}>{label}</span>
     </label>
   );
 };
