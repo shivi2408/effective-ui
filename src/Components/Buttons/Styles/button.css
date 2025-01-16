@@ -31,27 +31,6 @@ button {
  padding : 0;
 }
 
-/* .btn-icon--position-left {
- 
-}
-
-.btn-icon--position-right {
-
-} 
-
-.btn-icon--size-sm {
-
-}
-
-.btn-icon--size-md {
- 
-}
-
-.btn-icon--size-lg {
-
-}
-*/
-
 .btn-spinner {
   border: 2px solid var(--effectiveui-border-default);
   border-top: 2px solid transparent;

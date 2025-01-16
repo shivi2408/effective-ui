@@ -1,17 +1,38 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Breadcrumbs from '../Components/Breadcrumbs/Breadcrumbs'; 
+import Breadcrumbs from '../Components/Breadcrumbs/Breadcrumbs';
 
 const meta = {
   title: 'Components/Breadcrumbs',
   component: Breadcrumbs,
   parameters: {
-    layout: 'centered', 
+    layout: 'padded',
   },
   tags: ['autodocs'],
   argTypes: {
     items: {
       control: 'object',
       description: 'An array of breadcrumb items with `label` and optional `link`.',
+    },
+    variant: {
+      control: 'select',
+      options: ['solid', 'bordered', 'light'],
+      description: 'Visual variant of the breadcrumbs.',
+      defaultValue: 'light',
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger'],
+      description: 'Color variant of the button box.',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the button box.',
+    },
+    underline: {
+      control: 'select',
+      options: ['none', 'hover', 'always', 'active', 'focus'],
+      description: 'Underline style of the link.',
     },
     separator: {
       control: 'text',
@@ -22,15 +43,19 @@ const meta = {
       control: 'number',
       description: 'The maximum number of items to display, with "..." in the middle if truncated.',
     },
+    itemsBeforeCollapse: {
+      control: 'number',
+      description: 'Number of items to show before collapse.',
+      defaultValue: 1,
+    },
+    itemsAfterCollapse: {
+      control: 'number',
+      description: 'Number of items to show after collapse.',
+      defaultValue: 1,
+    },
     isDisabled: {
       control: 'boolean',
       description: 'Disable interaction with breadcrumb links.',
-    },
-    variant: {
-      control: 'select',
-      options: ['light', 'solid', 'bordered'],
-      description: 'Visual variant of the breadcrumbs.',
-      defaultValue: 'light',
     },
     onClick: {
       action: 'clicked',
@@ -83,6 +108,8 @@ export const MaxItems: Story = {
       { label: 'Extra', link: '/extra' },
     ],
     maxItems: 3,
+    itemsBeforeCollapse: 2,
+    itemsAfterCollapse: 1,
     variant: 'light',
   },
 };
