@@ -1,85 +1,157 @@
-.breadcrumbs-container {
-    display: flex;
-    align-items: center;
-    padding: 0.6rem 1rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: #ecedee80;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  padding: 0.6em 1em;
+  border-radius: 10px;
+  width: fit-content;
+  font-size: 1rem;
+  color: var(--effectiveui-text-default);
+  font-family: 'Nunito Sans';
 }
 
-.breadcrumbs-light {
-    background-color: transparent;
-  }
+.breadcrumbs--disabled{
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.breadcrumbs--variant-light {
+  background-color: transparent;
+}
+.breadcrumbs--variant-solid {
+  background-color: var(--effectiveui-background-default);
+  border: 2px solid var(--effectiveui-background-default);
+}
+.breadcrumbs--variant-bordered {
+  border: 2px solid var(--effectiveui-border-default);
+  background-color: transparent;
+}
   
-  .breadcrumbs-solid {
-    background-color: #45454563;
-  }
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
   
-  .breadcrumbs-bordered {
-    border: 1px solid #ecedee77;
-    background-color: transparent;
+.breadcrumb-link {
+  color: var(--effectiveui-text-default);
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom:1px solid transparent;
+}
+.breadcrumb-link:hover ,.breadcrumb-link:active {
+  opacity:0.75
+}
+.breadcrumb-link--disabled {
+  opacity:0.6;
+  pointer-events:none;
+}
+
+.breadcrumb-separator {
+  margin: 0 0.5rem;
+}
+
+.breadcrumb-dropdown {
+  position: absolute;
+  background:var(--effectiveui-background-default);
+  border: 1px solid var(--effectiveui-background-default);
+  border-radius:8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0.3em;
+}
+
+.breadcrumb-dropdown-item {
+  padding: 0.4em 0.6em;
+  margin:0.2em;
+  cursor: pointer;
+  border-radius:6px;
+}
+
+.breadcrumb-dropdown-item:hover {
+  background: var(--effectiveui-hover-background-default)
+}
+.breadcrumb-ellipsis{
+  padding:0.4rem;
+  padding-bottom:0;
+  border-radius:6px
+}
+.breadcrumb-ellipsis:hover,.breadcrumb-ellipsis:active{
+  cursor:pointer;
+  background-color:var(--effectiveui-hover-background-default) ;
+}
+
+/* SIZE*/
+  .breadcrumbs--size-sm {
+  font-size:0.875rem;
+  padding: 0.275em 1em;
+  gap: 0.3rem;
   }
-  
-  .breadcrumb-item {
-    display: flex;
-    align-items: center;
+
+  .breadcrumbs--size-md {
+  font-size:0.95rem;
+  padding: 0.375em 1em;
+  gap: 0.5rem;
   }
-  
-  .breadcrumb-link {
-    color: #ecedee80;
-    text-decoration: none;
-    cursor: pointer;
+
+  .breadcrumbs--size-lg {
+  font-size:1.05rem;
+  padding: 0.45em 1.2em;
+  gap: 0.7rem;
   }
-  
-  .breadcrumb-link:hover ,.breadcrumb-link:active {
-    text-decoration: underline;
-    color: #ffffffa8;
-  }
-  .breadcrumb-link:active {
-    color: #fff;
-  }
-  
-  .breadcrumb-link-disabled {
-    color: #72727280;
-    text-decoration: none !important;
-    cursor:default
-  }
-  .breadcrumb-link-disabled:hover{
-    color:#72727280;
-  }
-  
-  .breadcrumb-label {
-    color: #fff;
-  }
-  
-  .breadcrumb-separator {
-    margin: 0 0.5rem;
-  }
-  
-  .breadcrumb-dropdown {
-    position: absolute;
-    /* background: white; */
-    border: 1px solid #cccccc82;
-    border-radius:4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    top: 52%;
-    left: 43%;
-  }
-  
-  .breadcrumb-dropdown-item {
-    padding: 0.4rem 0.8rem;
-    cursor: pointer;
-  }
-  
-  .breadcrumb-dropdown-item:hover {
-    background: #f0f0f018;
-  }
-  .breadcrumb-ellipsis{
-    padding:0.4rem;
-  }
-  .breadcrumb-ellipsis:hover{
-    cursor:pointer;
-    background: #f0f0f018;
-  }
+
+.breadcrumbs-link--underline-none{
+  text-decoration: none;
+}
+.breadcrumbs-link--underline-hover:hover {
+  border-bottom:1px solid var(--effectiveui-text-default);
+}
+.breadcrumbs-link--underline-always {
+  border-bottom:1px solid var(--effectiveui-text-default);
+}
+.breadcrumbs-link--underline-active:active {
+  border-bottom:1px solid var(--effectiveui-text-default);
+}
+.breadcrumbs-link--underline-focus:focus {
+  border-bottom:1px solid var(--effectiveui-text-default);
+}
+
+/* COLORS */
+.breadcrumbs--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.breadcrumbs--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.breadcrumbs--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.breadcrumbs--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.breadcrumbs--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+

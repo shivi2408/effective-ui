@@ -5,19 +5,33 @@ import './Styles/breadcrumbs.css';
 
 export interface BreadcrumbsProps {
   items: { label: string; link?: string }[];
+  variant?: 'solid' | 'bordered' | 'light';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  underline?: 'none' | 'hover' | 'always' | 'active' | 'focus';
   separator?: string;
   maxItems?: number;
+  itemsBeforeCollapse?: number;
+  itemsAfterCollapse?: number;
   isDisabled?: boolean;
-  variant?: 'light' | 'solid' | 'bordered';
+  className?: string;
+  style?: React.CSSProperties;
   onClick?: (label: string) => void;
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   items,
+  variant = 'light',
+  color = 'default',
+  size = 'md',
+  underline = 'hover',
   separator = '>',
   maxItems,
+  itemsBeforeCollapse = 1,
+  itemsAfterCollapse = 1,
   isDisabled = false,
-  variant = 'light',
+  className,
+  style,
   onClick,
 }) => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
@@ -37,27 +51,41 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   }, []);
 
   const handleItemClick = (label: string, link?: string) => {
-    console.log(`Item clicked: ${label}`);
     if (isDisabled || !link) return;
-    if (onClick) {
-      onClick(label);
-    }
+    onClick && onClick(label);
   };
 
   const handleEllipsisClick = () => {
     setIsDropdownVisible((prev) => !prev);
   };
 
+  const breadcrumbClass = classNames(
+    'breadcrumbs',
+    `breadcrumbs--variant-${variant}`,
+    `breadcrumbs--color-${color}`,
+    `breadcrumbs--size-${size}`,
+    { 'breadcrumbs--disabled': isDisabled },
+    className
+  );
+
+  const breadcrumbItemClass = classNames('breadcrumb-item');
+  const breadcrumbLinkClass = (linkDisabled: boolean) =>
+    classNames(
+      'breadcrumb-link', 
+      `breadcrumbs-link--underline-${underline}`,
+      { 'breadcrumb-link--disabled': linkDisabled });
+  const breadcrumbSeparatorClass = classNames('breadcrumb-separator');
+  const breadcrumbEllipsisClass = classNames('breadcrumb-ellipsis');
+  const breadcrumbDropdownClass = classNames('breadcrumb-dropdown');
+
   const renderBreadcrumbs = () => {
     if (!maxItems || items.length <= maxItems || maxItems < 3) {
       return items.map((item, index) => (
-        <span key={index} className="breadcrumb-item">
+        <span key={index} className={breadcrumbItemClass}>
           {item.link ? (
             <a
               href={isDisabled ? undefined : item.link}
-              className={classNames('breadcrumb-link', {
-                'breadcrumb-link-disabled': isDisabled,
-              })}
+              className={breadcrumbLinkClass(isDisabled)}
               onClick={(e) => {
                 e.preventDefault();
                 handleItemClick(item.label, item.link);
@@ -66,29 +94,27 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               {item.label}
             </a>
           ) : (
-            <span className="breadcrumb-label">{item.label}</span>
+            <span>{item.label}</span>
           )}
           {index < items.length - 1 && (
-            <span className="breadcrumb-separator">{separator}</span>
+            <span className={breadcrumbSeparatorClass}>{separator}</span>
           )}
         </span>
       ));
     }
 
-    const visibleStart = items.slice(0, Math.ceil((maxItems - 1) / 2));
-    const visibleEnd = items.slice(-Math.floor((maxItems - 1) / 2));
-    const hiddenItems = items.slice(Math.ceil((maxItems - 1) / 2), -Math.floor((maxItems - 1) / 2));
+    const visibleStart = items.slice(0, itemsBeforeCollapse);
+    const visibleEnd = items.slice(-itemsAfterCollapse);
+    const hiddenItems = items.slice(itemsBeforeCollapse, -itemsAfterCollapse);
 
     return (
       <>
         {visibleStart.map((item, index) => (
-          <span key={`start-${index}`} className="breadcrumb-item">
+          <span key={`start-${index}`} className={breadcrumbItemClass}>
             {item.link ? (
               <a
                 href={isDisabled ? undefined : item.link}
-                className={classNames('breadcrumb-link', {
-                  'breadcrumb-link-disabled': isDisabled,
-                })}
+                className={breadcrumbLinkClass(isDisabled)}
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(item.label, item.link);
@@ -97,15 +123,15 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                 {item.label}
               </a>
             ) : (
-              <span className="breadcrumb-label">{item.label}</span>
+              <span>{item.label}</span>
             )}
-            <span className="breadcrumb-separator">{separator}</span>
+            <span className={breadcrumbSeparatorClass}>{separator}</span>
           </span>
         ))}
-        <span className="breadcrumb-item breadcrumb-ellipsis" onClick={handleEllipsisClick} ref={dropdownRef}>
-        <FaEllipsis size={18}/>
+        <span className={breadcrumbEllipsisClass} onClick={handleEllipsisClick} ref={dropdownRef}>
+          <FaEllipsis size={18} />
           {isDropdownVisible && (
-            <div className="breadcrumb-dropdown">
+            <div className={breadcrumbDropdownClass}>
               {hiddenItems.map((item, index) => (
                 <div
                   key={`hidden-${index}`}
@@ -119,14 +145,12 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           )}
         </span>
         {visibleEnd.map((item, index) => (
-          <span key={`end-${index}`} className="breadcrumb-item">
-            <span className="breadcrumb-separator">{separator}</span>
+          <span key={`end-${index}`} className={breadcrumbItemClass}>
+            <span className={breadcrumbSeparatorClass}>{separator}</span>
             {item.link ? (
               <a
                 href={isDisabled ? undefined : item.link}
-                className={classNames('breadcrumb-link', {
-                  'breadcrumb-link-disabled': isDisabled,
-                })}
+                className={breadcrumbLinkClass(isDisabled)}
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(item.label, item.link);
@@ -135,7 +159,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                 {item.label}
               </a>
             ) : (
-              <span className="breadcrumb-label">{item.label}</span>
+              <span>{item.label}</span>
             )}
           </span>
         ))}
@@ -144,15 +168,9 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   };
 
   return (
-    <div
-      className={classNames('breadcrumbs-container', {
-        'breadcrumbs-light': variant === 'light',
-        'breadcrumbs-solid': variant === 'solid',
-        'breadcrumbs-bordered': variant === 'bordered',
-      })}
-    >
+    <nav className={breadcrumbClass} style={style}>
       {renderBreadcrumbs()}
-    </div>
+    </nav>
   );
 };
 
