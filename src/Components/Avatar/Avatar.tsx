@@ -4,37 +4,37 @@ import './Styles/avatar.css';
 import { FaUser } from "react-icons/fa";
 
 export interface AvatarProps {
-  size?: 'small' | 'medium' | 'large'; // Size of the avatar
+  size?: 'sm' | 'md' | 'lg'; 
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
-  src?: string; // URL for avatar image
-  alt?: string; // Alternate text for the avatar image
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   name?: string;
-  initials?: string; // Initials to display if no image is provided
-  icon?: React.ReactNode; // Icon to display if no image or initials
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger'; // Background color for the avatar
-  isBordered?: boolean; // Option to add a border around the avatar
-  className?: string; // Custom className for the avatar
-  style?: React.CSSProperties; // Custom styles for the avatar
-  onClick?: () => void; // Optional click handler
-  [x: string]: any; // Additional props
+  initials?: string; 
+  isBordered?: boolean; 
+  src?: string; 
+  alt?: string; 
+  icon?: React.ReactNode;
+  className?: string; 
+  style?: React.CSSProperties; 
+  onClick?: () => void; 
+  [x: string]: any; 
 }
 
 const Avatar: React.FC<AvatarProps> = ({
   size = 'md',
   radius = 'md',
-  src,
-  alt,
+  color = 'default',
   name,
   initials,
-  icon,
-  color = 'default',
   isBordered = false,
+  src,
+  alt,
+  icon,
   className,
   style,
   onClick,
   ...props
 }) => {
-  // Function to generate initials from the provided name
+  
   const generateInitials = (name: string | undefined) => {
     if (!name) return '';
     const nameParts = name.split(' ');
@@ -43,15 +43,14 @@ const Avatar: React.FC<AvatarProps> = ({
     return (firstInitial + secondInitial).toUpperCase();
   };
 
-  // Set initials to either the passed initials or the generated ones from the name
   const avatarInitials = initials || generateInitials(name);
 
   const avatarClass = classNames(
     'avatar',
-    `avatar-${size}`,
-    `avatar-${radius}`,
-    `avatar-${color}`,
-    { 'avatar-bordered': isBordered },
+    `avatar--size-${size}`,
+    `avatar--radius-${radius}`,
+    `avatar--color-${color}`,
+    { 'avatar--bordered': isBordered },
     className
   );
 
@@ -65,12 +64,12 @@ const Avatar: React.FC<AvatarProps> = ({
       {src ? (
         <img src={src} alt={alt || 'Avatar'} className="avatar-img" />
       ) : avatarInitials ? (
-        <span className="avatar-initials">{avatarInitials}</span> // Display initials
+        <span className="avatar-initials">{avatarInitials}</span>
       ) : icon ? (
-        <span className="avatar-icon">{icon}</span> // Display icon if provided
+        <span className="avatar-icon">{icon}</span>
       ) : (
         <span className="avatar-icon">
-          <FaUser size={22} /> 
+          <FaUser  /> 
         </span>
       )}
     </div>
