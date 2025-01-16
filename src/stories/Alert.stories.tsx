@@ -15,10 +15,24 @@ const meta = {
       control: 'text',
       description: 'The message displayed inside the alert.',
     },
-    type: {
+    variant: {
       control: 'select',
-      options: ['default', 'success', 'info', 'warning', 'danger'],
-      description: 'The type of the alert (affects color).',
+      options: ['solid' , 'flat', 'faded' , 'bordered'],
+      description: 'Style variant of the button box.',
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
+      description: 'Color variant of the button box.',
+    },
+    radius: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg', 'full'],
+      description: 'Border radius for the button box.',
+    },
+    hideIcon: {
+      control: 'boolean',
+      description: 'Remove alert icon',
     },
     duration: {
       control: 'number',
@@ -48,23 +62,27 @@ type Story = StoryObj<typeof meta>;
 
 export const DefaultAlert: Story = {
   args: {
-    message: 'This is an alert!',
-    type: 'default',
+    message: 'This is an alert with a message!',
+    color: 'default',
+    radius: 'md',
   },
 };
 
 export const Types: Story = {
     args: {
       message: 'Default alert message',
-      type: 'info',
+      variant: 'flat',
+      color: 'primary',
+      radius: 'md',
     },
     render: (args) => (
       <div>
-        <Alert {...args} message="This is a default alert!" type="default" />
-        <Alert {...args} message="This is an info alert!" type="info" />
-        <Alert {...args} message="This is a success alert!" type="success" />
-        <Alert {...args} message="This is a warning alert!" type="warning" />
-        <Alert {...args} message="This is a danger alert!" type="danger" />
+        <Alert {...args} message="This is a default alert!" color="default" />
+        <Alert {...args} message="This is an info alert!" color="primary" />
+        <Alert {...args} message="This is an info alert!" color="secondary" />
+        <Alert {...args} message="This is a success alert!" color="success" />
+        <Alert {...args} message="This is a warning alert!" color="warning" />
+        <Alert {...args} message="This is a danger alert!" color="danger" />
       </div>
     ),
   };
@@ -72,7 +90,8 @@ export const Types: Story = {
 export const CustomDurationAlert: Story = {
   args: {
     message: 'This alert will disappear after 5 seconds.',
-    type: 'success',
+    color: 'success',
+    radius: 'md',
     duration: 5000,
   },
 };
@@ -80,6 +99,8 @@ export const CustomDurationAlert: Story = {
 export const AlertWithCloseButton: Story = {
   args: {
     message: 'Click the close button to dismiss this alert.',
-    type: 'info',
+    variant: 'faded',
+    color: 'primary',
+    radius: 'md',
   },
 };
