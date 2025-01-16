@@ -8,8 +8,11 @@ import './Styles/alert.css';
 
 export interface AlertProps {
   message: string;
-  type?: 'default' |'success' | 'info' | 'warning' | 'danger';
+  variant?: 'solid' | 'flat'| 'faded' | 'bordered' ;
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   icon?: React.ReactNode; 
+  hideIcon?: boolean;
   duration?: number; // in milliseconds
   onClose?: () => void;
   className?: string;
@@ -18,9 +21,12 @@ export interface AlertProps {
 
 const Alert: React.FC<AlertProps> = ({
   message,
-  type = 'info',
+  variant = 'flat',
+  color = 'info',
+  radius = 'md',
   icon,
-  duration = 200000,
+  hideIcon = false,
+  duration = 1000000,
   onClose,
   className,
   style,
@@ -42,22 +48,30 @@ const Alert: React.FC<AlertProps> = ({
 
   const alertClass = classNames(
     'alert',
-    `alert-${type}`,
+    `alert--variant-${variant}`,
+    `alert--color-${color}`, 
+    `alert--radius-${radius}`, 
     className
   );
 
   const renderIcon = () => {
+    if (hideIcon) {
+      return null;
+    }
+
     if (icon) {
       return <span className="alert-icon">{icon}</span>;
     }
 
     // Default icons for each type
-    switch (type) {
+    switch (color) {
       case 'success':
         return <GoCheckCircle className="alert-icon" />
       case 'default':
         return <MdInfoOutline className="alert-icon" />;
-      case 'info':
+      case 'primary':
+        return <MdInfoOutline className="alert-icon" />;
+      case 'secondary':
         return <MdInfoOutline className="alert-icon" />;
       case 'warning':
         return <LuShieldAlert className="alert-icon" />;

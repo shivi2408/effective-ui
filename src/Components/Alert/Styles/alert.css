@@ -1,61 +1,105 @@
 .alert {
-    padding: 10px ;
-    padding-left:15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    position: relative;
-    justify-content: space-between;
+  padding: 10px ;
+  padding-left:15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  position: relative;
+  justify-content: space-between;
+  background-color: var(--effectiveui-background-default);
+  color: var(--effectiveui-text-default);
+  border: 2px solid var(--effectiveui-border-default);
+  box-sizing: border-box;
 }
 .alert-icon {
-    margin-right: 10px; /* Space between the icon and message */
-    font-size: 22px; /* Adjust icon size */
-  }
+  margin-right: 10px;
+  font-size: 22px;
+}
 
-  .alert-default {
-    background-color: #d2d3d3e0;
-    color: #424849;
-    border: 1px solid #d2d3d3;
-  }
+.alert-close {
+  background: none;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+  padding: 0 0.3em;
+  margin-left: 1.5em;
+}
 
-  .alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-  }
-  
-  .alert-info {
-    background-color: #d1ecf1;
-    color: #0c5460;
-    border: 1px solid #bee5eb;
-  }
-  
-  .alert-warning {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
-  }
-  
-  .alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-  }
-  
-  .alert-close {
-    background: none;
-    border: none;
-    border-radius: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    color: inherit;
-    margin-left: 2rem;
-  }
-  
-  .alert-close:hover {
-    opacity: 0.9;
-    background-color:#bebdbd38
-  }
-  
+.alert-close:hover {
+  background-color:var(--effectiveui-hover-background-default);
+}
+
+/* RADIUS */
+.alert--radius-none{
+border-radius: 0px;
+}
+.alert--radius-sm{
+  border-radius: 8px;
+}
+.alert--radius-md{
+  border-radius: 12px;
+}
+.alert--radius-lg{
+  border-radius: 16px;
+}
+.alert--radius-full{
+  border-radius: 9999999px;
+}
+
+/* VARIANTS */
+.alert--variant-solid{
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.alert--variant-flat{
+  border: 2px solid var(--effectiveui-background-default) !important;
+}
+.alert--variant-bordered{
+  background-color: transparent !important;
+}
+
+/* COLORS */
+.alert--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.alert--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.alert--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.alert--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.alert--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
