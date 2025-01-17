@@ -1,33 +1,69 @@
-.dateinput {
-  display: inline-block;
+.dateinput_container {
   font-family: 'Nunito Sans';
-}
-
-.dateinput-wrapper {
+  color:var(--effectiveui-text-default);
+  font-size:0.95em;
   display: flex;
-  align-items: center;
-  width: 100%;
+  flex-direction: column;
   justify-content: center;
-  padding:0.1rem 0.4rem 0.4rem 0.4rem;
+  gap: 0.5em;
+  padding: 0.5em;
 }
 
-.dateinput-field {
-  width: 50px;
-  padding: 0.4rem 0.3rem;
-  font-size: 16px;
-  color:#cacaca;
+.dateinput_container--label-placement-outside-left {
+  flex-direction: row;
+  align-items: baseline;
+  gap:0.9em !important;
+}
+
+.dateinput {
+  background-color: var(--effectiveui-background-default);
+  border:2px solid var(--effectiveui-border-default);
+}
+
+.dateinput:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid var(--effectiveui-hover-border-default);
+  background-color: var(--effectiveui-hover-background-default);
+}
+.dateinput-error{
+  color:var(--effectiveui-border-danger);
+  font-size:0.875rem;
+}
+.colflex{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.dateinput_label{
+  margin-left:1em;
+}
+
+.dateinput_wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.dateinput_field {
+  color:var(--effectiveui-text-default);
   font-family: inherit;
+  font-size:inherit;
   background-color: transparent;
   border:0;
-  border-bottom: 1px solid #e9ecef41;
   text-align: center;
   box-sizing: border-box;
 }
-input{
-  padding-bottom:0 !important
+/* .dateinput_field::placeholder{
+  color:var(--effectiveui-text-default);
+} */
+:focus-visible{
+  outline:0;
 }
-:focus-visible {
-  outline:0
+.date_wrapper{
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  justify-content: center;
+  padding: 0em 0.5em;
 }
 
 .dateinput-dd,
@@ -45,132 +81,139 @@ input{
 }
 
 .dateinput-calendar-button{
-  cursor:pointer;
-  margin:0 2px;
-  vertical-align: -webkit-baseline-middle;
+  cursor: pointer;
+  vertical-align: middle;
 }
   
-/*label*/
-.dateinput label {
-  display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
-  font-size: 14px;
+
+/* variants*/
+
+.dateinput--variant-flat{
+  border: 2px solid var(--effectiveui-background-default) !important;
 }
-.dateinput-primary.dateinput label{
-  color:var(--effectiveui-primary)
-}
-.dateinput-secondary.dateinput label{
-  color:var(--effectiveui-secondary)
-}
-.dateinput-success.dateinput label{
-  color:var(--effectiveui-success)
-}
-.dateinput-danger.dateinput label{
-  color:var(--effectiveui-danger)
-}
-.dateinput-default.dateinput label{
-  color:var(--effectiveui-default-500)
+.dateinput--variant-flat:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border: 2px solid var(--effectiveui-hover-background-default) !important;
 }
 
-  /* variants*/
-  .dateinput-none .dateinput-wrapper{
-    background-color: transparent !important;
-    color:#cacaca ;
-    border:none!important;
-  }
-  .dateinput-none .dateinput-inside label{
-    top: 15%;
-  }
-  .dateinput-flat .dateinput-wrapper{
-    background-color: #4545458a;
-    color:#cacaca !important;
-    border:none!important;
-  }
-  .dateinput-outlined .dateinput-wrapper{
-    background-color:transparent !important;
-    color:#cacaca;
-    border: 1px solid #e9ecef41;
-  }
-  .dateinput-outlined .dateinput-field{
-    border-bottom:0;
-  }
+.dateinput--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+background-color : var(--effectiveui-background-default);
+}
 
-  /*colors*/
-  .dateinput-primary .dateinput-wrapper{
-    background-color: var(--effectiveui-primary-100);
-    border: 1px solid var(--effectiveui-primary);
-    color: var(--effectiveui-primary);
-  }
-  .dateinput-secondary .dateinput-wrapper{
-    background-color: var(--effectiveui-secondary-100);
-    border: 1px solid var(--effectiveui-secondary);
-    color: var(--effectiveui-secondary);
-  }
-  .dateinput-success .dateinput-wrapper{
-    background-color: var(--effectiveui-success-100);
-    border: 1px solid var(--effectiveui-success);
-    color: var(--effectiveui-success);
-  }
-  .dateinput-danger .dateinput-wrapper{
-    background-color: var(--effectiveui-danger-100);
-    border: 1px solid var(--effectiveui-danger);
-    color: var(--effectiveui-danger);
-  }
-  .dateinput-default .dateinput-wrapper{
-    background-color:  var(--effectiveui-default-100);
-    border: 1px solid #777777;
-    color:  #777777;
-  }
-  
+.dateinput--variant-bordered,
+.dateinput--variant-bordered:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  background-color: transparent !important;
+}
+
+.dateinput--variant-underlined,
+.dateinput--variant-underlined:is(:hover, :active, :focus, :focus-visible, :focus-within) {
+  border-radius: 0px !important;
+  border-top: 2px solid transparent !important;
+  border-left: 2px solid transparent !important;
+  border-right: 2px solid transparent !important;
+  background-color: transparent !important;
+}
+
   /* Disabled state */
- .dateinput-disabled .dateinput-wrapper {
-    opacity:0.6;
-    background-color:  #45454540;
-  }
-  .dateinput-disabled{
-    opacity:0.6;
-    pointer-events: none;
-  }
+.dateinput-disabled .dateinput-wrapper {
+  opacity:0.6;
+  background-color:  #45454540;
+}
+.dateinput_container--disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
-  /*radius*/
-  .dateinput-radius-none .dateinput-wrapper{
-    border-radius:0;
-  }
-  .dateinput-radius-sm .dateinput-wrapper{
-    border-radius: 4px;
-  }
-  .dateinput-radius-md .dateinput-wrapper{
-    border-radius: 7px;
-  }
-  .dateinput-radius-lg .dateinput-wrapper{
-    border-radius: 10px;
-  }
+.dateinput_container--full-width {
+  width: 100%;
+}
 
-  /*label inside*/
-  .dateinput-inside {
-    position: relative;
-  }
-  .dateinput-inside label {
-    position: absolute;
-    top: 25%;
-    left: 10px;
-    transform: translateY(-50%);
-    transition: 0.3s;
-    color: inherit;
-    pointer-events: none;
-  }
-  .dateinput-inside input {
-    padding-top: 1.2rem;
-  }
-  
-  .react-datepicker {
-    font-family: 'Nunito Sans';
-  }
+/* SIZE*/
+.dateinput_container--size-sm, .dateinput_wrapper--size-sm {
+  font-size:0.875rem;
+  gap: 0.375em;
+  padding: 0.375em;
+}
+
+.dateinput_container--size-md, .dateinput_wrapper--size-md {
+  font-size:0.95rem;
+  gap: 0.5em;
+  padding: 0.5em;
+}
+
+.dateinput_container--size-lg, .dateinput_wrapper--size-lg {
+  font-size:1rem;
+  gap: 0.675em;
+  padding: 0.675em;
+}
 
 
+
+/* RADIUS */
+.dateinput--radius-none{
+border-radius: 0px;
+}
+.dateinput--radius-sm{
+  border-radius: 8px;
+}
+.dateinput--radius-md{
+  border-radius: 12px;
+}
+.dateinput--radius-lg{
+  border-radius: 16px;
+}
+.dateinput--radius-full{
+  border-radius: 9999999px;
+}
+
+
+.react-datepicker {
+  font-family: 'Nunito Sans';
+}
 .react-datepicker__day--selected {
   background-color: #2196F3;
   color: white;
   border:none;
 }
+
+/* COLORS */
+.dateinput_container--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.dateinput_container--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.dateinput_container--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.dateinput_container--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.dateinput_container--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+
