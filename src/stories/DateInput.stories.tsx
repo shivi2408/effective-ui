@@ -17,12 +17,12 @@ const meta: Meta<typeof DateInput> = {
     },
     variant: {
       control: 'select',
-      options: ['none', 'flat', 'outlined'],
+      options: ['flat', 'faded' , 'bordered', 'underlined' ],
       description: 'The variant style of the date input.',
     },
     color: {
       control: 'select',
-      options: ['default', 'primary', 'secondary', 'success', 'danger'],
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
       description: 'The color variant of the date input.',
     },
     size: {
@@ -32,17 +32,21 @@ const meta: Meta<typeof DateInput> = {
     },
     radius: {
       control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
+      options: ['none', 'sm', 'md', 'lg', 'full'],
       description: 'The border radius of the date input.',
     },
     labelPlacement: {
       control: 'select',
-      options: ['inside', 'outside'],
+      options: ['inside', 'outside', 'outside-left'],
       description: 'Placement of the label.',
     },
     isDisabled: {
       control: 'boolean',
       description: 'Disable the date input.',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'If true, the button box spans the full width of its container.',
     },
     validationBehavior: {
       control: 'select',
@@ -72,13 +76,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: '',
-    variant: 'none',
+    label: 'Date :',
+    variant: 'flat',
     color: 'default',
     size: 'md',
     radius: 'sm',
     labelPlacement: 'inside',
     isDisabled: false,
+    fullWidth: false,
     value: { dd: '', mm: '', yyyy: '' },
   },
 };
@@ -86,10 +91,10 @@ export const Default: Story = {
 export const Outlined: Story = {
   args: {
     label: 'Date',
-    variant: 'outlined',
+    variant: 'bordered',
     color: 'primary',
     size: 'md',
-    labelPlacement: 'outside',
+    labelPlacement: 'outside-left',
     value: { dd: '', mm: '', yyyy: '' },
   },
 };
@@ -107,8 +112,8 @@ export const Disabled: Story = {
 
 export const WithLabelOutside: Story = {
   args: {
-    label: 'Birth date',
-    variant: 'outlined',
+    label: 'Birth date :',
+    variant: 'faded',
     color: 'default',
     size: 'lg',
     labelPlacement: 'outside',
@@ -118,8 +123,8 @@ export const WithLabelOutside: Story = {
 
 export const WithCalendarButton: Story = {
   args: {
-    label: 'Pick Date',
-    variant: 'outlined',
+    label: 'Pick Date :',
+    variant: 'bordered',
     color: 'primary',
     size: 'md',
     labelPlacement: 'outside',

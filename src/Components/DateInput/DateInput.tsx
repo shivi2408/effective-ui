@@ -7,12 +7,13 @@ import './Styles/dateinput.css';
 
 export interface DateInputProps {
   label?: string;
-  variant?: 'none' | 'flat' | 'outlined';
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'danger';
+  variant?: 'flat' | 'faded' | 'bordered' | 'underlined';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg';
-  labelPlacement?: 'inside' | 'outside';
-  isDisabled?: boolean;
+  labelPlacement?: 'inside' | 'outside' | 'outside-left';
+  isDisabled?: boolean; 
+  fullWidth?: boolean; 
   validationBehavior?: 'onBlur' | 'onChange';
   value?: { dd: string; mm: string; yyyy: string };
   onChange?: (value: { dd: string; mm: string; yyyy: string }) => void;
@@ -30,6 +31,7 @@ const DateInput: React.FC<DateInputProps> = ({
   radius = 'sm',
   labelPlacement = 'inside',
   isDisabled = false,
+  fullWidth = false,
   validationBehavior = 'onBlur',
   value = { dd: '', mm: '', yyyy: '' },
   onChange,
@@ -40,6 +42,28 @@ const DateInput: React.FC<DateInputProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState(value);
   const [calendarDate, setCalendarDate] = useState<Date | null>(null);
+  const [error, setError] = useState('');
+
+  const validateDate = (newValue: { dd: string; mm: string; yyyy: string }) => {
+    const { dd, mm, yyyy } = newValue;
+    const day = parseInt(dd, 10);
+    const month = parseInt(mm, 10);
+    const year = parseInt(yyyy, 10);
+
+    if (
+      isNaN(day) || isNaN(month) || isNaN(year) ||
+      day < 1 || day > 31 || month < 1 || month > 12 || yyyy.length !== 4 ||
+      (month === 2 && day > 29) || 
+      ([4, 6, 9, 11].includes(month) && day > 30) || 
+      (month === 2 && day === 29 && (year % 4 !== 0 || (year % 100 === 0 && year % 400 !== 0)))
+    ) {
+      setError('Please enter a valid date.');
+      return false;
+    }
+
+    setError('');
+    return true;
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, field: 'dd' | 'mm' | 'yyyy', nextFieldRef?: React.RefObject<HTMLInputElement>) => {
     const { value } = e.target;
@@ -48,7 +72,7 @@ const DateInput: React.FC<DateInputProps> = ({
     if (field === 'dd' && value.length === 2 && nextFieldRef?.current) {
       nextFieldRef.current.focus();
     }
-    
+
     if (field === 'mm') {
       if (parseInt(value, 10) > 12) {
         newValue.mm = '12';
@@ -62,6 +86,8 @@ const DateInput: React.FC<DateInputProps> = ({
     if (onChange) {
       onChange(newValue);
     }
+
+    validateDate(newValue);
   };
 
   const handleDateChange = (date: Date | null) => {
@@ -76,70 +102,95 @@ const DateInput: React.FC<DateInputProps> = ({
       if (onChange) {
         onChange(newValue);
       }
+      setError('');
     }
   };
 
-  const inputClass = classNames(
+  const dateinputContainerClass = classNames(
+    'dateinput_container',
+    `dateinput_container--color-${color}`, 
+    `dateinput_container--size-${size}`,
+    { 'dateinput_container--disabled': isDisabled },
+    { 'dateinput_container--full-width': fullWidth },
+    { [`dateinput_container--label-placement-${labelPlacement}`]: labelPlacement === 'outside-left' }
+  );
+
+  const dateinputClass = classNames(
     'dateinput',
-    `dateinput-${variant}`,
-    `dateinput-${color}`,
-    `dateinput-${size}`,
-    { 'dateinput-disabled': isDisabled },
-    { 'dateinput-radius-none': radius === 'none' },
-    { [`dateinput-radius-${radius}`]: radius !== 'none' },
+    `dateinput--variant-${variant}`,
+    `dateinput--color-${color}`, 
+    `dateinput--size-${size}`,
+    `dateinput--radius-${radius}`,
     className
+  );
+
+  const dateinputWrapperClass = classNames(
+    'dateinput_wrapper',
+    `dateinput_wrapper--size-${size}`,
+  );
+
+  const dateinputLabelClass = classNames(
+    'dateinput_label',
+    `dateinput_label--size-${size}`,
   );
 
   const monthRef = React.createRef<HTMLInputElement>();
   const yearRef = React.createRef<HTMLInputElement>();
+
   return (
-    <div className={inputClass} style={style} {...props}>
-      {labelPlacement === 'outside' && <label>{label}</label>}
-      <div className={classNames('dateinput-wrapper', { 'dateinput-inside': labelPlacement === 'inside' })}>
-        {labelPlacement === 'inside' && <label>{label}</label>}
-        <input
-          type="text"
-          placeholder="dd"
-          value={inputValue.dd}
-          onChange={(e) => handleInputChange(e, 'dd', monthRef)}
-          disabled={isDisabled}
-          className="dateinput-field dateinput-dd"
-          maxLength={2}
-        />
-        <span className="dateinput-separator">/</span>
-        <input
-          type="text"
-          ref={monthRef}
-          placeholder="mm"
-          value={inputValue.mm}
-          onChange={(e) => handleInputChange(e, 'mm', yearRef)}
-          disabled={isDisabled}
-          className="dateinput-field dateinput-mm"
-          maxLength={2}
-        />
-        <span className="dateinput-separator">/</span>
-        <input
-          type="text"
-          ref={yearRef}
-          placeholder="yyyy"
-          value={inputValue.yyyy}
-          onChange={(e) => handleInputChange(e, 'yyyy')}
-          disabled={isDisabled}
-          className="dateinput-field dateinput-yyyy"
-          maxLength={4}
-        />
-        {showCalendarButton && (
-          <DatePicker
-            selected={calendarDate}
-            onChange={handleDateChange}
-            customInput={<IoCalendar className="dateinput-calendar-button" size={22} />}
-            disabled={isDisabled}
-          />
-        )}
+    <div className={dateinputContainerClass}>
+      {(labelPlacement === 'outside' || labelPlacement === 'outside-left') && <label className={dateinputLabelClass}>{label}</label>}
+      <div className='colflex'>
+      <div className={dateinputClass} style={style} {...props}>
+        <div className={dateinputWrapperClass}>
+          {labelPlacement === 'inside' && <label className={dateinputLabelClass}>{label}</label>}
+          <div className='date_wrapper'>
+            <input
+              type="text"
+              placeholder="dd"
+              value={inputValue.dd}
+              onChange={(e) => handleInputChange(e, 'dd', monthRef)}
+              disabled={isDisabled}
+              className="dateinput_field dateinput-dd"
+              maxLength={2}
+            />
+            <span className="dateinput-separator">/</span>
+            <input
+              type="text"
+              ref={monthRef}
+              placeholder="mm"
+              value={inputValue.mm}
+              onChange={(e) => handleInputChange(e, 'mm', yearRef)}
+              disabled={isDisabled}
+              className="dateinput_field dateinput-mm"
+              maxLength={2}
+            />
+            <span className="dateinput-separator">/</span>
+            <input
+              type="text"
+              ref={yearRef}
+              placeholder="yyyy"
+              value={inputValue.yyyy}
+              onChange={(e) => handleInputChange(e, 'yyyy')}
+              disabled={isDisabled}
+              className="dateinput_field dateinput-yyyy"
+              maxLength={4}
+            />
+            {showCalendarButton && (
+              <DatePicker
+                selected={calendarDate}
+                onChange={handleDateChange}
+                customInput={<IoCalendar className="dateinput-calendar-button" />}
+                disabled={isDisabled}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+      {error && <div className="dateinput-error">{error}</div>}
       </div>
     </div>
   );
-  
 };
 
 export default DateInput;
