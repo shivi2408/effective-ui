@@ -76,7 +76,7 @@ export const Types: Story = {
       radius: 'md',
     },
     render: (args) => (
-      <div>
+      <div style={{display:"flex", flexDirection:"column",gap:"1em"}}>
         <Alert {...args} message="This is a default alert!" color="default" />
         <Alert {...args} message="This is an info alert!" color="primary" />
         <Alert {...args} message="This is an info alert!" color="secondary" />

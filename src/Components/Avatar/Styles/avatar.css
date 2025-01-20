@@ -1,8 +1,8 @@
 .avatar {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
   color: var(--effectiveui-white);
   overflow: hidden;
@@ -20,9 +20,9 @@
 }
 
 .avatar-initials {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
-  color: var(--effectiveui-white);
+  /* color: var(--effectiveui-white); */
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -65,19 +65,19 @@
   
 /* SIZE*/
 .avatar--size-sm{
-  width: 38px;
-  height: 38px;
-  font-size: 16px;
+  width: 2.375rem;
+  height: 2.375rem;
+  font-size: 1rem;
 }
 .avatar--size-md{
-  width: 45px;
-  height: 45px;
-  font-size: 20px;
+  width: 2.813rem;
+  height: 2.813rem;
+  font-size: 1.25rem;
 }
 .avatar--size-lg{
-  width: 52px;
-  height: 52px;
-  font-size: 24px;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.5rem;
 }
 
 /* COLORS */

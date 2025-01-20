@@ -1,32 +1,31 @@
 .alert {
-  padding: 10px ;
-  padding-left:15px;
-  margin: 10px 0;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  position: relative;
-  justify-content: space-between;
-  background-color: var(--effectiveui-background-default);
-  color: var(--effectiveui-text-default);
-  border: 2px solid var(--effectiveui-border-default);
-  box-sizing: border-box;
+    padding: 0.725em 1em;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.9em;
+    font-size: 0.875rem;
+    position: relative;
+    justify-content:space-around;
+    font-family: 'Nunito Sans';
+    background-color: var(--effectiveui-background-default);
+    color: var(--effectiveui-text-default);
+    border: 2px solid var(--effectiveui-border-default);
+    box-sizing: border-box;
 }
 .alert-icon {
-  margin-right: 10px;
-  font-size: 22px;
+  font-size: 1.375rem;
+  padding: .1em;
 }
 
 .alert-close {
+  font-size: 1.0rem;
   background: none;
   border: none;
-  border-radius: 50px;
-  font-size: 20px;
+  border-radius: 999px;
   cursor: pointer;
   color: inherit;
-  padding: 0 0.3em;
-  margin-left: 1.5em;
+  padding: .375em;
 }
 
 .alert-close:hover {
