@@ -4,6 +4,7 @@ import { MdInfoOutline } from "react-icons/md";
 import { GoCheckCircle } from "react-icons/go";
 import { LuShieldAlert } from "react-icons/lu";
 import { TbAlertHexagon } from "react-icons/tb";
+import { CgClose } from "react-icons/cg";
 import './Styles/alert.css';
 
 export interface AlertProps {
@@ -86,9 +87,9 @@ const Alert: React.FC<AlertProps> = ({
     <div className={alertClass} style={style}>
         {renderIcon()}
       <span>{message}</span>
-      <button className="alert-close" onClick={() => setVisible(false)}>
-        &times;
-      </button>
+      {/* <button > */}
+      <CgClose className="alert-close" onClick={() => setVisible(false)}/>
+      {/* </button> */}
     </div>
   );
 };
