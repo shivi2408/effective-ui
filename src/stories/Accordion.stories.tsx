@@ -1,20 +1,36 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Accordion from '../Components/Accordion/Accordion'; 
+import Accordion from '../Components/Accordion/Accordion';
 
 const meta = {
   title: 'Components/Accordion',
   component: Accordion,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
   },
   tags: ['autodocs'],
   argTypes: {
-    title: {
-      control: 'text',
-      description: 'The title of the accordion.',
+    variant: {
+      control: 'select',
+      options: ['default', 'shadow', 'bordered', 'splitted'],
+      description: 'Style variant of the button box.',
     },
-    isOpen: {
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
+      description: 'Color variant of the button box.',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the button box.',
+    },
+    radius: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg', 'full'],
+      description: 'Border radius for the button box.',
+    },
+    open: {
       control: 'boolean',
       description: 'Whether the accordion is open by default.',
     },
@@ -23,9 +39,9 @@ const meta = {
       description: 'Disable the accordion.',
     },
     isCompact: {
-        control: 'boolean',
-        description: 'to make the accordion look compact',
-      },
+      control: 'boolean',
+      description: 'To make the accordion look compact.',
+    },
     children: {
       control: 'text',
       description: 'Content inside the accordion.',
@@ -42,67 +58,96 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'Accordion 1',
-    isOpen: false,
-    children: 'This is the content of the accordion.',
+    variant: 'default',
+    color: 'default',
+    radius: 'md',
+    size: 'md',
   },
+  render: (args) => (
+    <Accordion {...args}>
+      <div title="Accordion 1">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </Accordion>
+  ),
 };
 
 export const Open: Story = {
   args: {
-    title: 'Accordion 2',
-    isOpen: true,
-    children: 'This accordion is open by default.',
+    variant: 'default',
+    color: 'primary',
+    radius: 'none',
+    size: 'md',
+    open:true,
   },
+  render: (args) => (
+    <Accordion {...args}>
+      <div title="Accordion 2">
+        This accordion is open by default.
+      </div>
+    </Accordion>
+  ),
 };
 
 export const Disabled: Story = {
   args: {
-    title: 'Accordion ',
+    variant: 'bordered',
+    radius: 'md',
+    size: 'md',
     isDisabled: true,
-    children: 'This accordion is disabled.',
   },
+  render: (args) => (
+    <Accordion {...args}>
+      <div title="Accordion">
+        This accordion is disabled.
+      </div>
+    </Accordion>
+  ),
 };
 
 export const MultipleAccordions: Story = {
-    args: {
-      title: 'Accordion',
-      isCompact: false,
-      isOpen: false, 
-    },
-    render: (args) => (
-      <>
-        <Accordion {...args} title="Accordion 1" isOpen={args.isOpen}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </Accordion>
-        <Accordion {...args} title="Accordion 2" isOpen={args.isOpen}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </Accordion>
-        <Accordion {...args} title="Accordion 3" isOpen={args.isOpen}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </Accordion>
-      </>
-    ),
-  };
-  
-  
-  export const isCompact: Story = {
-    args: {
-      title: 'Accordion 1', 
-      isCompact: true,
-    },
-    render: (args) => (
-      <>
-        <Accordion {...args} title="Accordion 1">
+  args: {
+    variant: 'shadow',
+    radius: 'sm',
+    size: 'md',
+  },
+  render: (args) => (
+    <>
+      <Accordion {...args}>
+        <div title="Accordion 1">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div title="Accordion 2">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+        <div title="Accordion 3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </div>
+      </Accordion>
+    </>
+  ),
+};
+
+export const IsCompact: Story = {
+  args: {
+    color: 'primary',
+    radius: 'none',
+    size: 'md',
+    isCompact: true,
+  },
+  render: (args) => (
+    <>
+      <Accordion {...args}>
+        <div title="Accordion 1">
           Content of Accordion 1
-        </Accordion>
-        <Accordion {...args} title="Accordion 2">
+        </div>
+        <div title="Accordion 2">
           Content of Accordion 2
-        </Accordion>
-        <Accordion {...args} title="Accordion 3">
+        </div>
+        <div title="Accordion 3">
           Content of Accordion 3
-        </Accordion>
-      </>
-    ),
-  };
-  
+        </div>
+      </Accordion>
+    </>
+  ),
+};
