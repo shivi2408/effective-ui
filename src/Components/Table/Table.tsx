@@ -14,43 +14,52 @@ export interface TableColumn {
 export interface TableProps {
   columns: TableColumn[];
   data: any[];
+  shadow?: 'none' | 'sm' | 'md' | 'lg';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  radius?: 'none' | 'sm' | 'md' | 'lg';
   className?: string;
+  hideHeader?: boolean; 
   style?: React.CSSProperties;
   onRowClick?: (record: any, index: number) => void;
   striped?: boolean;
   bordered?: boolean;
-  radius?: 'none' | 'sm' | 'md' | 'lg';
-  cellPadding?: string | number; // Add a cellPadding prop
+  cellPadding?: string | number; 
   [x: string]: any;
 }
 
 const Table: React.FC<TableProps> = ({
   columns,
   data,
+  shadow = 'none',
+  color = 'default',
+  radius = 'none',
+  hideHeader = false,
   className,
   style,
   onRowClick,
   striped = false,
   bordered = true,
-  radius = 'none',
-  cellPadding = '8px 12px', // Default padding
+  cellPadding = '8px 12px',
   ...props
 }) => {
   const tableClass = classNames(
     'table',
-    { 'table-striped': striped },
+    { 'table--striped': striped },
     className
   );
 
   const containerClass = classNames(
-    'table-container',
-    `table-radius-${radius}`,
-    { 'table-bordered': bordered },
+    'table_container', 
+    `table_container--shadow-${shadow}`,
+    `table_container--color-${color}`, 
+    `table_container--radius-${radius}`,
+    { 'table_container--bordered': bordered },
   );
 
   return (
     <div className={containerClass} style={style} {...props}>
       <table className={tableClass}>
+      {!hideHeader && ( 
         <thead>
           <tr>
             {columns.map((col) => (
@@ -64,6 +73,7 @@ const Table: React.FC<TableProps> = ({
             ))}
           </tr>
         </thead>
+        )}
         <tbody>
         {data.length === 0 ? (
           <tr>
@@ -76,7 +86,7 @@ const Table: React.FC<TableProps> = ({
             <tr
               key={index}
               onClick={() => onRowClick && onRowClick(record, index)}
-              className={onRowClick ? 'clickable-row' : ''}
+              className={onRowClick ? 'clickable_row' : ''}
             >
               {columns.map((col) => (
                 <td
