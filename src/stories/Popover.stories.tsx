@@ -12,6 +12,26 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['solid' , 'flat', 'faded' , 'bordered', ],
+      description: 'Style variant of the button box.',
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
+      description: 'Color variant of the button box.',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the button box.',
+    },
+    radius: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg', 'full'],
+      description: 'Border radius for the button box.',
+    },
     trigger: { 
       control: 'select', 
       options: ['click', 'hover'], 
@@ -44,6 +64,10 @@ type Story = StoryObj<typeof meta>;
 
 export const ClickTrigger: Story = {
   args: {
+    variant: 'solid',
+    color: 'default',
+    radius: 'md',
+    size: 'md',
     trigger: 'click',
     position: 'bottom',
     content: 'This is a popover triggered by a click!',
@@ -54,11 +78,14 @@ export const ClickTrigger: Story = {
 
 export const HoverTrigger: Story = {
   args: {
+    color: 'primary',
+    radius: 'md',
+    size: 'md',
     trigger: 'hover',
     position: 'top',
     content: 'This is a popover triggered by hover!',
     children: <Button>Hover Over Me</Button>,
-    backdrop: 'blur',
+    backdrop: 'transparent',
   },
 };
 
@@ -99,6 +126,9 @@ export const ControlledVisibility: Story = {
 
 export const CustomContent: Story = {
   args: {
+    color: 'default',
+    radius: 'md',
+    size: 'md',
     trigger: 'click',
     position: 'bottom',
     content: (
