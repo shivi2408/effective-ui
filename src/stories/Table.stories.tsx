@@ -5,7 +5,7 @@ const meta = {
   title: 'Components/Table', 
   component: Table,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
   },
   tags: ['autodocs'],
   argTypes: {
@@ -17,10 +17,24 @@ const meta = {
       control: 'boolean',
       description: 'Applies border styles to the table.',
     },
+    shadow: {
+      control: 'select',
+      options: ['none', 'sm', 'md', 'lg'],
+      description: 'Sets the box-shadow of the table.',
+    },
+    color: {
+      control: 'select',
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger'],
+      description: 'Color variant of the button box.',
+    },
     radius: {
       control: 'select',
       options: ['none', 'sm', 'md', 'lg'],
       description: 'Sets the border radius of the table.',
+    },
+    hideHeader: {
+      control: 'boolean',
+      description: 'Hide header from the table.',
     },
     cellPadding: {
       control: 'text',
@@ -63,9 +77,12 @@ export const Default: Story = {
   args: {
     columns,
     data,
+    shadow: 'md',
+    color: 'default',
+    radius: 'md',
+    hideHeader: false,
     striped: false,
-    bordered: true,
-    radius: 'none',
+    bordered: false,
     cellPadding: '12px', 
   },
 };
@@ -74,9 +91,10 @@ export const Striped: Story = {
   args: {
     columns,
     data,
+    color: 'default',
+    radius: 'md',
     striped: true,
     bordered: true,
-    radius: 'sm',
     cellPadding: '10px 15px',
   },
 };
@@ -85,9 +103,10 @@ export const EmptyState: Story = {
     args: {
       columns,
       data: [], 
+      color: 'default',
+      radius: 'none',
       striped: false,
       bordered: true,
-      radius: 'none',
       cellPadding: '12px', 
     },
   };
@@ -100,17 +119,6 @@ export const ClickableRows: Story = {
     bordered: true,
     onRowClick: (record) => alert(`Row clicked: ${record.name}`),
     radius: 'md',
-    cellPadding: '8px 12px',
   },
 };
 
-export const lgRadius: Story = {
-  args: {
-    columns,
-    data,
-    striped: true,
-    bordered: true,
-    radius: 'lg',
-    cellPadding: '12px 16px',
-  },
-};

@@ -1,68 +1,120 @@
 .table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  .table-container {
-    overflow-x: auto;
-    padding:1.4rem;
-    background-color: #f4f4f4;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
-  
-  .table-bordered {
-    border: 1px solid #ddd;
-  }
-  
-  .table-striped tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  
-  .clickable-row {
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .clickable-row:hover {
-    background-color: #e7e7e7 !important;
-  }
-  
-  
-  .table-radius-none {
-    border-radius: 0;
-  }
-  
-  .table-radius-sm {
-    border-radius: 4px;
-  }
-  
-  .table-radius-md {
-    border-radius: 8px;
-  }
-  
-  .table-radius-lg {
-    border-radius: 16px;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  font-family: 'Nunito Sans';
+}
 
-  table th,
-  table td {
-    padding: 8px 12px;
-    text-align: left;
-    
-  }
-   th:first-child,td:first-child{
-    border-radius: 8px 0 0 8px;
-  }
-  th:last-child,td:last-child{
-    border-radius:  0 8px 8px 0;
-  }
-  th {
-    background-color: #e2e2e2;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size:13px;
-  }
+.table_container {
+  overflow-x: auto;
+  padding:1.4rem;
+  background-color: var(--effectiveui-background-default);
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white));
+  box-sizing: border-box;
+}
+
+.table_container--bordered {
+  border: 2px solid var(--effectiveui-border-default);
+}
+
+.table--striped tbody tr:nth-child(even) {
+  background-color: var(--effectiveui-hover-background-default);
+}
+
+
+.clickable_row {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clickable_row:hover {
+  background-color: var(--effectiveui-border-default) !important;
+}
+
+
+.table_container--radius-none {
+  border-radius: 0;
+}
+.table_container--radius-sm {
+  border-radius: 6px;
+}
+.table_container--radius-md {
+  border-radius: 10px;
+}
+.table_container--radius-lg {
+  border-radius: 16px;
+}
+
+.table_container--shadow-none {
+  box-shadow:none;
+}
+.table_container--shadow-sm {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px 0px;
+}
+.table_container--shadow-md {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 7px 24px 0px;
+}
+.table_container--shadow-lg {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
+}
+
+table th,table td {
+  padding: 8px 12px;
+  text-align: left;
+}
+th:first-child,td:first-child{
+  border-radius: 8px 0 0 8px;
+}
+th:last-child,td:last-child{
+  border-radius:  0 8px 8px 0;
+}
+th {
+  background-color: var(--effectiveui-border-default);
+  opacity:0.75;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size:0.95rem;
+}
+
+
+/* COLORS */
+.table_container--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.table_container--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.table_container--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.table_container--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.table_container--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+
