@@ -1,69 +1,165 @@
-.popover-container {
-    position: relative;
-    display: inline-block;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .popover-trigger {
-    display: inline-block;
-    /* You can add more styles for the button (trigger) here */
-  }
-  .popover {
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 8px;
-    padding: 0.7em 1.2em;
-    opacity: 1;
-    background-color: #d7dfe596;
-    z-index: -1;
-    border: 2px solid #d7dfe5;
-    transform-origin: 0;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    display: grid;
-    place-items: center;
-  }
-
-  
-  .popover-visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .popover-top {
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 8px;
-  }
-  
-  .popover-bottom {
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 8px;
-  }
-  
-  .popover-left {
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: 8px;
-  }
-  
-  .popover-right {
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 8px;
-  }
-  .popover-container-transparent {
-  background-color: rgba(0, 0, 0, 0.2); /* Transparent backdrop */
+.popover {
+  position: absolute;
+  width: 175%;
+  border-radius: 8px;
+  padding: 0.65rem 1.2rem;
+  opacity: 0;
+  background-color: var(--effectiveui-background-default);
+  color:var(--effectiveui-white);
+  border: 2px solid var(--effectiveui-border-default);
+  z-index: 9999;
+  transform-origin: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: grid;
+  place-items: center;
+  font-family: 'Nunito Sans';
+}
+.popover_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+.popover_container {
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.popover-container-blur {
-  backdrop-filter: blur(10px); /* Blurred backdrop */
+.popover--visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-.popover-container-opaque {
-  background-color: rgba(0, 0, 0, 0.5); /* Opaque backdrop */
+/* Backdrop*/
+.popover_overlay--backdrop-transparent {
+  background-color: rgba(0, 0, 0, 0.1);
 }
+.popover_overlay--backdrop-blur {
+  backdrop-filter: blur(10px);
+}
+.popover_overlay--backdrop-opaque {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/*Position*/
+.popover--position-top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+}
+.popover--position-bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+}
+.popover--position-left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+}
+.popover--position-right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* SIZE*/
+.popover--size-sm {
+  font-size:0.875rem;
+  padding: 0.375em 1em;
+  gap: 0.3rem;
+}
+.popover--size-md {
+  font-size:0.925rem;
+  padding: 0.65em 1.35em;
+  gap: 0.5rem;
+}
+.popover--size-lg {
+  font-size:1rem;
+  padding: 0.75em 1.45em;
+  gap: 1rem;
+}
+
+/* RADIUS */
+.popover--radius-none{
+  border-radius: 0px;
+}
+.popover--radius-sm{
+  border-radius: 8px;
+}
+.popover--radius-md{
+  border-radius: 12px;
+}
+.popover--radius-lg{
+  border-radius: 16px;
+}
+.popover--radius-full{
+  border-radius: 9999999px;
+}
+
+/* VARIANTS */
+.popover--variant-solid{
+  background-color : var(--effectiveui-text-default) !important;
+  border: 2px solid var(--effectiveui-text-default) !important;
+}
+.popover--variant-flat{
+  border: 2px solid var(--effectiveui-background-default) !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.popover--variant-faded{
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.popover--variant-bordered{
+  background-color: transparent !important;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+
+/* COLORS */
+.popover--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.popover--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.popover--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.popover--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.popover--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+
