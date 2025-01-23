@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Table, { TableColumn } from '../Components/Table/Table'; 
+import React from 'react';
+import  Chip  from '../Components/Chip/Chip'; 
 
 const meta = {
   title: 'Components/Table', 
@@ -40,6 +42,11 @@ const meta = {
       control: 'text',
       description: 'Custom padding for table cells.',
       defaultValue: '8px 12px',
+    },
+    selection: {
+      control: 'select',
+      options: ['none', 'single', 'multiple'],
+      description: 'Sets the border radius of the table.',
     },
     onRowClick: {
       action: 'rowClicked',
@@ -83,6 +90,7 @@ export const Default: Story = {
     hideHeader: false,
     striped: false,
     bordered: false,
+    selection: 'none',
     cellPadding: '12px', 
   },
 };
@@ -122,3 +130,50 @@ export const ClickableRows: Story = {
   },
 };
 
+
+
+const customcolumns: TableColumn[] = [
+  { key: 'id', title: 'ID', width: '10%', align: 'center' },
+  { key: 'name', title: 'Name', align: 'left' },
+  { key: 'age', title: 'Age', align: 'center' },
+  { key: 'status', title: 'Status', align: 'center' },
+];
+const active = <Chip
+                  color="success"
+                  size="sm"
+                  variant="flat"
+                  >
+                  Active
+                  </Chip>
+const pause = <Chip
+                  color="danger"
+                  size="sm"
+                  variant="flat"
+                  >
+                  Paused
+                  </Chip>
+const vacation = <Chip
+                  color="warning"
+                  size="sm"
+                  variant="flat"
+                  >
+                  Vacation
+                  </Chip>                  
+
+const customdata = [
+  { id: 1, name: 'John Doe', age: 28, status: [active] },
+  { id: 2, name: 'Jane Smith', age: 34, status: [pause] },
+  { id: 3, name: 'Sam Wilson', age: 23, status:[vacation] },
+  { id: 4, name: 'Zoey Lang', age: 32, status: [active]},
+];
+
+export const CustomCells: Story = {
+  args: {
+    columns : customcolumns,
+    data : customdata,
+    striped: true,
+    bordered: false,
+    onRowClick: (record) => alert(`Row clicked: ${record.name}`),
+    radius: 'md',
+  },
+};

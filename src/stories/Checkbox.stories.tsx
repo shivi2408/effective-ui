@@ -62,7 +62,7 @@ export const Checked: Story = {
     radius: 'sm',
     size: 'md',
     disabled: false,
-    defaultChecked: true,
+    checked: true,
   },
 };
 
