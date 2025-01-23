@@ -8,8 +8,9 @@
 .table_container {
   overflow-x: auto;
   padding:1.4rem;
-  background-color: var(--effectiveui-background-default);
-  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white));
+  font-size:1rem;
+  background-color: var(--effectiveui-hover-background-default);
+  border:2px solid  var(--effectiveui-hover-background-default);
   box-sizing: border-box;
 }
 
@@ -18,7 +19,8 @@
 }
 
 .table--striped tbody tr:nth-child(even) {
-  background-color: var(--effectiveui-hover-background-default);
+  background-color: var(--effectiveui-background-default);
+  opacity:0.85
 }
 
 
@@ -30,6 +32,13 @@
 .clickable_row:hover {
   background-color: var(--effectiveui-border-default) !important;
 }
+.clickable_row:hover td:first-child{
+  border-radius: 0 !important
+}
+.clickable_row:hover td:last-child{
+  border-radius: 0 !important
+}
+
 
 
 .table_container--radius-none {
@@ -59,7 +68,7 @@
 }
 
 table th,table td {
-  padding: 8px 12px;
+  padding: 0.5em 0.75em;
   text-align: left;
 }
 th:first-child,td:first-child{
@@ -69,11 +78,11 @@ th:last-child,td:last-child{
   border-radius:  0 8px 8px 0;
 }
 th {
-  background-color: var(--effectiveui-border-default);
+  background-color: var(--effectiveui-background-default);
   opacity:0.75;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  font-size:0.95rem;
+  font-size:0.8rem;
 }
 
 
