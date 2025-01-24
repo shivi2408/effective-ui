@@ -5,7 +5,7 @@ import { IoIosArrowDropleft, IoIosArrowDropright } from 'react-icons/io';
 import './Styles/calendar.css';
 
 export interface CalendarProps {
-  color?: 'default' | 'primary' | 'dark';
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'theme';
   className?: string;
   style?: React.CSSProperties;
   showShadow?: boolean;
@@ -14,11 +14,11 @@ export interface CalendarProps {
   visibleMonths?: number;
   weekdayStyle?: 'narrow' | 'short' | 'long';
   disableAnimation?: boolean;
-  onDateSelect?: (date: Date) => void; // Callback for selected date
+  onDateSelect?: (date: Date) => void;
 }
 
 const Calendar: React.FC<CalendarProps> = ({
-  color = 'dark',
+  color = 'theme',
   className,
   style,
   showShadow = false,
@@ -30,8 +30,8 @@ const Calendar: React.FC<CalendarProps> = ({
   onDateSelect,
 }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [selectedDay, setSelectedDay] = useState(currentDate.getDate()); // Track selected day
-  const [pickerOpen, setPickerOpen] = useState(false); // Toggle month/year picker
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null); // Updated to null initially
+  const [pickerOpen, setPickerOpen] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(currentDate.getMonth());
   const [selectedYear, setSelectedYear] = useState(currentDate.getFullYear());
 
@@ -41,84 +41,110 @@ const Calendar: React.FC<CalendarProps> = ({
     })
   );
 
-  // Get the current date's day
   const currentDay = currentDate.getDate();
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
   useEffect(() => {
-    // Set the selected day to the current day when the month changes
-    setSelectedDay(currentDate.getDate());
+    setSelectedMonth(currentDate.getMonth());
+    setSelectedYear(currentDate.getFullYear());
   }, [currentDate]);
 
-  // Function to change the current month
   const changeMonth = (step: number) => {
     setCurrentDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() + step, 1));
+    setSelectedDate(null); // Reset selected date when changing months
   };
 
-  // Generate the days for the current month
   const generateCalendar = (date: Date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
     const firstDay = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const prevMonthDays = new Date(year, month, 0).getDate();
-
+  
     const days = [];
-    // Previous Month Days
-    if (!hideDisabledDates) {
-      for (let i = firstDay; i > 0; i--) {
-        days.push(
-          <div key={`prev-${i}`} className="calendar-day inactive">
-            {prevMonthDays - i + 1}
-          </div>
-        );
-      }
-    }
-    // Current Month Days
-    for (let day = 1; day <= daysInMonth; day++) {
-      const isSelected = day === selectedDay;
-      const isCurrentDay = day === currentDay && month === currentMonth && year === currentYear;
-
+  
+    // Add days from the previous month
+    for (let i = firstDay; i > 0; i--) {
       days.push(
         <div
-          key={`day-${day}`}
-          className={classNames('calendar-day', {
-            'calendar-day-selected': isSelected,
-            'calendar-day-current': isCurrentDay, // Always highlight current day
+          key={`prev-${i}`}
+          className={classNames('calendar_day inactive', {
+            'calendar_day_hidden': hideDisabledDates,
+          })}
+        >
+          {prevMonthDays - i + 1}
+        </div>
+      );
+    }
+  
+    // Add days of the current month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const isSelected =
+        selectedDate &&
+        selectedDate.getDate() === day &&
+        selectedDate.getMonth() === month &&
+        selectedDate.getFullYear() === year;
+  
+      const isCurrentDay =
+        day === currentDay &&
+        month === currentMonth &&
+        year === currentYear;
+  
+      days.push(
+        <div
+          key={`day_${day}`}
+          className={classNames('calendar_day', {
+            calendar_day_selected: isSelected,
+            calendar_day_current: isCurrentDay , // Only highlight today if no date is selected
           })}
           onClick={() => {
-            setSelectedDay(day);
-            onDateSelect && onDateSelect(new Date(date.getFullYear(), date.getMonth(), day));
+            setSelectedDate(new Date(year, month, day)); // User selects a specific day
+            onDateSelect && onDateSelect(new Date(year, month, day));
           }}
         >
           {day}
         </div>
       );
     }
-
+  
+    // Add days from the next month to fill the grid
+    const remainingCells = (7 - (days.length % 7)) % 7;
+    for (let i = 1; i <= remainingCells; i++) {
+      days.push(
+        <div
+          key={`next-${i}`}
+          className={classNames('calendar_day inactive', {
+            'calendar_day_hidden': hideDisabledDates,
+          })}
+        >
+          {i}
+        </div>
+      );
+    }
+  
     return days;
   };
+  
 
-  // Open Month/Year Picker
   const togglePicker = () => {
     setSelectedMonth(currentDate.getMonth());
     setSelectedYear(currentDate.getFullYear());
     setPickerOpen(!pickerOpen);
   };
 
-  // Apply selected month/year
   const applyMonthYear = () => {
     setCurrentDate(new Date(selectedYear, selectedMonth, 1));
     setPickerOpen(false);
+    setSelectedDate(null); // Reset selected date when month/year changes
   };
 
   const calendarClass = classNames(
     'calendar',
-    `calendar-${color}`,
+    `calendar--color-${color}`,
     {
-      'calendar-shadow': showShadow,
-      'calendar-no-animation': disableAnimation,
+      'calendar--shadow': showShadow,
+      'calendar--no_animation': disableAnimation,
     },
     className
   );
@@ -134,19 +160,19 @@ const Calendar: React.FC<CalendarProps> = ({
         );
 
         return (
-          <div key={`month-${index}`} className="calendar-month">
+          <div key={`month-${index}`} className="calendar_month">
             {/* Header */}
-            <div className="calendar-header">
+            <div className="calendar_header">
               {index === 0 && (
                 <button
-                  className="calendar-nav"
+                  className="calendar_nav"
                   onClick={() => changeMonth(-1)}
                   aria-label="Previous Month"
                 >
                   <IoIosArrowDropleft size={24} />
                 </button>
               )}
-              <span className="calendar-title" onClick={togglePicker}>
+              <span className="calendar_title" onClick={togglePicker}>
                 {showMonthAndYearPickers
                   ? displayDate.toLocaleString('default', {
                       month: 'long',
@@ -156,7 +182,7 @@ const Calendar: React.FC<CalendarProps> = ({
               </span>
               {index === visibleMonths - 1 && (
                 <button
-                  className="calendar-nav"
+                  className="calendar_nav"
                   onClick={() => changeMonth(1)}
                   aria-label="Next Month"
                 >
@@ -165,9 +191,8 @@ const Calendar: React.FC<CalendarProps> = ({
               )}
             </div>
 
-            {/* Month/Year Picker */}
             {pickerOpen && index === 0 && (
-              <div className="calendar-picker">
+              <div className="calendar_picker">
                 <select
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(parseInt(e.target.value, 10))}
@@ -190,7 +215,7 @@ const Calendar: React.FC<CalendarProps> = ({
             )}
 
             {/* Days of the Week */}
-            <div className="calendar-days">
+            <div className="calendar_days">
               {daysOfWeek.map((day, i) => (
                 <div key={`day-name-${i}`} className="calendar-day-name">
                   {day}
@@ -199,7 +224,7 @@ const Calendar: React.FC<CalendarProps> = ({
             </div>
 
             {/* Calendar Grid */}
-            <div className="calendar-grid">{generateCalendar(displayDate)}</div>
+            <div className="calendar_grid">{generateCalendar(displayDate)}</div>
           </div>
         );
       })}

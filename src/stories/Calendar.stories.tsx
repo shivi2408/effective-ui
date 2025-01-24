@@ -11,7 +11,7 @@ const meta = {
   argTypes: {
     color: {
       control: 'select',
-      options: ['default', 'primary', 'dark'], 
+      options: ['default', 'primary', 'secondary', 'success', 'warning','danger', 'theme'], 
       description: 'The color theme of the calendar.',
     },
     showShadow: {
@@ -59,7 +59,7 @@ export const Default: Story = {
 
 export const WithoutShadow: Story = {
   args: {
-    color: 'default',
+    color: 'theme',
     showShadow: false,
     visibleMonths: 1,
     weekdayStyle: 'short',
@@ -69,7 +69,7 @@ export const WithoutShadow: Story = {
 
 export const MultiMonthView: Story = {
   args: {
-    color: 'dark',
+    color: 'theme',
     showShadow: true,
     visibleMonths: 2,
     showMonthAndYearPickers: true,
@@ -81,7 +81,7 @@ export const MultiMonthView: Story = {
 
 export const DisabledAnimations: Story = {
   args: {
-    color: 'primary',
+    color: 'default',
     disableAnimation: true,
     visibleMonths: 1,
     showMonthAndYearPickers: false,
