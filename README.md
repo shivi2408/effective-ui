@@ -15,7 +15,7 @@ NPM Package : https://www.npmjs.com/package/@shivangi_2408/effective-ui
 
 ## Storybook
 
-Visit [https://shivi2408.github.io/effective-ui/](https://shivi2408.github.io/effective-ui/) to view the storybook for all components.
+Visit [https://effective-ui.vercel.app/](https://effective-ui.vercel.app/) to view the storybook for all components.
 
 
 ## Installation
