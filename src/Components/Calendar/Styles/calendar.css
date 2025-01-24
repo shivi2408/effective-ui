@@ -1,115 +1,76 @@
 /* Base Calendar Styles */
 .calendar {
     display: inline-block;
-    border: 1px solid #ddd;
+    border: 1px solid var(--effectiveui-border-default);
     border-radius: 10px;
     overflow: hidden;
-    padding: 13px;
-    background-color: #fff;
+    padding: 0.875rem;
+    color: var(--effectiveui-text-default);
+    background-color: var(--effectiveui-hover-background-default);
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Nunito Sans';
   }
-  
-  /* Default Theme */
-  .calendar-default {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ddd;
-  }
-  
-  .calendar-default .calendar-day-name ,.calendar-nav{
-    color: #555;
-  }
-  
-  .calendar-default .calendar-day {
-    color: #333;
-  }
-  
-  .calendar-default .calendar-day.inactive {
-    color: #ccc;
-  }
-  
-  /* Primary Theme */
-  .calendar-primary {
-    background-color: #e3f2fd; /* Light Blue */
-    color: #1565c0; /* Dark Blue */
-  }
-  
-  .calendar-primary .calendar-header,.calendar-nav {
-    color: #0d47a1; /* Darker Blue for header */
-  }
-  
-  .calendar-primary .calendar-day-name {
-    color: #1976d2; /* Blue for day names */
-  }
-  
-  .calendar-primary .calendar-day {
-    color: #1565c0;
-  }
-  
-  .calendar-primary .calendar-day.inactive {
-    color: #90caf9; /* Light Blue for disabled days */
-  }
+
   
   /* Dark Theme */
-  .calendar-dark {
-    background-color: #1e1e1e; /* Dark background */
-    color: #f5f5f5; /* Light text */
+  /* .calendar--color-dark {
+    background-color: #1e1e1e; 
+    color: #f5f5f5; 
     border: 1px solid #424242;
   }
   
-  .calendar-dark .calendar-header,.calendar-nav {
+  .calendar--color-dark .calendar_header,.calendar_nav {
     color: #f5f5f5;
   }
   
-  .calendar-dark .calendar-day-name {
-    color: #bdbdbd; /* Slightly lighter gray */
+  .calendar--color-dark .calendar-day-name {
+    color: #bdbdbd; 
   }
   
-  .calendar-dark .calendar-day {
+  .calendar--color-dark .calendar_day {
     color: #f5f5f5;
   }
   
-  .calendar-dark .calendar-day.inactive {
-    color: #757575; /* Dark gray for disabled days */
-  }
-  
-  /* Shadow Effect */
-  .calendar-shadow {
+  .calendar--color-dark .calendar_day.inactive {
+    color: #757575; 
+  } */
+
+  .calendar--shadow {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
-  /* No Animation */
-  .calendar-no-animation * {
+
+  .calendar--no_animation * {
     transition: none !important;
   }
-  
-  /* Calendar Header */
-  .calendar-header {
+
+  .calendar_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     font-weight: bold;
   }
-  
-  /* Days of the Week & Grid */
-  .calendar-days,
-  .calendar-grid {
+
+  .calendar_month{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .calendar_days,
+  .calendar_grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 8px;
   }
-  .calendar-days{
+  .calendar_days{
     margin-bottom:6px;
   }
   .calendar-day-name {
     text-align: center;
     font-weight: 500;
-    font-size: sm;
+    font-size:small;
   }
   
-  .calendar-day {
+  .calendar_day {
     text-align: center;
     padding: 5px;
     border-radius: 4px;
@@ -117,81 +78,127 @@
     font-family:'Courier New', Courier, monospace;
   }
   
-  /* Hover Effect */
-  .calendar-day:hover {
+  /* Day Effects */
+  .calendar_day:hover {
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-weight:bold;
   }
-  
-  .calendar-dark .calendar-day:hover,.calendar-day.selected {
+  .calendar_day:hover,.calendar_day_current  {
     background-color: rgba(255, 255, 255, 0.1);
   }
-  .calendar-day.selected ,.calendar-day-selected{
-    background-color: rgba(255, 255, 255, 0.1);
-    font-weight: bold; /* Make the selected day stand out */
-  }
-  .calendar-day-current {
+  .selected ,.calendar_day_selected{
     background-color: rgba(255, 255, 255, 0.2);
-    font-weight: bold; /* Make the selected day stand out */
+    font-weight: bolder;
   }
-  /* Inactive Days */
-  .calendar-day.inactive {
+  .calendar_day_current {
+    font-weight: bolder; 
+  }
+  
+  .calendar_day.inactive {
     opacity: 0.5;
+  }
+  .calendar_day_hidden {
+    color: transparent;
+    pointer-events: none; 
   }
   
   /* Navigation Buttons */
-  .calendar-nav {
+  .calendar_nav {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.2em;
     color: inherit;
-    border-radius: 50%;
     transition: color 0.3s ease;
   }
-
-  
-  .calendar-nav:hover {
-    opacity:0.8;
-  }
-  
-  .calendar-dark .calendar-nav:hover {
-    color: #f5f5f5;
+  .calendar_nav:hover {
+    opacity:0.7;
   }
   
 
-  .calendar-picker {
+  .calendar_picker {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    background-color: var(--effectiveui-background-default);
+    padding: 0.5rem;
+    position: relative;
+    border-radius:4px;
+    color:var(--effectiveui-text-default);
+    justify-content: space-evenly;
+    gap: 0.5rem;
+    z-index:99
   }
   
-  .calendar-picker select,
-  .calendar-picker input {
+  .calendar_picker select,
+  .calendar_picker input {
     padding: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--effectiveui-border-default);
     border-radius: 4px;
     background-color: inherit;
     color: inherit;
   }
-  .calendar-picker select option {
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity:0.5;
-    color: #000;
+  .calendar_picker input{
+    width:60px;
+  }
+  .calendar_picker select option {
+    border:none;
   }
   
-  .calendar-picker button {
-    padding: 5px 10px;
+  .calendar_picker button {
     background-color: inherit;
+    opacity:0.7;
     color: inherit;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
   
-  .calendar-picker button:hover {
-    background-color: inherit;
+  .calendar_picker button:hover {
+    opacity:1;
   }
   
+  
+/* COLORS */
+.calendar--color-theme{
+  background-color: transparent;
+  color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.calendar--color-primary {
+  --effectiveui-text-default: var(--effectiveui-text-primary);
+  --effectiveui-background-default: var(--effectiveui-background-primary);
+  --effectiveui-border-default: var(--effectiveui-border-primary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+}
+
+.calendar--color-secondary {
+  --effectiveui-text-default: var(--effectiveui-text-secondary);
+  --effectiveui-background-default: var(--effectiveui-background-secondary);
+  --effectiveui-border-default: var(--effectiveui-border-secondary);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+}
+
+.calendar--color-success {
+  --effectiveui-text-default: var(--effectiveui-text-success);
+  --effectiveui-background-default: var(--effectiveui-background-success);
+  --effectiveui-border-default: var(--effectiveui-border-success);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+}
+
+.calendar--color-warning {
+  --effectiveui-text-default: var(--effectiveui-text-warning);
+  --effectiveui-background-default: var(--effectiveui-background-warning);
+  --effectiveui-border-default: var(--effectiveui-border-warning);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+}
+
+.calendar--color-danger {
+  --effectiveui-text-default: var(--effectiveui-text-danger);
+  --effectiveui-background-default: var(--effectiveui-background-danger);
+  --effectiveui-border-default: var(--effectiveui-border-danger);
+  --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+  --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+}
+
