@@ -42,14 +42,33 @@ textarea {
   color: red;
 }
 
-
 .input-box__input-wrapper{
   display: flex;
   flex-direction: row;
 }
 
 .input-box__label{
-  /* color: inherit; */
+  color: var(--effectiveui-text-default);
+  font-family: 'Nunito Sans';
+}
+.input-box__container {
+  display: flex;
+}
+
+/* Placement styles */
+.input-box__container--outside {
+  flex-direction: column;
+}
+.input-box__container--outside-left {
+  flex-direction: row;
+  align-items: center;
+}
+.input-box__label--outside {
+  margin-bottom: 4px;
+}
+.input-box__label--outside-left {
+  margin-right: 8px;
+  white-space: nowrap;
 }
 
 .input-box--full-width {
@@ -111,7 +130,7 @@ textarea {
 }
 
 /* COLORS */
-.input-box--color-primary {
+.input-box__container--color-primary {
   --effectiveui-text-default: var(--effectiveui-text-primary);
   --effectiveui-background-default: var(--effectiveui-background-primary);
   --effectiveui-border-default: var(--effectiveui-border-primary);
@@ -119,7 +138,7 @@ textarea {
   --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
 }
 
-.input-box--color-secondary {
+.input-box__container--color-secondary {
   --effectiveui-text-default: var(--effectiveui-text-secondary);
   --effectiveui-background-default: var(--effectiveui-background-secondary);
   --effectiveui-border-default: var(--effectiveui-border-secondary);
@@ -127,7 +146,7 @@ textarea {
   --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
 }
 
-.input-box--color-success {
+.input-box__container--color-success {
   --effectiveui-text-default: var(--effectiveui-text-success);
   --effectiveui-background-default: var(--effectiveui-background-success);
   --effectiveui-border-default: var(--effectiveui-border-success);
@@ -135,7 +154,7 @@ textarea {
   --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
 }
 
-.input-box--color-warning {
+.input-box__container--color-warning {
   --effectiveui-text-default: var(--effectiveui-text-warning);
   --effectiveui-background-default: var(--effectiveui-background-warning);
   --effectiveui-border-default: var(--effectiveui-border-warning);
@@ -143,7 +162,7 @@ textarea {
   --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
 }
 
-.input-box--color-danger {
+.input-box__container--color-danger {
   --effectiveui-text-default: var(--effectiveui-text-danger);
   --effectiveui-background-default: var(--effectiveui-background-danger);
   --effectiveui-border-default: var(--effectiveui-border-danger);
