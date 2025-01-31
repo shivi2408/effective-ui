@@ -103,6 +103,7 @@ export const Multiline: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Disabled ',
+    color: 'default',
     placeholder: 'Cannot type here...',
     variant: 'faded',
     radius: 'sm',

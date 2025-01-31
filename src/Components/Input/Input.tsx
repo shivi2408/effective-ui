@@ -17,9 +17,9 @@ export interface InputBoxProps {
   isPassword?: boolean;
   isRequired?: boolean;
   validationBehavior?: string;
+  defaultValue?: string;
   className?: string;
   style?: React.CSSProperties;
-  defaultValue?: string;
   onChange?: (value: string) => void;
 }
 
@@ -36,7 +36,6 @@ const InputBox: React.FC<InputBoxProps> = ({
   isMultiline = false,
   isPassword = false,
   isRequired = false,
-  validationBehavior,
   defaultValue = '',
   className,
   style,
@@ -46,30 +45,6 @@ const InputBox: React.FC<InputBoxProps> = ({
   const [value, setValue] = useState(defaultValue);
   const [showPassword, setShowPassword] = useState(false);
 
-  const inputClass = classNames(
-    'input-box__input',
-  );
-  
-  const labelClass = classNames(
-    'input-box__label',
-    `input-box__label--${labelPlacement}`
-  );
-
-  const passwordClass = classNames(
-    'input-box__password',
-  );
-  
-  const inputBoxClass = classNames(
-    'input-box',
-    `input-box--variant-${variant}`,
-    `input-box--color-${color}`, 
-    `input-box--size-${size}`, 
-    `input-box--radius-${radius}`, 
-    { 'input-box--disabled': disabled },
-    { 'input-box--full-width': fullWidth },
-    className 
-  );
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (!disabled) {
       const newValue = event.target.value;
@@ -78,19 +53,13 @@ const InputBox: React.FC<InputBoxProps> = ({
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const getLabelText = (labelNode: React.ReactNode): string => {
-    if (typeof labelNode === 'string') return labelNode;
-    if (typeof labelNode === 'number') return labelNode.toString();
+    if (typeof labelNode === 'string' || typeof labelNode === 'number') return String(labelNode);
     if (React.isValidElement(labelNode)) {
       const children = labelNode.props.children;
-      if (Array.isArray(children)) {
-        return children.map(child => getLabelText(child)).join('');
-      }
-      return getLabelText(children);
+      return Array.isArray(children) ? children.map(getLabelText).join('') : getLabelText(children);
     }
     return '';
   };
@@ -98,7 +67,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   const InputComponent = isMultiline ? 'textarea' : 'input';
   const inputType = isPassword && !showPassword ? 'password' : 'text';
 
-  const xLabel = (
+  const labelText = (
     <>
       {label}
       {isRequired && <span className="input-box__required"> *</span>}
@@ -106,20 +75,44 @@ const InputBox: React.FC<InputBoxProps> = ({
   );
 
   const isPlaceholderEmpty = placeholder === '';
-  const displayPlaceholder = isPlaceholderEmpty 
-  ? (label ? `${getLabelText(label)}${isRequired ? ' *' : ''}` : '') 
-  : placeholder;
-  const displayLabel = isPlaceholderEmpty && value ? xLabel : isPlaceholderEmpty ? null : xLabel;
+  const displayPlaceholder = isPlaceholderEmpty ? getLabelText(labelText) : placeholder;
+  const displayLabel = isPlaceholderEmpty && value ? labelText : isPlaceholderEmpty ? null : labelText;
+
+  const containerClass = classNames(
+    "input-box__container",
+    `input-box__container--${labelPlacement}`,
+    `input-box__container--color-${color}`
+  );
+
+  const labelClass = classNames(
+    "input-box__label",
+    `input-box__label--${labelPlacement}`
+  );
+
+  const inputBoxClass = classNames(
+    "input-box",
+    `input-box--variant-${variant}`,
+    `input-box--size-${size}`, 
+    `input-box--radius-${radius}`, 
+    { 'input-box--disabled': disabled, 'input-box--full-width': fullWidth },
+    className
+  );
+
+  const inputClass = classNames("input-box__input");
+  const passwordClass = classNames("input-box__password");
 
   return (
-    <>
-      {labelPlacement !== 'inside' && displayLabel && (
+    <div className={containerClass}>
+      {labelPlacement !== "inside" && displayLabel && (
         <span className={labelClass}>{displayLabel}</span>
       )}
+
       <div className={inputBoxClass} style={style} aria-disabled={disabled}>
-        {labelPlacement === 'inside' && displayLabel && (
-          <span className={labelClass}>{displayLabel}</span>
+        {/* Render label inside input */}
+        {labelPlacement === "inside" && displayLabel && (
+          <span className="input-box__label">{displayLabel}</span>
         )}
+
         <div className="input-box__input-wrapper">
           <InputComponent
             className={inputClass}
@@ -142,7 +135,7 @@ const InputBox: React.FC<InputBoxProps> = ({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

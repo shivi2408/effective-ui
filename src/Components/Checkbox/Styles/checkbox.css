@@ -29,15 +29,16 @@
 }
 
 .checkbox_input:checked + .checkbox_custom::after {
-  content: '';
-  width: 0.33rem;
+  content: '\2713';
+  /* width: 0.33rem;
   height: 0.63rem;
-  border: 2px solid var(--effectiveui-white);
+  border: 2px solid var(--effectiveui-white); */
+  color: var(--effectiveui-white);
   border-width: 0 2px 2px 0;
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(10deg);
   opacity: 1;
   transition: opacity 0.2s ease;
 }
