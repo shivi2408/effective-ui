@@ -1,0 +1,99 @@
+.spinner_container{
+    display: flex;
+    flex-direction: column;
+    font-size:0.95rem;
+    gap:0.5em
+}
+.spinner{
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+}
+.spinner_label{
+    font-size:inherit;
+    font-family: 'Nunito Sans';
+}
+
+.spinner--variant-solid {
+    border: 3px solid var(--effectiveui-hover-border-default);
+    border-left-color: transparent;
+    animation: spin013151 1s linear infinite;
+}
+.spinner--variant-round {
+    content: "";
+    border-top: 3px solid var(--effectiveui-hover-border-default);
+    border-right: 3px solid transparent;
+    animation: spin013151 0.8s linear infinite;
+}
+.spinner--variant-ring {
+border: 8px solid var(--effectiveui-border-default);
+border-top-color: var(--effectiveui-hover-border-default);
+animation: spin013151 1s linear infinite;
+}
+@keyframes spin013151 {
+to {
+    transform: rotate(360deg);
+}
+}
+
+
+/* SIZE*/
+.spinner_container--size-sm {
+    .spinner{
+    width: 1.5em;
+    height: 1.5em;}
+    font-size:0.875rem;
+}
+.spinner_container--size-md {
+    .spinner{
+    width: 2em;
+    height: 2em;}
+    font-size:0.95rem;
+}
+.spinner_container--size-lg {
+    .spinner{
+    width: 2.5em;
+    height: 2.5em;}
+    font-size:1.05rem;
+}
+
+/* COLORS */
+.spinner--color-primary {
+    --effectiveui-text-default: var(--effectiveui-text-primary);
+    --effectiveui-background-default: var(--effectiveui-background-primary);
+    --effectiveui-border-default: var(--effectiveui-border-primary);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+  }
+  
+  .spinner--color-secondary {
+    --effectiveui-text-default: var(--effectiveui-text-secondary);
+    --effectiveui-background-default: var(--effectiveui-background-secondary);
+    --effectiveui-border-default: var(--effectiveui-border-secondary);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+  }
+  
+  .spinner--color-success {
+    --effectiveui-text-default: var(--effectiveui-text-success);
+    --effectiveui-background-default: var(--effectiveui-background-success);
+    --effectiveui-border-default: var(--effectiveui-border-success);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+  }
+  
+  .spinner--color-warning {
+    --effectiveui-text-default: var(--effectiveui-text-warning);
+    --effectiveui-background-default: var(--effectiveui-background-warning);
+    --effectiveui-border-default: var(--effectiveui-border-warning);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+  }
+  
+  .spinner--color-danger {
+    --effectiveui-text-default: var(--effectiveui-text-danger);
+    --effectiveui-background-default: var(--effectiveui-background-danger);
+    --effectiveui-border-default: var(--effectiveui-border-danger);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+  }

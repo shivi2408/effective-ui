@@ -1,0 +1,187 @@
+.tabs_container {
+    display:flex;
+    flex-direction: column;
+    gap:0.5rem;
+  font-family: 'Nunito Sans';
+  }
+.tabs_container--vertical{
+    flex-direction: row;
+}
+
+.tab_list {
+    display: flex;
+    background-color: var(--effectiveui-hover-background-default);
+    border:2px solid var(--effectiveui-border-default);
+    box-sizing: border-box;
+    width:fit-content
+}
+.tab_list--vertical{
+    flex-direction: column;
+}
+
+  
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.625rem 1rem;
+    color: var(--effectiveui-text-default);
+    background: none;
+    border-radius: 6px;
+    opacity:0.8;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.tab:hover {
+    opacity:1;
+}
+
+.active-tab {
+    background-color: var(--effectiveui-border-default);
+    color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white));
+    opacity:1;
+    font-weight: bold;
+    text-wrap-mode: nowrap;
+}
+
+.tab_content {
+    padding: 12px;
+    color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+p{margin:0;}
+}
+
+.tab_list--disabled,.tab--disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+.tab--disabled{
+    opacity:0.4
+}
+
+.tab_list--full-width {
+    width: 100%;
+}
+  
+  /* RADIUS */
+.tab_list--radius-none{
+    border-radius: 0px;
+    .tab--radius-none{
+        border-radius: 0px;
+    }
+}   
+.tab_list--radius-sm{
+    border-radius: 8px;
+    .tab--radius-sm{
+        border-radius: 5px;
+    }
+}
+.tab_list--radius-md{
+    border-radius: 12px;
+    .tab--radius-md{
+        border-radius: 9px;
+    }
+}
+.tab_list--radius-lg{
+    border-radius: 16px;
+    .tab--radius-lg{
+        border-radius: 13px;
+    }
+}
+.tab_list--radius-full{
+    border-radius: 9999999px;
+    .tab--radius-full{
+        border-radius: 9999999px;
+    }
+}
+
+/* SIZE*/
+.tab_list--size-sm {
+    font-size:0.875rem;
+    padding: 0.225em;
+    gap: 0.3rem;
+    .tab{
+        padding: 0.5rem 0.875rem;
+    }
+}
+.tab_list--size-md {
+    font-size:0.925rem;
+    padding: 0.25em;
+    gap: 0.5rem;
+    .tab{
+        padding: 0.575rem 0.95rem;
+    }
+}
+.tab_list--size-lg {
+    font-size:1rem;
+    padding: 0.275em;
+    gap: 0.7rem;
+    .tab{
+        padding: 0.625rem 0.975rem;
+    }
+}
+
+/*VARIANTS*/
+.tab_list--variant-light {
+    background-color: transparent;
+    border:2px solid transparent;
+}
+.tab_list--variant-solid {
+    background-color: var(--effectiveui-background-default);
+    border: 2px solid var(--effectiveui-background-default);
+}
+.tab_list--variant-bordered {
+    border: 2px solid var(--effectiveui-border-default);
+    background-color: transparent;
+}
+.tab_list--variant-underlined {
+    background-color: transparent;
+    border:2px solid transparent;
+.active-tab{  
+  border-radius: 0px !important;
+  color:var(--effectiveui-text-default);
+  border-bottom: 2px solid  var(--effectiveui-border-default);
+  background-color: transparent !important;}
+}
+
+/* COLORS */
+.tab_list--color-primary {
+    --effectiveui-text-default: var(--effectiveui-text-primary);
+    --effectiveui-background-default: var(--effectiveui-background-primary);
+    --effectiveui-border-default: var(--effectiveui-border-primary);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+  }
+  
+  .tab_list--color-secondary {
+    --effectiveui-text-default: var(--effectiveui-text-secondary);
+    --effectiveui-background-default: var(--effectiveui-background-secondary);
+    --effectiveui-border-default: var(--effectiveui-border-secondary);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+  }
+  
+  .tab_list--color-success {
+    --effectiveui-text-default: var(--effectiveui-text-success);
+    --effectiveui-background-default: var(--effectiveui-background-success);
+    --effectiveui-border-default: var(--effectiveui-border-success);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+  }
+  
+  .tab_list--color-warning {
+    --effectiveui-text-default: var(--effectiveui-text-warning);
+    --effectiveui-background-default: var(--effectiveui-background-warning);
+    --effectiveui-border-default: var(--effectiveui-border-warning);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+  }
+  
+  .tab_list--color-danger {
+    --effectiveui-text-default: var(--effectiveui-text-danger);
+    --effectiveui-background-default: var(--effectiveui-background-danger);
+    --effectiveui-border-default: var(--effectiveui-border-danger);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+  }
