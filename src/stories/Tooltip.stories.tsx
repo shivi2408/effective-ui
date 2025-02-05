@@ -54,6 +54,14 @@ const meta = {
       control: 'boolean', 
       description: 'Control the visibility of the arrow.' 
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable the tooltip making it non-interactive.',
+    },
+    defaultOpen: {
+      control: 'boolean',
+      description: 'By default open the tooltip',
+    },
   },
   args: {},
 } satisfies Meta<typeof Tooltip>;
@@ -117,7 +125,7 @@ export const Delay: Story = {
   },
 };
 
-export const CustomTooltip: Story = {
+export const OpenTooltip: Story = {
   args: {
     variant: 'solid',
     color: 'default',
@@ -126,10 +134,11 @@ export const CustomTooltip: Story = {
     position: 'bottom',
     content: (
       <div>
-        <h4>Custom Tooltip Content</h4>
+        <h4 style={{margin:'4px 0'}}>Custom Tooltip Content</h4>
         This is some detailed content in the tooltip.
       </div>
     ),
     children: <Button>Click Me</Button>,
+    defaultOpen:true
   },
 };

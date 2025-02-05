@@ -3,18 +3,20 @@ import classNames from 'classnames';
 import './Styles/tooltip.css';
 
 export interface TooltipProps {
-  variant?: 'solid' | 'flat'| 'faded' | 'bordered' ;
+  variant?: 'solid' | 'flat' | 'faded' | 'bordered';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   position?: 'top' | 'bottom' | 'left' | 'right';
-  backdrop?: 'transparent' | 'blur' | 'opaque'; 
+  backdrop?: 'transparent' | 'blur' | 'opaque';
   delay?: number;
   arrow?: boolean;
   content: React.ReactNode;
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  defaultOpen?: boolean;
+  disabled?: boolean;
 }
 
 const Tooltip: React.FC<TooltipProps> = ({
@@ -30,13 +32,16 @@ const Tooltip: React.FC<TooltipProps> = ({
   children,
   className,
   style,
+  defaultOpen = false,
+  disabled = false,
 }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(defaultOpen);
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   const showTooltip = () => {
+    if (disabled) return;
     if (timeoutId) clearTimeout(timeoutId);
-    const id = setTimeout(() => setVisible(true), delay*1000);
+    const id = setTimeout(() => setVisible(true), delay * 1000);
     setTimeoutId(id);
   };
 
@@ -45,7 +50,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       clearTimeout(timeoutId);
       setTimeoutId(null);
     }
-    setVisible(false);
+    if (!defaultOpen) setVisible(false);
   };
 
   useEffect(() => {
@@ -61,8 +66,16 @@ const Tooltip: React.FC<TooltipProps> = ({
     `tooltip--size-${size}`, 
     `tooltip--radius-${radius}`, 
     `tooltip--position-${position}`,
-    { 'tooltip--visible': visible ,'tooltip--with-arrow': arrow },
+    {
+      'tooltip--visible': visible,
+      'tooltip--with-arrow': arrow,
+      'tooltip--disabled': disabled,
+    },
     className
+  );
+  const triggerClass = classNames(
+    'tooltip-trigger',
+    {'tooltip--disabled': disabled,}
   );
   const backdropClass = classNames(
       'tooltip_overlay',
@@ -77,8 +90,8 @@ const Tooltip: React.FC<TooltipProps> = ({
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
         >
-        {children}
-        {visible && (
+        <div className={triggerClass}>{children}</div>
+        {visible && !disabled && (
             <div className={tooltipClass} style={style}>
             {content}
             {arrow && <div className="tooltip-arrow"></div>}

@@ -61,6 +61,12 @@ transform: translateY(-50%) rotate(-45deg);
 .tooltip--visible {
 opacity: 1;
 }
+
+.tooltip--disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+}
  
 /* Backdrop*/ 
 /* .tooltip_overlay {
