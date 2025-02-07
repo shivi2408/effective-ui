@@ -53,16 +53,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    render: (args) => (
-            <div style={{display: 'flex', gap: '0.5rem' ,flexDirection: 'column' }}>
-                <Skeleton {...args} width="30%" variant="text" />
-                <Skeleton {...args} width="20%" variant="text"  />
-            </div>
-      ),
-      args: {
-          radius: 'sm',
-          animation:'wave'
-        },
+  render: (args) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <Skeleton {...args} width="45px" height="45px" variant="circle" />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%' }}>
+              <Skeleton {...args} width="15%" height="10px" variant="text" />
+              <Skeleton {...args} width="20%" height="10px" variant="text" />
+          </div>
+      </div>
+  ),
+  args: {
+      radius: 'sm',
+      animation: 'wave'
+  },
 };
 
 export const Card: Story = {
