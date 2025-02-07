@@ -1,0 +1,93 @@
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Nunito Sans';
+  }
+  
+.carousel_content {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  flex-wrap: nowrap;
+  transition: transform .4s ease;
+  }
+  
+.carousel_item {
+    background: transparent;
+    box-sizing: border-box;
+    color: var(--effectiveui-text-default);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid var(--effectiveui-border-default);
+    max-width:320px;
+    height: auto; 
+    aspect-ratio: 1 / 1;
+    transition: all 0.3s ease-in-out;
+    flex: 0 0 auto;
+  }
+
+.carousel-item--borderless {
+    border: none;
+}
+
+   /* RADIUS */
+  .carousel_item--radius-none{
+    border-radius: 0px;
+  }
+  .carousel_item--radius-sm{
+    border-radius: 8px;
+  }
+  .carousel_item--radius-md{
+    border-radius: 12px;
+  }
+  .carousel_item--radius-lg{
+    border-radius: 16px;
+  }
+  .carousel_item--radius-full{
+    border-radius: 9999999px;
+  }
+
+  .carousel_item img {
+    object-fit: cover;
+    width:100%;
+    height:100%;
+    border-radius: inherit;
+  }
+  
+  .carousel_btn {
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--effectiveui-border-default);
+    border-radius: 50%;
+    height:32px;
+    width:32px;
+    font-size: 1.1rem;
+    color: var(--effectiveui-text-default);
+    transition: 0.6s ease;
+  }
+  .carousel_btn:hover {
+    background: var(--effectiveui-border-default);
+  }
+  .carousel_btn.right {
+    transform: rotate(180deg);
+  }
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
