@@ -1,0 +1,176 @@
+.badge {
+    display: inline-flex;
+    position: relative;
+    font-family: 'Nunito Sans';
+  }
+
+  .badge-trigger{
+    position:relative;
+    display:flex;
+  }
+  
+  .badge-content{
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    font-weight: bold;
+    color: var(--effectiveui-white);
+    background: var(--effectiveui-background-default);
+    border: 2px solid var(--effectiveui-hover-border-default);
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.3s;
+    pointer-events: none;
+  }
+
+  .badge-content--invisible {
+    display: none;
+  }
+
+  .badge-content--no-animation {
+    transition: none;
+  }
+
+  .badge-content--outline {
+    outline: 2px solid var(--effectiveui-hover-background-default) !important;
+  }
+
+  .badge-content--dot {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+ /* SIZE */
+  .badge-content--size-sm {
+    width: 0.9rem;
+    height: 0.9rem;
+    font-size: 0.7rem;
+  }
+  .badge-content--size-md {
+    width: 0.975rem;
+    height: 0.975rem;
+    font-size: 0.875rem;
+  }
+  .badge-content--size-lg {
+    width: 1.125rem;
+    height: 1.125rem;
+    font-size: 1rem;
+  }
+
+ /* RADIUS */
+.badge-content--radius-none{
+  border-radius: 0px;
+}
+.badge-content--radius-sm{
+  border-radius: 2px;
+}
+.badge-content--radius-md{
+  border-radius: 4px;
+}
+.badge-content--radius-lg{
+  border-radius: 6px;
+}
+.badge-content--radius-full{
+  border-radius: 9999999px;
+}
+/*   
+  .badge--shape-circle {
+    border-radius: 50%;
+  }
+  
+  .badge--shape-rectangle {
+    border-radius: 4px;
+  }
+   */
+
+ /* PLACEMENT */
+  .badge-content--placement-top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  .badge-content--placement-top-right {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+  .badge-content--placement-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+  }
+  .badge-content--placement-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+  }
+
+
+  /* VARIANTS */
+.badge-content--variant-solid{
+background-color : var(--effectiveui-text-default) !important;
+border: 2px solid var(--effectiveui-text-default) !important;
+}
+.badge-content--variant-flat{
+background-color : var(--effectiveui-background-default);
+border: 2px solid var(--effectiveui-background-default) !important;
+color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.badge-content--variant-faded{
+    background-color : var(--effectiveui-background-default);
+color: color-contrast(var(--effectiveui-border-default) vs var(--effectiveui-black), var(--effectiveui-white)) !important;
+}
+.badge-content--variant-shadow{
+background-color : var(--effectiveui-text-default) !important;
+border: 2px solid var(--effectiveui-text-default) !important;
+box-shadow: var(--effectiveui-hover-background-default) 0px 2px 4px 0px, var(--effectiveui-background-default) 0px 2px 16px 0px;
+}
+
+/* COLORS */
+.badge-content--color-primary {
+    --effectiveui-text-default: var(--effectiveui-text-primary);
+    --effectiveui-background-default: var(--effectiveui-background-primary);
+    --effectiveui-border-default: var(--effectiveui-border-primary);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-primary);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-primary);
+  }
+  
+  .badge-content--color-secondary {
+    --effectiveui-text-default: var(--effectiveui-text-secondary);
+    --effectiveui-background-default: var(--effectiveui-background-secondary);
+    --effectiveui-border-default: var(--effectiveui-border-secondary);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-secondary);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-secondary);
+  }
+  
+  .badge-content--color-success {
+    --effectiveui-text-default: var(--effectiveui-text-success);
+    --effectiveui-background-default: var(--effectiveui-background-success);
+    --effectiveui-border-default: var(--effectiveui-border-success);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-success);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-success);
+  }
+  
+  .badge-content--color-warning {
+    --effectiveui-text-default: var(--effectiveui-text-warning);
+    --effectiveui-background-default: var(--effectiveui-background-warning);
+    --effectiveui-border-default: var(--effectiveui-border-warning);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-warning);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-warning);
+  }
+  
+  .badge-content--color-danger {
+    --effectiveui-text-default: var(--effectiveui-text-danger);
+    --effectiveui-background-default: var(--effectiveui-background-danger);
+    --effectiveui-border-default: var(--effectiveui-border-danger);
+    --effectiveui-hover-border-default: var(--effectiveui-hover-border-danger);
+    --effectiveui-hover-background-default: var(--effectiveui-hover-background-danger);
+  }
+  
+  
