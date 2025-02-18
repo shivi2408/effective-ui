@@ -1,0 +1,26 @@
+.kbd-group {
+display: flex;
+align-items: center;
+width:fit-content;
+gap: 0.25rem;
+padding: 0.25rem 0.5rem;
+border-radius: 8px;
+background: var(--effectiveui-background-default);
+color: var(--effectiveui-text-default);
+text-align: center;
+font-size: 0.875rem;
+font-weight:400;
+line-height: 1.25rem;
+font-family: 'Nunito Sans';
+box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+kbd {
+font-feature-settings: normal;
+font-variation-settings: normal;
+font-size:inherit
+}
+
+.kbd-separator {
+margin: 0 0.25rem;
+}
