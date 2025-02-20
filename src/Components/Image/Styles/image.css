@@ -1,0 +1,80 @@
+.img-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .img {
+    display: block;
+    border-radius: inherit;
+    width: 100%;
+    transition: transform 0.2s ease;
+  }
+
+  /* RADIUS */
+  .img-container--radius-none {
+    border-radius: 0;
+  }
+  .img-container--radius-sm {
+    border-radius: 4px;
+  }
+  .img-container--radius-md {
+    border-radius: 8px;
+  }
+  .img-container--radius-lg {
+    border-radius: 12px;
+  }
+  .img-container--radius-full {
+    border-radius: 50%;
+  }
+
+  /* SHADOW */
+  .img-container--shadow-none {
+    box-shadow: none;
+  }
+  .img-container--shadow-sm {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  }
+  .img-container--shadow-md {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  }
+  .img-container--shadow-lg {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  }
+  
+  .img--zoom:hover {
+    transform: scale(1.1);
+    filter: blur(0);
+  }
+  
+  .img--blurred {
+    filter: blur(2px);
+  }
+  
+  .img--loaded {
+    opacity: 1;
+  }
+  
+  .img-skeleton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--effectiveui-background-default);
+    animation: skeleton-loading 1.2s infinite;
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+  
+  .img--no-animation {
+    transition: none;
+  }
+  
