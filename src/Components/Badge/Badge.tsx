@@ -2,7 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import './Styles/badge.css'
 
-interface BadgeProps {
+export interface BadgeProps {
   variant?: 'solid' | 'flat' | 'faded' |'shadow';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';

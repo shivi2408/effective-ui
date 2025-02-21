@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { IoArrowBackOutline } from "react-icons/io5";
 import './Styles/carousel.css';
 
-interface CarouselProps {
+export interface CarouselProps {
   items: React.ReactNode[];
   visibleItems?: number; 
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';

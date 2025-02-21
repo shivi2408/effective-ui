@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaEllipsis } from "react-icons/fa6";
 import './Styles/pagination.css';
 
-interface PaginationProps {
+export interface PaginationProps {
   variant?: 'light' | 'flat' | 'faded' | 'bordered';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';

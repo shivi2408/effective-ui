@@ -23,7 +23,7 @@ const keyMap: { [key: string]: string } = {
     CapsLock: '⇪'
   };
 
-interface KbdProps {
+  export interface KbdProps {
   keys?: 'Command' | 'Shift' | 'Control' | 'Option' | 'Enter' | 'Delete' | 'Esc' | 'Tab' | 'CapsLock' | 'Up' | 'Right' | 'Down' | 'Left' | 'PageUp' | 'PageDown' | 'Home' | 'End' | 'Help' | 'Space' | string[]; 
   children?: React.ReactNode;
 }
