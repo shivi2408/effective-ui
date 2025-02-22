@@ -203,7 +203,7 @@
         --effectiveui-hover-background-danger: var(--effectiveui-danger-50);
   
         /* Base Text*/
-        --effectiveui-text-default: var(--effectiveui-default-600);
+        --effectiveui-text-default: var(--effectiveui-default-500);
         --effectiveui-text-primary: var(--effectiveui-primary-500);
         --effectiveui-text-secondary: var(--effectiveui-secondary-500);
         --effectiveui-text-success: var(--effectiveui-success-500);
@@ -434,7 +434,7 @@
         --effectiveui-hover-background-danger: var(--effectiveui-danger-50);
   
         /* Base Text*/
-        --effectiveui-text-default: var(--effectiveui-default-600);
+        --effectiveui-text-default: var(--effectiveui-default-500);
         --effectiveui-text-primary: var(--effectiveui-primary-500);
         --effectiveui-text-secondary: var(--effectiveui-secondary-500);
         --effectiveui-text-success: var(--effectiveui-success-500);
