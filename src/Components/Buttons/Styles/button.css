@@ -79,13 +79,25 @@ button {
   opacity: 0.6;
 }
 
+.btn--icon-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important; 
+}
 
-
+svg{
+  margin:0
+}
 /* SIZE*/
 .btn--size-sm {
   font-size:0.875rem;
   padding: 0.275em 1em;
   gap: 0.3rem;
+ }
+ .btn--size-sm.btn--icon-only{
+   width: 2rem;
+   height: 2rem;
  }
 
  .btn--size-md {
@@ -93,11 +105,19 @@ button {
   padding: 0.375em 1em;
   gap: 0.5rem;
  }
+ .btn--size-md.btn--icon-only{
+   width: 2.5rem;
+   height: 2.5rem;
+ }
 
  .btn--size-lg {
   font-size:1rem;
   padding: 0.45em 1.2em;
   gap: 1rem;
+ }
+ .btn--size-lg.btn--icon-only{
+   width: 3rem;
+   height: 3rem;
  }
 
  /* RADIUS */
@@ -174,9 +194,9 @@ button {
   border: 2px solid var(--effectiveui-hover-background-default) !important;
 }
 
-.btn--variant-faded{
+/* .btn--variant-faded{
 
-}
+} */
 .btn--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
 background-color : var(--effectiveui-background-default);
 }
