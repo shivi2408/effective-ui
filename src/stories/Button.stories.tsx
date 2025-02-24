@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { fn } from '@storybook/test';
 import Button from '../Components/Buttons/Button'; 
+import { IoMdAdd } from "react-icons/io";
 
 const meta = {
   title: 'Components/Button', 
@@ -55,6 +57,10 @@ const meta = {
       control: 'boolean', 
       description: 'Show a loading spinner on the button.' 
     },
+    isIconOnly: { 
+      control: 'boolean', 
+      description: 'Show button as an iconButton with correct styles' 
+    },
   },
   args: {
     onClick: fn(),
@@ -104,4 +110,18 @@ export const FailedIconRight: Story = {
   },
 };
 
+export const IconOnly: Story = {
+  args: {
+    variant: 'flat',
+    color: 'default',
+    radius: 'full',
+    size: 'md',
+    disabled: false,
+    fullWidth: false,
+    children: '',
+    icon: <IoMdAdd size={20}/>,
+    iconPosition: 'right',
+    isIconOnly: true
+  },
+};
 

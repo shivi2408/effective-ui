@@ -12,6 +12,7 @@ export interface ButtonProps {
   icon?: React.ReactNode; 
   iconPosition?: 'left' | 'right'; 
   isLoading?: boolean; 
+  isIconOnly?: boolean;
   children: React.ReactNode; 
   className?: string;
   style?: React.CSSProperties; 
@@ -30,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   iconPosition = 'left',
   isLoading = false,
+  isIconOnly = false,
   children,
   className,
   style,
@@ -47,6 +49,7 @@ const Button: React.FC<ButtonProps> = ({
     `btn--radius-${radius}`, 
     { 'btn--disabled': isDisabled },
     { 'btn--full-width': fullWidth},
+    { 'btn--icon-only': isIconOnly },
     className 
   );
 
@@ -77,7 +80,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {isLoading && <span className={buttonSpinnerClass} aria-hidden="true" />}
       {icon && iconPosition === 'left' && <span className={buttonIconClass}>{icon}</span>}
-      <span className={buttonLabelClass}>{children}</span>
+      {!isIconOnly && <span className={buttonLabelClass}>{children}</span>}
       {icon && iconPosition === 'right' && <span className={buttonIconClass}>{icon}</span>}
     </Component>
   );

@@ -13,7 +13,7 @@ export interface TabsProps {
   variant?: 'solid' | 'underlined' | 'bordered' | 'light';
   color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   size?: 'sm' | 'md' | 'lg';
-  radius?: 'none' | 'sm' | 'md' | 'lg';
+  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
   isDisabled?: boolean;
   isVertical?: boolean; 
   fullWidth?: boolean; 
