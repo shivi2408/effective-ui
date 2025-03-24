@@ -203,7 +203,7 @@
         --effectiveui-hover-background-danger: var(--effectiveui-danger-50);
   
         /* Base Text*/
-        --effectiveui-text-default: var(--effectiveui-default-600);
+        --effectiveui-text-default: var(--effectiveui-default-500);
         --effectiveui-text-primary: var(--effectiveui-primary-500);
         --effectiveui-text-secondary: var(--effectiveui-secondary-500);
         --effectiveui-text-success: var(--effectiveui-success-500);
@@ -434,7 +434,7 @@
         --effectiveui-hover-background-danger: var(--effectiveui-danger-50);
   
         /* Base Text*/
-        --effectiveui-text-default: var(--effectiveui-default-600);
+        --effectiveui-text-default: var(--effectiveui-default-500);
         --effectiveui-text-primary: var(--effectiveui-primary-500);
         --effectiveui-text-secondary: var(--effectiveui-secondary-500);
         --effectiveui-text-success: var(--effectiveui-success-500);
@@ -457,5 +457,36 @@
         --effectiveui-hover-border-warning: var(--effectiveui-warning-400);
         --effectiveui-hover-border-danger: var(--effectiveui-danger-400);
   }
+  
+  ::-webkit-scrollbar {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border: 0;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background:var(--effectiveui-border-default);
+    border-radius: 99999px; 
+    width: 0.5em;
+    height: 0.5em;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--effectiveui-hover-border-default);
+  }
+  
+  ::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+  }
+   
   }
   

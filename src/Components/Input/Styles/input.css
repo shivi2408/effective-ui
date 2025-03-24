@@ -45,6 +45,7 @@ textarea {
 .input-box__input-wrapper{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .input-box__label{
@@ -110,10 +111,10 @@ textarea {
   border: 2px solid var(--effectiveui-hover-background-default) !important;
 }
 
-.input-box--variant-faded,
+/* .input-box--variant-faded,
 .input-box--variant-faded:is(:hover, :active, :focus, :focus-visible, :focus-within) {
 
-}
+} */
 
 .input-box--variant-bordered,
 .input-box--variant-bordered:is(:hover, :active, :focus, :focus-visible, :focus-within) {
