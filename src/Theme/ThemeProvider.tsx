@@ -21,8 +21,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-        localStorage.setItem("effectiveui-theme", theme);
+        setTheme((prevTheme) => {
+            const newTheme = prevTheme === "light" ? "dark" : "light";
+            localStorage.setItem("effectiveui-theme", newTheme);
+            return newTheme;
+        });
     };
 
     return (

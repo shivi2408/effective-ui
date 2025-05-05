@@ -2,6 +2,7 @@ import './Theme/theme.css';
 export type { ThemeContextProps } from "./Theme/ThemeProvider";
 export { ThemeProvider } from "./Theme/ThemeProvider";
 
+export {useTheme} from  "./Theme/ThemeProvider";
 export type { AccordionProps } from './Components/Accordion/Accordion';
 export { default as Accordion } from './Components/Accordion/Accordion';
 
@@ -55,6 +56,9 @@ export { default as Kbd } from './Components/Kbd/Kbd';
 
 export type { LinkProps } from './Components/Link/Link';
 export { default as Link } from './Components/Link/Link';
+
+export type { ModalProps } from './Components/Modal/Modal';
+export { default as Modal } from './Components/Modal/Modal';
 
 export type { PaginationProps } from './Components/Pagination/Pagination';
 export { default as Pagination } from './Components/Pagination/Pagination';
