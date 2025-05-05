@@ -1,7 +1,7 @@
 {
   "name": "@shivangi_2408/effective-ui",
   "homepage": "https://effective-ui.vercel.app/",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "UI Library with React and Typescript",
   "main": "dist/cjs/index.js",
   "type": "module",
